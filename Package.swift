@@ -23,7 +23,6 @@ let package = Package(
             dependencies: [
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
                 .product(name: "GRPCCore", package: "grpc-swift"),
-                .product(name: "GRPCProtobuf", package: "grpc-swift"),
                 .product(name: "GRPCHTTP2Core", package: "grpc-swift"),
                 .product(name: "GRPCNIOTransportHTTP2", package: "grpc-swift"),
             ],
