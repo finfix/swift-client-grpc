@@ -24,7 +24,7 @@ let package = Package(
             dependencies: [
                 .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
-            path: "Sources/Protos"
+            path: "proto"
         ),
     ]
 )
