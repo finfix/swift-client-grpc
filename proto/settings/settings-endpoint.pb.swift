@@ -21,287 +21,287 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Settings_Currency: Sendable {
+public struct Settings_Currency: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Сигнатура валюты
-  var isoCode: String = String()
+  public var isoCode: String = String()
 
   /// Название валюты
-  var name: String = String()
+  public var name: String = String()
 
   /// Символ валюты
-  var symbol: String = String()
+  public var symbol: String = String()
 
   /// Курс валюты
-  var rate: Double = 0
+  public var rate: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Settings_Icon: Sendable {
+public struct Settings_Icon: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// ID иконки
-  var id: Data = Data()
+  public var id: Data = Data()
 
   /// Название иконки
-  var name: String = String()
+  public var name: String = String()
 
-  /// URL иконки
-  var url: String = String()
+  /// Содержимое изображения (PNG/SVG/...)
+  public var image: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Settings_Notification: Sendable {
+public struct Settings_Notification: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Заголовок уведомления
-  var title: String = String()
+  public var title: String = String()
 
   /// Подзаголовок уведомления
-  var subtitle: String = String()
+  public var subtitle: String = String()
 
   /// Сообщение уведомления
-  var message: String = String()
+  public var message: String = String()
 
   /// Индикатор какое значение показывать в бадже
-  var badgeCount: UInt32 = 0
+  public var badgeCount: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Settings_Version: Sendable {
+public struct Settings_Version: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Версия приложения
-  var version: String = String()
+  public var version: String = String()
 
   /// Номер сборки
-  var build: String = String()
+  public var build: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Settings_GetCurrenciesRequest: Sendable {
+public struct Settings_GetCurrenciesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Settings_GetCurrenciesResponse: Sendable {
+public struct Settings_GetCurrenciesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Список валют
-  var currencies: [Settings_Currency] = []
+  public var currencies: [Settings_Currency] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Settings_GetIconsRequest: Sendable {
+public struct Settings_GetIconsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Settings_GetIconsResponse: Sendable {
+public struct Settings_GetIconsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Список иконок
-  var icons: [Settings_Icon] = []
+  public var icons: [Settings_Icon] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Settings_UpdateCurrenciesRequest: Sendable {
+public struct Settings_UpdateCurrenciesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Settings_UpdateCurrenciesResponse: Sendable {
+public struct Settings_UpdateCurrenciesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Settings_SendNotificationRequest: Sendable {
+public struct Settings_SendNotificationRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор пользователя, которому отправить уведомление
-  var userID: Data = Data()
+  public var userID: Data = Data()
 
   /// Данные уведомления
-  var notification: Settings_Notification {
+  public var notification: Settings_Notification {
     get {return _notification ?? Settings_Notification()}
     set {_notification = newValue}
   }
   /// Returns true if `notification` has been explicitly set.
-  var hasNotification: Bool {return self._notification != nil}
+  public var hasNotification: Bool {return self._notification != nil}
   /// Clears the value of `notification`. Subsequent reads from it will return its default value.
-  mutating func clearNotification() {self._notification = nil}
+  public mutating func clearNotification() {self._notification = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _notification: Settings_Notification? = nil
 }
 
-struct Settings_SendNotificationResponse: Sendable {
+public struct Settings_SendNotificationResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Settings_GetVersionRequest: Sendable {
+public struct Settings_GetVersionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Тип приложения (ios, android, web)
-  var applicationType: ApplicationType_ApplicationType = .unspecified
+  public var applicationType: ApplicationType_ApplicationType = .unspecified
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Settings_GetVersionResponse: Sendable {
+public struct Settings_GetVersionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Версия сервера
-  var version: Settings_Version {
+  public var version: Settings_Version {
     get {return _version ?? Settings_Version()}
     set {_version = newValue}
   }
   /// Returns true if `version` has been explicitly set.
-  var hasVersion: Bool {return self._version != nil}
+  public var hasVersion: Bool {return self._version != nil}
   /// Clears the value of `version`. Subsequent reads from it will return its default value.
-  mutating func clearVersion() {self._version = nil}
+  public mutating func clearVersion() {self._version = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
   fileprivate var _version: Settings_Version? = nil
@@ -312,10 +312,15 @@ struct Settings_GetVersionResponse: Sendable {
 fileprivate let _protobuf_package = "settings"
 
 extension Settings_Currency: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Currency"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isoCode\0\u{1}name\0\u{1}symbol\0\u{1}rate\0")
+  public static let protoMessageName: String = _protobuf_package + ".Currency"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "isoCode"),
+    2: .same(proto: "name"),
+    3: .same(proto: "symbol"),
+    4: .same(proto: "rate"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -330,7 +335,7 @@ extension Settings_Currency: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.isoCode.isEmpty {
       try visitor.visitSingularStringField(value: self.isoCode, fieldNumber: 1)
     }
@@ -346,7 +351,7 @@ extension Settings_Currency: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_Currency, rhs: Settings_Currency) -> Bool {
+  public static func ==(lhs: Settings_Currency, rhs: Settings_Currency) -> Bool {
     if lhs.isoCode != rhs.isoCode {return false}
     if lhs.name != rhs.name {return false}
     if lhs.symbol != rhs.symbol {return false}
@@ -357,10 +362,14 @@ extension Settings_Currency: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Settings_Icon: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Icon"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{1}url\0")
+  public static let protoMessageName: String = _protobuf_package + ".Icon"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "name"),
+    3: .same(proto: "image"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -368,39 +377,44 @@ extension Settings_Icon: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBytesField(value: &self.id) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.url) }()
+      case 3: try { try decoder.decodeSingularBytesField(value: &self.image) }()
       default: break
       }
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularBytesField(value: self.id, fieldNumber: 1)
     }
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
     }
-    if !self.url.isEmpty {
-      try visitor.visitSingularStringField(value: self.url, fieldNumber: 3)
+    if !self.image.isEmpty {
+      try visitor.visitSingularBytesField(value: self.image, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_Icon, rhs: Settings_Icon) -> Bool {
+  public static func ==(lhs: Settings_Icon, rhs: Settings_Icon) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
-    if lhs.url != rhs.url {return false}
+    if lhs.image != rhs.image {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Settings_Notification: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Notification"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}title\0\u{1}subtitle\0\u{1}message\0\u{1}badgeCount\0")
+  public static let protoMessageName: String = _protobuf_package + ".Notification"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "title"),
+    2: .same(proto: "subtitle"),
+    3: .same(proto: "message"),
+    4: .same(proto: "badgeCount"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -415,7 +429,7 @@ extension Settings_Notification: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -431,7 +445,7 @@ extension Settings_Notification: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_Notification, rhs: Settings_Notification) -> Bool {
+  public static func ==(lhs: Settings_Notification, rhs: Settings_Notification) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.subtitle != rhs.subtitle {return false}
     if lhs.message != rhs.message {return false}
@@ -442,10 +456,13 @@ extension Settings_Notification: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Settings_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Version"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0\u{1}build\0")
+  public static let protoMessageName: String = _protobuf_package + ".Version"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "version"),
+    2: .same(proto: "build"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -458,7 +475,7 @@ extension Settings_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.version.isEmpty {
       try visitor.visitSingularStringField(value: self.version, fieldNumber: 1)
     }
@@ -468,7 +485,7 @@ extension Settings_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_Version, rhs: Settings_Version) -> Bool {
+  public static func ==(lhs: Settings_Version, rhs: Settings_Version) -> Bool {
     if lhs.version != rhs.version {return false}
     if lhs.build != rhs.build {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -477,10 +494,12 @@ extension Settings_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension Settings_GetCurrenciesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetCurrenciesRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetCurrenciesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -492,14 +511,14 @@ extension Settings_GetCurrenciesRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_GetCurrenciesRequest, rhs: Settings_GetCurrenciesRequest) -> Bool {
+  public static func ==(lhs: Settings_GetCurrenciesRequest, rhs: Settings_GetCurrenciesRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -507,10 +526,13 @@ extension Settings_GetCurrenciesRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Settings_GetCurrenciesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetCurrenciesResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}currencies\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetCurrenciesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "currencies"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -523,7 +545,7 @@ extension Settings_GetCurrenciesResponse: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -537,7 +559,7 @@ extension Settings_GetCurrenciesResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_GetCurrenciesResponse, rhs: Settings_GetCurrenciesResponse) -> Bool {
+  public static func ==(lhs: Settings_GetCurrenciesResponse, rhs: Settings_GetCurrenciesResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.currencies != rhs.currencies {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -546,10 +568,12 @@ extension Settings_GetCurrenciesResponse: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Settings_GetIconsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetIconsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetIconsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -561,14 +585,14 @@ extension Settings_GetIconsRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_GetIconsRequest, rhs: Settings_GetIconsRequest) -> Bool {
+  public static func ==(lhs: Settings_GetIconsRequest, rhs: Settings_GetIconsRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -576,10 +600,13 @@ extension Settings_GetIconsRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
 }
 
 extension Settings_GetIconsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetIconsResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}icons\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetIconsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "icons"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -592,7 +619,7 @@ extension Settings_GetIconsResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -606,7 +633,7 @@ extension Settings_GetIconsResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_GetIconsResponse, rhs: Settings_GetIconsResponse) -> Bool {
+  public static func ==(lhs: Settings_GetIconsResponse, rhs: Settings_GetIconsResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.icons != rhs.icons {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -615,10 +642,12 @@ extension Settings_GetIconsResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension Settings_UpdateCurrenciesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateCurrenciesRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateCurrenciesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -630,14 +659,14 @@ extension Settings_UpdateCurrenciesRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_UpdateCurrenciesRequest, rhs: Settings_UpdateCurrenciesRequest) -> Bool {
+  public static func ==(lhs: Settings_UpdateCurrenciesRequest, rhs: Settings_UpdateCurrenciesRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -645,10 +674,12 @@ extension Settings_UpdateCurrenciesRequest: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Settings_UpdateCurrenciesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateCurrenciesResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateCurrenciesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -660,7 +691,7 @@ extension Settings_UpdateCurrenciesResponse: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -671,7 +702,7 @@ extension Settings_UpdateCurrenciesResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_UpdateCurrenciesResponse, rhs: Settings_UpdateCurrenciesResponse) -> Bool {
+  public static func ==(lhs: Settings_UpdateCurrenciesResponse, rhs: Settings_UpdateCurrenciesResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -679,10 +710,14 @@ extension Settings_UpdateCurrenciesResponse: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Settings_SendNotificationRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SendNotificationRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}userID\0\u{1}notification\0")
+  public static let protoMessageName: String = _protobuf_package + ".SendNotificationRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "userID"),
+    3: .same(proto: "notification"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -696,7 +731,7 @@ extension Settings_SendNotificationRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -713,7 +748,7 @@ extension Settings_SendNotificationRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_SendNotificationRequest, rhs: Settings_SendNotificationRequest) -> Bool {
+  public static func ==(lhs: Settings_SendNotificationRequest, rhs: Settings_SendNotificationRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs._notification != rhs._notification {return false}
@@ -723,10 +758,12 @@ extension Settings_SendNotificationRequest: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Settings_SendNotificationResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SendNotificationResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".SendNotificationResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -738,7 +775,7 @@ extension Settings_SendNotificationResponse: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -749,7 +786,7 @@ extension Settings_SendNotificationResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_SendNotificationResponse, rhs: Settings_SendNotificationResponse) -> Bool {
+  public static func ==(lhs: Settings_SendNotificationResponse, rhs: Settings_SendNotificationResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -757,10 +794,12 @@ extension Settings_SendNotificationResponse: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Settings_GetVersionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetVersionRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}applicationType\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetVersionRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "applicationType"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -772,14 +811,14 @@ extension Settings_GetVersionRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.applicationType != .unspecified {
       try visitor.visitSingularEnumField(value: self.applicationType, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_GetVersionRequest, rhs: Settings_GetVersionRequest) -> Bool {
+  public static func ==(lhs: Settings_GetVersionRequest, rhs: Settings_GetVersionRequest) -> Bool {
     if lhs.applicationType != rhs.applicationType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -787,10 +826,13 @@ extension Settings_GetVersionRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension Settings_GetVersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetVersionResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}version\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetVersionResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "version"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -803,7 +845,7 @@ extension Settings_GetVersionResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -817,7 +859,7 @@ extension Settings_GetVersionResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Settings_GetVersionResponse, rhs: Settings_GetVersionResponse) -> Bool {
+  public static func ==(lhs: Settings_GetVersionResponse, rhs: Settings_GetVersionResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs._version != rhs._version {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

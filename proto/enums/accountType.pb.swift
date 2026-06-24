@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum AccountType_AccountType: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
+public enum AccountType_AccountType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
   case unspecified // = 0
 
   /// Обычный счет
@@ -40,11 +40,11 @@ enum AccountType_AccountType: SwiftProtobuf.Enum, Swift.CaseIterable {
   case balancing // = 5
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .regular
@@ -56,7 +56,7 @@ enum AccountType_AccountType: SwiftProtobuf.Enum, Swift.CaseIterable {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .regular: return 1
@@ -69,7 +69,7 @@ enum AccountType_AccountType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [AccountType_AccountType] = [
+  public static let allCases: [AccountType_AccountType] = [
     .unspecified,
     .regular,
     .expense,
@@ -83,5 +83,12 @@ enum AccountType_AccountType: SwiftProtobuf.Enum, Swift.CaseIterable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension AccountType_AccountType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Unspecified\0\u{1}Regular\0\u{1}Expense\0\u{1}Debt\0\u{1}Earnings\0\u{1}Balancing\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Unspecified"),
+    1: .same(proto: "Regular"),
+    2: .same(proto: "Expense"),
+    3: .same(proto: "Debt"),
+    4: .same(proto: "Earnings"),
+    5: .same(proto: "Balancing"),
+  ]
 }

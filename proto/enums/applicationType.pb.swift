@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ApplicationType_ApplicationType: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
+public enum ApplicationType_ApplicationType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
   case unspecified // = 0
   case ios // = 1
   case android // = 2
@@ -29,11 +29,11 @@ enum ApplicationType_ApplicationType: SwiftProtobuf.Enum, Swift.CaseIterable {
   case server // = 4
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .ios
@@ -44,7 +44,7 @@ enum ApplicationType_ApplicationType: SwiftProtobuf.Enum, Swift.CaseIterable {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .ios: return 1
@@ -56,7 +56,7 @@ enum ApplicationType_ApplicationType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ApplicationType_ApplicationType] = [
+  public static let allCases: [ApplicationType_ApplicationType] = [
     .unspecified,
     .ios,
     .android,
@@ -69,5 +69,11 @@ enum ApplicationType_ApplicationType: SwiftProtobuf.Enum, Swift.CaseIterable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension ApplicationType_ApplicationType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Unspecified\0\u{1}IOS\0\u{1}Android\0\u{1}Web\0\u{1}Server\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Unspecified"),
+    1: .same(proto: "IOS"),
+    2: .same(proto: "Android"),
+    3: .same(proto: "Web"),
+    4: .same(proto: "Server"),
+  ]
 }

@@ -15,61 +15,65 @@ import GRPCProtobuf
 
 /// Namespace containing generated types for the "account.AccountEndpoint" service.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal enum Account_AccountEndpoint {
+public enum Account_AccountEndpoint: Sendable {
     /// Service descriptor for the "account.AccountEndpoint" service.
-    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "account.AccountEndpoint")
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "account.AccountEndpoint")
     /// Namespace for method metadata.
-    internal enum Method {
+    public enum Method: Sendable {
         /// Namespace for "GetAccounts" metadata.
-        internal enum GetAccounts {
+        public enum GetAccounts: Sendable {
             /// Request type for "GetAccounts".
-            internal typealias Input = Account_GetAccountsRequest
+            public typealias Input = Account_GetAccountsRequest
             /// Response type for "GetAccounts".
-            internal typealias Output = Account_GetAccountsResponse
+            public typealias Output = Account_GetAccountsResponse
             /// Descriptor for "GetAccounts".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "account.AccountEndpoint"),
-                method: "GetAccounts"
+                method: "GetAccounts",
+                type: .unary
             )
         }
         /// Namespace for "CreateAccount" metadata.
-        internal enum CreateAccount {
+        public enum CreateAccount: Sendable {
             /// Request type for "CreateAccount".
-            internal typealias Input = Account_CreateAccountRequest
+            public typealias Input = Account_CreateAccountRequest
             /// Response type for "CreateAccount".
-            internal typealias Output = Account_CreateAccountResponse
+            public typealias Output = Account_CreateAccountResponse
             /// Descriptor for "CreateAccount".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "account.AccountEndpoint"),
-                method: "CreateAccount"
+                method: "CreateAccount",
+                type: .unary
             )
         }
         /// Namespace for "UpdateAccount" metadata.
-        internal enum UpdateAccount {
+        public enum UpdateAccount: Sendable {
             /// Request type for "UpdateAccount".
-            internal typealias Input = Account_UpdateAccountRequest
+            public typealias Input = Account_UpdateAccountRequest
             /// Response type for "UpdateAccount".
-            internal typealias Output = Account_UpdateAccountResponse
+            public typealias Output = Account_UpdateAccountResponse
             /// Descriptor for "UpdateAccount".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "account.AccountEndpoint"),
-                method: "UpdateAccount"
+                method: "UpdateAccount",
+                type: .unary
             )
         }
         /// Namespace for "DeleteAccount" metadata.
-        internal enum DeleteAccount {
+        public enum DeleteAccount: Sendable {
             /// Request type for "DeleteAccount".
-            internal typealias Input = Account_DeleteAccountRequest
+            public typealias Input = Account_DeleteAccountRequest
             /// Response type for "DeleteAccount".
-            internal typealias Output = Account_DeleteAccountResponse
+            public typealias Output = Account_DeleteAccountResponse
             /// Descriptor for "DeleteAccount".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "account.AccountEndpoint"),
-                method: "DeleteAccount"
+                method: "DeleteAccount",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "account.AccountEndpoint" service.
-        internal static let descriptors: [GRPCCore.MethodDescriptor] = [
+        public static let descriptors: [GRPCCore.MethodDescriptor] = [
             GetAccounts.descriptor,
             CreateAccount.descriptor,
             UpdateAccount.descriptor,
@@ -81,411 +85,7 @@ internal enum Account_AccountEndpoint {
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension GRPCCore.ServiceDescriptor {
     /// Service descriptor for the "account.AccountEndpoint" service.
-    internal static let account_AccountEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "account.AccountEndpoint")
-}
-
-// MARK: account.AccountEndpoint (server)
-
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Account_AccountEndpoint {
-    /// Streaming variant of the service protocol for the "account.AccountEndpoint" service.
-    ///
-    /// This protocol is the lowest-level of the service protocols generated for this service
-    /// giving you the most flexibility over the implementation of your service. This comes at
-    /// the cost of more verbose and less strict APIs. Each RPC requires you to implement it in
-    /// terms of a request stream and response stream. Where only a single request or response
-    /// message is expected, you are responsible for enforcing this invariant is maintained.
-    ///
-    /// Where possible, prefer using the stricter, less-verbose ``ServiceProtocol``
-    /// or ``SimpleServiceProtocol`` instead.
-    internal protocol StreamingServiceProtocol: GRPCCore.RegistrableRPCService {
-        /// Handle the "GetAccounts" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetAccounts получение счетов по фильтрам
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Account_GetAccountsRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Account_GetAccountsResponse` messages.
-        func getAccounts(
-            request: GRPCCore.StreamingServerRequest<Account_GetAccountsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Account_GetAccountsResponse>
-
-        /// Handle the "CreateAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateAccount создание счета
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Account_CreateAccountRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Account_CreateAccountResponse` messages.
-        func createAccount(
-            request: GRPCCore.StreamingServerRequest<Account_CreateAccountRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Account_CreateAccountResponse>
-
-        /// Handle the "UpdateAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateAccount редактирование счета
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Account_UpdateAccountRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Account_UpdateAccountResponse` messages.
-        func updateAccount(
-            request: GRPCCore.StreamingServerRequest<Account_UpdateAccountRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Account_UpdateAccountResponse>
-
-        /// Handle the "DeleteAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteAccount удаление счета
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Account_DeleteAccountRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Account_DeleteAccountResponse` messages.
-        func deleteAccount(
-            request: GRPCCore.StreamingServerRequest<Account_DeleteAccountRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Account_DeleteAccountResponse>
-    }
-
-    /// Service protocol for the "account.AccountEndpoint" service.
-    ///
-    /// This protocol is higher level than ``StreamingServiceProtocol`` but lower level than
-    /// the ``SimpleServiceProtocol``, it provides access to request and response metadata and
-    /// trailing response metadata. If you don't need these then consider using
-    /// the ``SimpleServiceProtocol``. If you need fine grained control over your RPCs then
-    /// use ``StreamingServiceProtocol``.
-    internal protocol ServiceProtocol: Account_AccountEndpoint.StreamingServiceProtocol {
-        /// Handle the "GetAccounts" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetAccounts получение счетов по фильтрам
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Account_GetAccountsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Account_GetAccountsResponse` message.
-        func getAccounts(
-            request: GRPCCore.ServerRequest<Account_GetAccountsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Account_GetAccountsResponse>
-
-        /// Handle the "CreateAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateAccount создание счета
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Account_CreateAccountRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Account_CreateAccountResponse` message.
-        func createAccount(
-            request: GRPCCore.ServerRequest<Account_CreateAccountRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Account_CreateAccountResponse>
-
-        /// Handle the "UpdateAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateAccount редактирование счета
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Account_UpdateAccountRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Account_UpdateAccountResponse` message.
-        func updateAccount(
-            request: GRPCCore.ServerRequest<Account_UpdateAccountRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Account_UpdateAccountResponse>
-
-        /// Handle the "DeleteAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteAccount удаление счета
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Account_DeleteAccountRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Account_DeleteAccountResponse` message.
-        func deleteAccount(
-            request: GRPCCore.ServerRequest<Account_DeleteAccountRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Account_DeleteAccountResponse>
-    }
-
-    /// Simple service protocol for the "account.AccountEndpoint" service.
-    ///
-    /// This is the highest level protocol for the service. The API is the easiest to use but
-    /// doesn't provide access to request or response metadata. If you need access to these
-    /// then use ``ServiceProtocol`` instead.
-    internal protocol SimpleServiceProtocol: Account_AccountEndpoint.ServiceProtocol {
-        /// Handle the "GetAccounts" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetAccounts получение счетов по фильтрам
-        ///
-        /// - Parameters:
-        ///   - request: A `Account_GetAccountsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Account_GetAccountsResponse` to respond with.
-        func getAccounts(
-            request: Account_GetAccountsRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Account_GetAccountsResponse
-
-        /// Handle the "CreateAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateAccount создание счета
-        ///
-        /// - Parameters:
-        ///   - request: A `Account_CreateAccountRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Account_CreateAccountResponse` to respond with.
-        func createAccount(
-            request: Account_CreateAccountRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Account_CreateAccountResponse
-
-        /// Handle the "UpdateAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateAccount редактирование счета
-        ///
-        /// - Parameters:
-        ///   - request: A `Account_UpdateAccountRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Account_UpdateAccountResponse` to respond with.
-        func updateAccount(
-            request: Account_UpdateAccountRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Account_UpdateAccountResponse
-
-        /// Handle the "DeleteAccount" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteAccount удаление счета
-        ///
-        /// - Parameters:
-        ///   - request: A `Account_DeleteAccountRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Account_DeleteAccountResponse` to respond with.
-        func deleteAccount(
-            request: Account_DeleteAccountRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Account_DeleteAccountResponse
-    }
-}
-
-// Default implementation of 'registerMethods(with:)'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Account_AccountEndpoint.StreamingServiceProtocol {
-    internal func registerMethods<Transport>(with router: inout GRPCCore.RPCRouter<Transport>) where Transport: GRPCCore.ServerTransport {
-        router.registerHandler(
-            forMethod: Account_AccountEndpoint.Method.GetAccounts.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Account_GetAccountsRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Account_GetAccountsResponse>(),
-            handler: { request, context in
-                try await self.getAccounts(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Account_AccountEndpoint.Method.CreateAccount.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Account_CreateAccountRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Account_CreateAccountResponse>(),
-            handler: { request, context in
-                try await self.createAccount(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Account_AccountEndpoint.Method.UpdateAccount.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Account_UpdateAccountRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Account_UpdateAccountResponse>(),
-            handler: { request, context in
-                try await self.updateAccount(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Account_AccountEndpoint.Method.DeleteAccount.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Account_DeleteAccountRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Account_DeleteAccountResponse>(),
-            handler: { request, context in
-                try await self.deleteAccount(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-    }
-}
-
-// Default implementation of streaming methods from 'StreamingServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Account_AccountEndpoint.ServiceProtocol {
-    internal func getAccounts(
-        request: GRPCCore.StreamingServerRequest<Account_GetAccountsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Account_GetAccountsResponse> {
-        let response = try await self.getAccounts(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func createAccount(
-        request: GRPCCore.StreamingServerRequest<Account_CreateAccountRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Account_CreateAccountResponse> {
-        let response = try await self.createAccount(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func updateAccount(
-        request: GRPCCore.StreamingServerRequest<Account_UpdateAccountRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Account_UpdateAccountResponse> {
-        let response = try await self.updateAccount(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func deleteAccount(
-        request: GRPCCore.StreamingServerRequest<Account_DeleteAccountRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Account_DeleteAccountResponse> {
-        let response = try await self.deleteAccount(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-}
-
-// Default implementation of methods from 'ServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Account_AccountEndpoint.SimpleServiceProtocol {
-    internal func getAccounts(
-        request: GRPCCore.ServerRequest<Account_GetAccountsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Account_GetAccountsResponse> {
-        return GRPCCore.ServerResponse<Account_GetAccountsResponse>(
-            message: try await self.getAccounts(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func createAccount(
-        request: GRPCCore.ServerRequest<Account_CreateAccountRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Account_CreateAccountResponse> {
-        return GRPCCore.ServerResponse<Account_CreateAccountResponse>(
-            message: try await self.createAccount(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func updateAccount(
-        request: GRPCCore.ServerRequest<Account_UpdateAccountRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Account_UpdateAccountResponse> {
-        return GRPCCore.ServerResponse<Account_UpdateAccountResponse>(
-            message: try await self.updateAccount(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func deleteAccount(
-        request: GRPCCore.ServerRequest<Account_DeleteAccountRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Account_DeleteAccountResponse> {
-        return GRPCCore.ServerResponse<Account_DeleteAccountResponse>(
-            message: try await self.deleteAccount(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
+    public static let account_AccountEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "account.AccountEndpoint")
 }
 
 // MARK: account.AccountEndpoint (client)
@@ -496,7 +96,7 @@ extension Account_AccountEndpoint {
     ///
     /// You don't need to implement this protocol directly, use the generated
     /// implementation, ``Client``.
-    internal protocol ClientProtocol: Sendable {
+    public protocol ClientProtocol: Sendable {
         /// Call the "GetAccounts" method.
         ///
         /// > Source IDL Documentation:
@@ -595,14 +195,14 @@ extension Account_AccountEndpoint {
     /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
     /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
     /// means of communication with the remote peer.
-    internal struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
         private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        internal init(wrapping client: GRPCCore.GRPCClient<Transport>) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 
@@ -621,7 +221,7 @@ extension Account_AccountEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func getAccounts<Result>(
+        public func getAccounts<Result>(
             request: GRPCCore.ClientRequest<Account_GetAccountsRequest>,
             serializer: some GRPCCore.MessageSerializer<Account_GetAccountsRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Account_GetAccountsResponse>,
@@ -655,7 +255,7 @@ extension Account_AccountEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func createAccount<Result>(
+        public func createAccount<Result>(
             request: GRPCCore.ClientRequest<Account_CreateAccountRequest>,
             serializer: some GRPCCore.MessageSerializer<Account_CreateAccountRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Account_CreateAccountResponse>,
@@ -689,7 +289,7 @@ extension Account_AccountEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func updateAccount<Result>(
+        public func updateAccount<Result>(
             request: GRPCCore.ClientRequest<Account_UpdateAccountRequest>,
             serializer: some GRPCCore.MessageSerializer<Account_UpdateAccountRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Account_UpdateAccountResponse>,
@@ -723,7 +323,7 @@ extension Account_AccountEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func deleteAccount<Result>(
+        public func deleteAccount<Result>(
             request: GRPCCore.ClientRequest<Account_DeleteAccountRequest>,
             serializer: some GRPCCore.MessageSerializer<Account_DeleteAccountRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Account_DeleteAccountResponse>,
@@ -760,7 +360,7 @@ extension Account_AccountEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getAccounts<Result>(
+    public func getAccounts<Result>(
         request: GRPCCore.ClientRequest<Account_GetAccountsRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Account_GetAccountsResponse>) async throws -> Result = { response in
@@ -789,7 +389,7 @@ extension Account_AccountEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func createAccount<Result>(
+    public func createAccount<Result>(
         request: GRPCCore.ClientRequest<Account_CreateAccountRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Account_CreateAccountResponse>) async throws -> Result = { response in
@@ -818,7 +418,7 @@ extension Account_AccountEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateAccount<Result>(
+    public func updateAccount<Result>(
         request: GRPCCore.ClientRequest<Account_UpdateAccountRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Account_UpdateAccountResponse>) async throws -> Result = { response in
@@ -847,7 +447,7 @@ extension Account_AccountEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func deleteAccount<Result>(
+    public func deleteAccount<Result>(
         request: GRPCCore.ClientRequest<Account_DeleteAccountRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Account_DeleteAccountResponse>) async throws -> Result = { response in
@@ -881,7 +481,7 @@ extension Account_AccountEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getAccounts<Result>(
+    public func getAccounts<Result>(
         _ message: Account_GetAccountsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -914,7 +514,7 @@ extension Account_AccountEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func createAccount<Result>(
+    public func createAccount<Result>(
         _ message: Account_CreateAccountRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -947,7 +547,7 @@ extension Account_AccountEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateAccount<Result>(
+    public func updateAccount<Result>(
         _ message: Account_UpdateAccountRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -980,7 +580,7 @@ extension Account_AccountEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func deleteAccount<Result>(
+    public func deleteAccount<Result>(
         _ message: Account_DeleteAccountRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,

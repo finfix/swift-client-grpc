@@ -15,61 +15,65 @@ import GRPCProtobuf
 
 /// Namespace containing generated types for the "auth.AuthEndpoint" service.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal enum Auth_AuthEndpoint {
+public enum Auth_AuthEndpoint: Sendable {
     /// Service descriptor for the "auth.AuthEndpoint" service.
-    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "auth.AuthEndpoint")
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "auth.AuthEndpoint")
     /// Namespace for method metadata.
-    internal enum Method {
+    public enum Method: Sendable {
         /// Namespace for "SignIn" metadata.
-        internal enum SignIn {
+        public enum SignIn: Sendable {
             /// Request type for "SignIn".
-            internal typealias Input = Auth_SignInRequest
+            public typealias Input = Auth_SignInRequest
             /// Response type for "SignIn".
-            internal typealias Output = Auth_SignInResponse
+            public typealias Output = Auth_SignInResponse
             /// Descriptor for "SignIn".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "auth.AuthEndpoint"),
-                method: "SignIn"
+                method: "SignIn",
+                type: .unary
             )
         }
         /// Namespace for "SignUp" metadata.
-        internal enum SignUp {
+        public enum SignUp: Sendable {
             /// Request type for "SignUp".
-            internal typealias Input = Auth_SignUpRequest
+            public typealias Input = Auth_SignUpRequest
             /// Response type for "SignUp".
-            internal typealias Output = Auth_SignUpResponse
+            public typealias Output = Auth_SignUpResponse
             /// Descriptor for "SignUp".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "auth.AuthEndpoint"),
-                method: "SignUp"
+                method: "SignUp",
+                type: .unary
             )
         }
         /// Namespace for "SignOut" metadata.
-        internal enum SignOut {
+        public enum SignOut: Sendable {
             /// Request type for "SignOut".
-            internal typealias Input = Auth_SignOutRequest
+            public typealias Input = Auth_SignOutRequest
             /// Response type for "SignOut".
-            internal typealias Output = Auth_SignOutResponse
+            public typealias Output = Auth_SignOutResponse
             /// Descriptor for "SignOut".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "auth.AuthEndpoint"),
-                method: "SignOut"
+                method: "SignOut",
+                type: .unary
             )
         }
         /// Namespace for "RefreshTokens" metadata.
-        internal enum RefreshTokens {
+        public enum RefreshTokens: Sendable {
             /// Request type for "RefreshTokens".
-            internal typealias Input = Auth_RefreshTokensRequest
+            public typealias Input = Auth_RefreshTokensRequest
             /// Response type for "RefreshTokens".
-            internal typealias Output = Auth_RefreshTokensResponse
+            public typealias Output = Auth_RefreshTokensResponse
             /// Descriptor for "RefreshTokens".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "auth.AuthEndpoint"),
-                method: "RefreshTokens"
+                method: "RefreshTokens",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "auth.AuthEndpoint" service.
-        internal static let descriptors: [GRPCCore.MethodDescriptor] = [
+        public static let descriptors: [GRPCCore.MethodDescriptor] = [
             SignIn.descriptor,
             SignUp.descriptor,
             SignOut.descriptor,
@@ -81,411 +85,7 @@ internal enum Auth_AuthEndpoint {
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension GRPCCore.ServiceDescriptor {
     /// Service descriptor for the "auth.AuthEndpoint" service.
-    internal static let auth_AuthEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "auth.AuthEndpoint")
-}
-
-// MARK: auth.AuthEndpoint (server)
-
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Auth_AuthEndpoint {
-    /// Streaming variant of the service protocol for the "auth.AuthEndpoint" service.
-    ///
-    /// This protocol is the lowest-level of the service protocols generated for this service
-    /// giving you the most flexibility over the implementation of your service. This comes at
-    /// the cost of more verbose and less strict APIs. Each RPC requires you to implement it in
-    /// terms of a request stream and response stream. Where only a single request or response
-    /// message is expected, you are responsible for enforcing this invariant is maintained.
-    ///
-    /// Where possible, prefer using the stricter, less-verbose ``ServiceProtocol``
-    /// or ``SimpleServiceProtocol`` instead.
-    internal protocol StreamingServiceProtocol: GRPCCore.RegistrableRPCService {
-        /// Handle the "SignIn" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignIn авторизация пользователя по логину и паролю
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Auth_SignInRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Auth_SignInResponse` messages.
-        func signIn(
-            request: GRPCCore.StreamingServerRequest<Auth_SignInRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Auth_SignInResponse>
-
-        /// Handle the "SignUp" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignUp регистрация пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Auth_SignUpRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Auth_SignUpResponse` messages.
-        func signUp(
-            request: GRPCCore.StreamingServerRequest<Auth_SignUpRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Auth_SignUpResponse>
-
-        /// Handle the "SignOut" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignOut выход пользователя из приложения
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Auth_SignOutRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Auth_SignOutResponse` messages.
-        func signOut(
-            request: GRPCCore.StreamingServerRequest<Auth_SignOutRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Auth_SignOutResponse>
-
-        /// Handle the "RefreshTokens" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > RefreshTokens обновление токенов
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Auth_RefreshTokensRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Auth_RefreshTokensResponse` messages.
-        func refreshTokens(
-            request: GRPCCore.StreamingServerRequest<Auth_RefreshTokensRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Auth_RefreshTokensResponse>
-    }
-
-    /// Service protocol for the "auth.AuthEndpoint" service.
-    ///
-    /// This protocol is higher level than ``StreamingServiceProtocol`` but lower level than
-    /// the ``SimpleServiceProtocol``, it provides access to request and response metadata and
-    /// trailing response metadata. If you don't need these then consider using
-    /// the ``SimpleServiceProtocol``. If you need fine grained control over your RPCs then
-    /// use ``StreamingServiceProtocol``.
-    internal protocol ServiceProtocol: Auth_AuthEndpoint.StreamingServiceProtocol {
-        /// Handle the "SignIn" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignIn авторизация пользователя по логину и паролю
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Auth_SignInRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Auth_SignInResponse` message.
-        func signIn(
-            request: GRPCCore.ServerRequest<Auth_SignInRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Auth_SignInResponse>
-
-        /// Handle the "SignUp" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignUp регистрация пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Auth_SignUpRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Auth_SignUpResponse` message.
-        func signUp(
-            request: GRPCCore.ServerRequest<Auth_SignUpRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Auth_SignUpResponse>
-
-        /// Handle the "SignOut" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignOut выход пользователя из приложения
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Auth_SignOutRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Auth_SignOutResponse` message.
-        func signOut(
-            request: GRPCCore.ServerRequest<Auth_SignOutRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Auth_SignOutResponse>
-
-        /// Handle the "RefreshTokens" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > RefreshTokens обновление токенов
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Auth_RefreshTokensRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Auth_RefreshTokensResponse` message.
-        func refreshTokens(
-            request: GRPCCore.ServerRequest<Auth_RefreshTokensRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Auth_RefreshTokensResponse>
-    }
-
-    /// Simple service protocol for the "auth.AuthEndpoint" service.
-    ///
-    /// This is the highest level protocol for the service. The API is the easiest to use but
-    /// doesn't provide access to request or response metadata. If you need access to these
-    /// then use ``ServiceProtocol`` instead.
-    internal protocol SimpleServiceProtocol: Auth_AuthEndpoint.ServiceProtocol {
-        /// Handle the "SignIn" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignIn авторизация пользователя по логину и паролю
-        ///
-        /// - Parameters:
-        ///   - request: A `Auth_SignInRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Auth_SignInResponse` to respond with.
-        func signIn(
-            request: Auth_SignInRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Auth_SignInResponse
-
-        /// Handle the "SignUp" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignUp регистрация пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A `Auth_SignUpRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Auth_SignUpResponse` to respond with.
-        func signUp(
-            request: Auth_SignUpRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Auth_SignUpResponse
-
-        /// Handle the "SignOut" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SignOut выход пользователя из приложения
-        ///
-        /// - Parameters:
-        ///   - request: A `Auth_SignOutRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Auth_SignOutResponse` to respond with.
-        func signOut(
-            request: Auth_SignOutRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Auth_SignOutResponse
-
-        /// Handle the "RefreshTokens" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > RefreshTokens обновление токенов
-        ///
-        /// - Parameters:
-        ///   - request: A `Auth_RefreshTokensRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Auth_RefreshTokensResponse` to respond with.
-        func refreshTokens(
-            request: Auth_RefreshTokensRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Auth_RefreshTokensResponse
-    }
-}
-
-// Default implementation of 'registerMethods(with:)'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Auth_AuthEndpoint.StreamingServiceProtocol {
-    internal func registerMethods<Transport>(with router: inout GRPCCore.RPCRouter<Transport>) where Transport: GRPCCore.ServerTransport {
-        router.registerHandler(
-            forMethod: Auth_AuthEndpoint.Method.SignIn.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Auth_SignInRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Auth_SignInResponse>(),
-            handler: { request, context in
-                try await self.signIn(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Auth_AuthEndpoint.Method.SignUp.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Auth_SignUpRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Auth_SignUpResponse>(),
-            handler: { request, context in
-                try await self.signUp(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Auth_AuthEndpoint.Method.SignOut.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Auth_SignOutRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Auth_SignOutResponse>(),
-            handler: { request, context in
-                try await self.signOut(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Auth_AuthEndpoint.Method.RefreshTokens.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Auth_RefreshTokensRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Auth_RefreshTokensResponse>(),
-            handler: { request, context in
-                try await self.refreshTokens(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-    }
-}
-
-// Default implementation of streaming methods from 'StreamingServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Auth_AuthEndpoint.ServiceProtocol {
-    internal func signIn(
-        request: GRPCCore.StreamingServerRequest<Auth_SignInRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Auth_SignInResponse> {
-        let response = try await self.signIn(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func signUp(
-        request: GRPCCore.StreamingServerRequest<Auth_SignUpRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Auth_SignUpResponse> {
-        let response = try await self.signUp(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func signOut(
-        request: GRPCCore.StreamingServerRequest<Auth_SignOutRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Auth_SignOutResponse> {
-        let response = try await self.signOut(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func refreshTokens(
-        request: GRPCCore.StreamingServerRequest<Auth_RefreshTokensRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Auth_RefreshTokensResponse> {
-        let response = try await self.refreshTokens(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-}
-
-// Default implementation of methods from 'ServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Auth_AuthEndpoint.SimpleServiceProtocol {
-    internal func signIn(
-        request: GRPCCore.ServerRequest<Auth_SignInRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Auth_SignInResponse> {
-        return GRPCCore.ServerResponse<Auth_SignInResponse>(
-            message: try await self.signIn(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func signUp(
-        request: GRPCCore.ServerRequest<Auth_SignUpRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Auth_SignUpResponse> {
-        return GRPCCore.ServerResponse<Auth_SignUpResponse>(
-            message: try await self.signUp(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func signOut(
-        request: GRPCCore.ServerRequest<Auth_SignOutRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Auth_SignOutResponse> {
-        return GRPCCore.ServerResponse<Auth_SignOutResponse>(
-            message: try await self.signOut(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func refreshTokens(
-        request: GRPCCore.ServerRequest<Auth_RefreshTokensRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Auth_RefreshTokensResponse> {
-        return GRPCCore.ServerResponse<Auth_RefreshTokensResponse>(
-            message: try await self.refreshTokens(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
+    public static let auth_AuthEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "auth.AuthEndpoint")
 }
 
 // MARK: auth.AuthEndpoint (client)
@@ -496,7 +96,7 @@ extension Auth_AuthEndpoint {
     ///
     /// You don't need to implement this protocol directly, use the generated
     /// implementation, ``Client``.
-    internal protocol ClientProtocol: Sendable {
+    public protocol ClientProtocol: Sendable {
         /// Call the "SignIn" method.
         ///
         /// > Source IDL Documentation:
@@ -595,14 +195,14 @@ extension Auth_AuthEndpoint {
     /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
     /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
     /// means of communication with the remote peer.
-    internal struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
         private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        internal init(wrapping client: GRPCCore.GRPCClient<Transport>) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 
@@ -621,7 +221,7 @@ extension Auth_AuthEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func signIn<Result>(
+        public func signIn<Result>(
             request: GRPCCore.ClientRequest<Auth_SignInRequest>,
             serializer: some GRPCCore.MessageSerializer<Auth_SignInRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Auth_SignInResponse>,
@@ -655,7 +255,7 @@ extension Auth_AuthEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func signUp<Result>(
+        public func signUp<Result>(
             request: GRPCCore.ClientRequest<Auth_SignUpRequest>,
             serializer: some GRPCCore.MessageSerializer<Auth_SignUpRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Auth_SignUpResponse>,
@@ -689,7 +289,7 @@ extension Auth_AuthEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func signOut<Result>(
+        public func signOut<Result>(
             request: GRPCCore.ClientRequest<Auth_SignOutRequest>,
             serializer: some GRPCCore.MessageSerializer<Auth_SignOutRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Auth_SignOutResponse>,
@@ -723,7 +323,7 @@ extension Auth_AuthEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func refreshTokens<Result>(
+        public func refreshTokens<Result>(
             request: GRPCCore.ClientRequest<Auth_RefreshTokensRequest>,
             serializer: some GRPCCore.MessageSerializer<Auth_RefreshTokensRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Auth_RefreshTokensResponse>,
@@ -760,7 +360,7 @@ extension Auth_AuthEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func signIn<Result>(
+    public func signIn<Result>(
         request: GRPCCore.ClientRequest<Auth_SignInRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Auth_SignInResponse>) async throws -> Result = { response in
@@ -789,7 +389,7 @@ extension Auth_AuthEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func signUp<Result>(
+    public func signUp<Result>(
         request: GRPCCore.ClientRequest<Auth_SignUpRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Auth_SignUpResponse>) async throws -> Result = { response in
@@ -818,7 +418,7 @@ extension Auth_AuthEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func signOut<Result>(
+    public func signOut<Result>(
         request: GRPCCore.ClientRequest<Auth_SignOutRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Auth_SignOutResponse>) async throws -> Result = { response in
@@ -847,7 +447,7 @@ extension Auth_AuthEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func refreshTokens<Result>(
+    public func refreshTokens<Result>(
         request: GRPCCore.ClientRequest<Auth_RefreshTokensRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Auth_RefreshTokensResponse>) async throws -> Result = { response in
@@ -881,7 +481,7 @@ extension Auth_AuthEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func signIn<Result>(
+    public func signIn<Result>(
         _ message: Auth_SignInRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -914,7 +514,7 @@ extension Auth_AuthEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func signUp<Result>(
+    public func signUp<Result>(
         _ message: Auth_SignUpRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -947,7 +547,7 @@ extension Auth_AuthEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func signOut<Result>(
+    public func signOut<Result>(
         _ message: Auth_SignOutRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -980,7 +580,7 @@ extension Auth_AuthEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func refreshTokens<Result>(
+    public func refreshTokens<Result>(
         _ message: Auth_RefreshTokensRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,

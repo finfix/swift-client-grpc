@@ -15,73 +15,78 @@ import GRPCProtobuf
 
 /// Namespace containing generated types for the "tag.TagEndpoint" service.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal enum Tag_TagEndpoint {
+public enum Tag_TagEndpoint: Sendable {
     /// Service descriptor for the "tag.TagEndpoint" service.
-    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint")
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint")
     /// Namespace for method metadata.
-    internal enum Method {
+    public enum Method: Sendable {
         /// Namespace for "GetTags" metadata.
-        internal enum GetTags {
+        public enum GetTags: Sendable {
             /// Request type for "GetTags".
-            internal typealias Input = Tag_GetTagsRequest
+            public typealias Input = Tag_GetTagsRequest
             /// Response type for "GetTags".
-            internal typealias Output = Tag_GetTagsResponse
+            public typealias Output = Tag_GetTagsResponse
             /// Descriptor for "GetTags".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint"),
-                method: "GetTags"
+                method: "GetTags",
+                type: .unary
             )
         }
         /// Namespace for "CreateTag" metadata.
-        internal enum CreateTag {
+        public enum CreateTag: Sendable {
             /// Request type for "CreateTag".
-            internal typealias Input = Tag_CreateTagRequest
+            public typealias Input = Tag_CreateTagRequest
             /// Response type for "CreateTag".
-            internal typealias Output = Tag_CreateTagResponse
+            public typealias Output = Tag_CreateTagResponse
             /// Descriptor for "CreateTag".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint"),
-                method: "CreateTag"
+                method: "CreateTag",
+                type: .unary
             )
         }
         /// Namespace for "UpdateTag" metadata.
-        internal enum UpdateTag {
+        public enum UpdateTag: Sendable {
             /// Request type for "UpdateTag".
-            internal typealias Input = Tag_UpdateTagRequest
+            public typealias Input = Tag_UpdateTagRequest
             /// Response type for "UpdateTag".
-            internal typealias Output = Tag_UpdateTagResponse
+            public typealias Output = Tag_UpdateTagResponse
             /// Descriptor for "UpdateTag".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint"),
-                method: "UpdateTag"
+                method: "UpdateTag",
+                type: .unary
             )
         }
         /// Namespace for "DeleteTag" metadata.
-        internal enum DeleteTag {
+        public enum DeleteTag: Sendable {
             /// Request type for "DeleteTag".
-            internal typealias Input = Tag_DeleteTagRequest
+            public typealias Input = Tag_DeleteTagRequest
             /// Response type for "DeleteTag".
-            internal typealias Output = Tag_DeleteTagResponse
+            public typealias Output = Tag_DeleteTagResponse
             /// Descriptor for "DeleteTag".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint"),
-                method: "DeleteTag"
+                method: "DeleteTag",
+                type: .unary
             )
         }
         /// Namespace for "GetTagsToTransactions" metadata.
-        internal enum GetTagsToTransactions {
+        public enum GetTagsToTransactions: Sendable {
             /// Request type for "GetTagsToTransactions".
-            internal typealias Input = Tag_GetTagsToTransactionsRequest
+            public typealias Input = Tag_GetTagsToTransactionsRequest
             /// Response type for "GetTagsToTransactions".
-            internal typealias Output = Tag_GetTagsToTransactionsResponse
+            public typealias Output = Tag_GetTagsToTransactionsResponse
             /// Descriptor for "GetTagsToTransactions".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint"),
-                method: "GetTagsToTransactions"
+                method: "GetTagsToTransactions",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "tag.TagEndpoint" service.
-        internal static let descriptors: [GRPCCore.MethodDescriptor] = [
+        public static let descriptors: [GRPCCore.MethodDescriptor] = [
             GetTags.descriptor,
             CreateTag.descriptor,
             UpdateTag.descriptor,
@@ -94,500 +99,7 @@ internal enum Tag_TagEndpoint {
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension GRPCCore.ServiceDescriptor {
     /// Service descriptor for the "tag.TagEndpoint" service.
-    internal static let tag_TagEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint")
-}
-
-// MARK: tag.TagEndpoint (server)
-
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Tag_TagEndpoint {
-    /// Streaming variant of the service protocol for the "tag.TagEndpoint" service.
-    ///
-    /// This protocol is the lowest-level of the service protocols generated for this service
-    /// giving you the most flexibility over the implementation of your service. This comes at
-    /// the cost of more verbose and less strict APIs. Each RPC requires you to implement it in
-    /// terms of a request stream and response stream. Where only a single request or response
-    /// message is expected, you are responsible for enforcing this invariant is maintained.
-    ///
-    /// Where possible, prefer using the stricter, less-verbose ``ServiceProtocol``
-    /// or ``SimpleServiceProtocol`` instead.
-    internal protocol StreamingServiceProtocol: GRPCCore.RegistrableRPCService {
-        /// Handle the "GetTags" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetTags получение всех подкатегорий
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Tag_GetTagsRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Tag_GetTagsResponse` messages.
-        func getTags(
-            request: GRPCCore.StreamingServerRequest<Tag_GetTagsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Tag_GetTagsResponse>
-
-        /// Handle the "CreateTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateTag создание подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Tag_CreateTagRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Tag_CreateTagResponse` messages.
-        func createTag(
-            request: GRPCCore.StreamingServerRequest<Tag_CreateTagRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Tag_CreateTagResponse>
-
-        /// Handle the "UpdateTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateTag редактирование подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Tag_UpdateTagRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Tag_UpdateTagResponse` messages.
-        func updateTag(
-            request: GRPCCore.StreamingServerRequest<Tag_UpdateTagRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Tag_UpdateTagResponse>
-
-        /// Handle the "DeleteTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteTag удаление подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Tag_DeleteTagRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Tag_DeleteTagResponse` messages.
-        func deleteTag(
-            request: GRPCCore.StreamingServerRequest<Tag_DeleteTagRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Tag_DeleteTagResponse>
-
-        /// Handle the "GetTagsToTransactions" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetTagsToTransactions получение всех связей между подкатегориями и транзакциями
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Tag_GetTagsToTransactionsRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Tag_GetTagsToTransactionsResponse` messages.
-        func getTagsToTransactions(
-            request: GRPCCore.StreamingServerRequest<Tag_GetTagsToTransactionsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Tag_GetTagsToTransactionsResponse>
-    }
-
-    /// Service protocol for the "tag.TagEndpoint" service.
-    ///
-    /// This protocol is higher level than ``StreamingServiceProtocol`` but lower level than
-    /// the ``SimpleServiceProtocol``, it provides access to request and response metadata and
-    /// trailing response metadata. If you don't need these then consider using
-    /// the ``SimpleServiceProtocol``. If you need fine grained control over your RPCs then
-    /// use ``StreamingServiceProtocol``.
-    internal protocol ServiceProtocol: Tag_TagEndpoint.StreamingServiceProtocol {
-        /// Handle the "GetTags" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetTags получение всех подкатегорий
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Tag_GetTagsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Tag_GetTagsResponse` message.
-        func getTags(
-            request: GRPCCore.ServerRequest<Tag_GetTagsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Tag_GetTagsResponse>
-
-        /// Handle the "CreateTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateTag создание подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Tag_CreateTagRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Tag_CreateTagResponse` message.
-        func createTag(
-            request: GRPCCore.ServerRequest<Tag_CreateTagRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Tag_CreateTagResponse>
-
-        /// Handle the "UpdateTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateTag редактирование подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Tag_UpdateTagRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Tag_UpdateTagResponse` message.
-        func updateTag(
-            request: GRPCCore.ServerRequest<Tag_UpdateTagRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Tag_UpdateTagResponse>
-
-        /// Handle the "DeleteTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteTag удаление подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Tag_DeleteTagRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Tag_DeleteTagResponse` message.
-        func deleteTag(
-            request: GRPCCore.ServerRequest<Tag_DeleteTagRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Tag_DeleteTagResponse>
-
-        /// Handle the "GetTagsToTransactions" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetTagsToTransactions получение всех связей между подкатегориями и транзакциями
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Tag_GetTagsToTransactionsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Tag_GetTagsToTransactionsResponse` message.
-        func getTagsToTransactions(
-            request: GRPCCore.ServerRequest<Tag_GetTagsToTransactionsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Tag_GetTagsToTransactionsResponse>
-    }
-
-    /// Simple service protocol for the "tag.TagEndpoint" service.
-    ///
-    /// This is the highest level protocol for the service. The API is the easiest to use but
-    /// doesn't provide access to request or response metadata. If you need access to these
-    /// then use ``ServiceProtocol`` instead.
-    internal protocol SimpleServiceProtocol: Tag_TagEndpoint.ServiceProtocol {
-        /// Handle the "GetTags" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetTags получение всех подкатегорий
-        ///
-        /// - Parameters:
-        ///   - request: A `Tag_GetTagsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Tag_GetTagsResponse` to respond with.
-        func getTags(
-            request: Tag_GetTagsRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Tag_GetTagsResponse
-
-        /// Handle the "CreateTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateTag создание подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A `Tag_CreateTagRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Tag_CreateTagResponse` to respond with.
-        func createTag(
-            request: Tag_CreateTagRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Tag_CreateTagResponse
-
-        /// Handle the "UpdateTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateTag редактирование подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A `Tag_UpdateTagRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Tag_UpdateTagResponse` to respond with.
-        func updateTag(
-            request: Tag_UpdateTagRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Tag_UpdateTagResponse
-
-        /// Handle the "DeleteTag" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteTag удаление подкатегории
-        ///
-        /// - Parameters:
-        ///   - request: A `Tag_DeleteTagRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Tag_DeleteTagResponse` to respond with.
-        func deleteTag(
-            request: Tag_DeleteTagRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Tag_DeleteTagResponse
-
-        /// Handle the "GetTagsToTransactions" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetTagsToTransactions получение всех связей между подкатегориями и транзакциями
-        ///
-        /// - Parameters:
-        ///   - request: A `Tag_GetTagsToTransactionsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Tag_GetTagsToTransactionsResponse` to respond with.
-        func getTagsToTransactions(
-            request: Tag_GetTagsToTransactionsRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Tag_GetTagsToTransactionsResponse
-    }
-}
-
-// Default implementation of 'registerMethods(with:)'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Tag_TagEndpoint.StreamingServiceProtocol {
-    internal func registerMethods<Transport>(with router: inout GRPCCore.RPCRouter<Transport>) where Transport: GRPCCore.ServerTransport {
-        router.registerHandler(
-            forMethod: Tag_TagEndpoint.Method.GetTags.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Tag_GetTagsRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Tag_GetTagsResponse>(),
-            handler: { request, context in
-                try await self.getTags(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Tag_TagEndpoint.Method.CreateTag.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Tag_CreateTagRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Tag_CreateTagResponse>(),
-            handler: { request, context in
-                try await self.createTag(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Tag_TagEndpoint.Method.UpdateTag.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Tag_UpdateTagRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Tag_UpdateTagResponse>(),
-            handler: { request, context in
-                try await self.updateTag(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Tag_TagEndpoint.Method.DeleteTag.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Tag_DeleteTagRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Tag_DeleteTagResponse>(),
-            handler: { request, context in
-                try await self.deleteTag(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Tag_TagEndpoint.Method.GetTagsToTransactions.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Tag_GetTagsToTransactionsRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Tag_GetTagsToTransactionsResponse>(),
-            handler: { request, context in
-                try await self.getTagsToTransactions(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-    }
-}
-
-// Default implementation of streaming methods from 'StreamingServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Tag_TagEndpoint.ServiceProtocol {
-    internal func getTags(
-        request: GRPCCore.StreamingServerRequest<Tag_GetTagsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Tag_GetTagsResponse> {
-        let response = try await self.getTags(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func createTag(
-        request: GRPCCore.StreamingServerRequest<Tag_CreateTagRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Tag_CreateTagResponse> {
-        let response = try await self.createTag(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func updateTag(
-        request: GRPCCore.StreamingServerRequest<Tag_UpdateTagRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Tag_UpdateTagResponse> {
-        let response = try await self.updateTag(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func deleteTag(
-        request: GRPCCore.StreamingServerRequest<Tag_DeleteTagRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Tag_DeleteTagResponse> {
-        let response = try await self.deleteTag(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func getTagsToTransactions(
-        request: GRPCCore.StreamingServerRequest<Tag_GetTagsToTransactionsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Tag_GetTagsToTransactionsResponse> {
-        let response = try await self.getTagsToTransactions(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-}
-
-// Default implementation of methods from 'ServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Tag_TagEndpoint.SimpleServiceProtocol {
-    internal func getTags(
-        request: GRPCCore.ServerRequest<Tag_GetTagsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Tag_GetTagsResponse> {
-        return GRPCCore.ServerResponse<Tag_GetTagsResponse>(
-            message: try await self.getTags(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func createTag(
-        request: GRPCCore.ServerRequest<Tag_CreateTagRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Tag_CreateTagResponse> {
-        return GRPCCore.ServerResponse<Tag_CreateTagResponse>(
-            message: try await self.createTag(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func updateTag(
-        request: GRPCCore.ServerRequest<Tag_UpdateTagRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Tag_UpdateTagResponse> {
-        return GRPCCore.ServerResponse<Tag_UpdateTagResponse>(
-            message: try await self.updateTag(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func deleteTag(
-        request: GRPCCore.ServerRequest<Tag_DeleteTagRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Tag_DeleteTagResponse> {
-        return GRPCCore.ServerResponse<Tag_DeleteTagResponse>(
-            message: try await self.deleteTag(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func getTagsToTransactions(
-        request: GRPCCore.ServerRequest<Tag_GetTagsToTransactionsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Tag_GetTagsToTransactionsResponse> {
-        return GRPCCore.ServerResponse<Tag_GetTagsToTransactionsResponse>(
-            message: try await self.getTagsToTransactions(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
+    public static let tag_TagEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "tag.TagEndpoint")
 }
 
 // MARK: tag.TagEndpoint (client)
@@ -598,7 +110,7 @@ extension Tag_TagEndpoint {
     ///
     /// You don't need to implement this protocol directly, use the generated
     /// implementation, ``Client``.
-    internal protocol ClientProtocol: Sendable {
+    public protocol ClientProtocol: Sendable {
         /// Call the "GetTags" method.
         ///
         /// > Source IDL Documentation:
@@ -720,14 +232,14 @@ extension Tag_TagEndpoint {
     /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
     /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
     /// means of communication with the remote peer.
-    internal struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
         private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        internal init(wrapping client: GRPCCore.GRPCClient<Transport>) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 
@@ -746,7 +258,7 @@ extension Tag_TagEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func getTags<Result>(
+        public func getTags<Result>(
             request: GRPCCore.ClientRequest<Tag_GetTagsRequest>,
             serializer: some GRPCCore.MessageSerializer<Tag_GetTagsRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Tag_GetTagsResponse>,
@@ -780,7 +292,7 @@ extension Tag_TagEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func createTag<Result>(
+        public func createTag<Result>(
             request: GRPCCore.ClientRequest<Tag_CreateTagRequest>,
             serializer: some GRPCCore.MessageSerializer<Tag_CreateTagRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Tag_CreateTagResponse>,
@@ -814,7 +326,7 @@ extension Tag_TagEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func updateTag<Result>(
+        public func updateTag<Result>(
             request: GRPCCore.ClientRequest<Tag_UpdateTagRequest>,
             serializer: some GRPCCore.MessageSerializer<Tag_UpdateTagRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Tag_UpdateTagResponse>,
@@ -848,7 +360,7 @@ extension Tag_TagEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func deleteTag<Result>(
+        public func deleteTag<Result>(
             request: GRPCCore.ClientRequest<Tag_DeleteTagRequest>,
             serializer: some GRPCCore.MessageSerializer<Tag_DeleteTagRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Tag_DeleteTagResponse>,
@@ -882,7 +394,7 @@ extension Tag_TagEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func getTagsToTransactions<Result>(
+        public func getTagsToTransactions<Result>(
             request: GRPCCore.ClientRequest<Tag_GetTagsToTransactionsRequest>,
             serializer: some GRPCCore.MessageSerializer<Tag_GetTagsToTransactionsRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Tag_GetTagsToTransactionsResponse>,
@@ -919,7 +431,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getTags<Result>(
+    public func getTags<Result>(
         request: GRPCCore.ClientRequest<Tag_GetTagsRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Tag_GetTagsResponse>) async throws -> Result = { response in
@@ -948,7 +460,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func createTag<Result>(
+    public func createTag<Result>(
         request: GRPCCore.ClientRequest<Tag_CreateTagRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Tag_CreateTagResponse>) async throws -> Result = { response in
@@ -977,7 +489,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateTag<Result>(
+    public func updateTag<Result>(
         request: GRPCCore.ClientRequest<Tag_UpdateTagRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Tag_UpdateTagResponse>) async throws -> Result = { response in
@@ -1006,7 +518,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func deleteTag<Result>(
+    public func deleteTag<Result>(
         request: GRPCCore.ClientRequest<Tag_DeleteTagRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Tag_DeleteTagResponse>) async throws -> Result = { response in
@@ -1035,7 +547,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getTagsToTransactions<Result>(
+    public func getTagsToTransactions<Result>(
         request: GRPCCore.ClientRequest<Tag_GetTagsToTransactionsRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Tag_GetTagsToTransactionsResponse>) async throws -> Result = { response in
@@ -1069,7 +581,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getTags<Result>(
+    public func getTags<Result>(
         _ message: Tag_GetTagsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -1102,7 +614,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func createTag<Result>(
+    public func createTag<Result>(
         _ message: Tag_CreateTagRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -1135,7 +647,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateTag<Result>(
+    public func updateTag<Result>(
         _ message: Tag_UpdateTagRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -1168,7 +680,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func deleteTag<Result>(
+    public func deleteTag<Result>(
         _ message: Tag_DeleteTagRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -1201,7 +713,7 @@ extension Tag_TagEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getTagsToTransactions<Result>(
+    public func getTagsToTransactions<Result>(
         _ message: Tag_GetTagsToTransactionsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,

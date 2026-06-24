@@ -21,278 +21,278 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Tag_Tag: Sendable {
+public struct Tag_Tag: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Идентификатор подкатегории
-  var id: Data = Data()
+  public var id: Data = Data()
 
   /// Название подкатегории
-  var name: String = String()
+  public var name: String = String()
 
   /// Идентификатор группы счетов
-  var accountGroupID: Data = Data()
+  public var accountGroupID: Data = Data()
 
   /// Дата и время создания
-  var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
+  public mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-struct Tag_GetTagsRequest: Sendable {
+public struct Tag_GetTagsRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификаторы групп счетов
-  var accountGroupIds: [Data] = []
+  public var accountGroupIds: [Data] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Tag_GetTagsResponse: Sendable {
+public struct Tag_GetTagsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Список подкатегорий
-  var tags: [Tag_Tag] = []
+  public var tags: [Tag_Tag] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Tag_CreateTagRequest: Sendable {
+public struct Tag_CreateTagRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор подкатегории
-  var id: Data = Data()
+  public var id: Data = Data()
 
   /// Название подкатегории
-  var name: String = String()
+  public var name: String = String()
 
   /// Идентификатор группы счетов
-  var accountGroupID: Data = Data()
+  public var accountGroupID: Data = Data()
 
   /// Дата создания подкатегории
-  var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
+  public mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-struct Tag_CreateTagResponse: Sendable {
+public struct Tag_CreateTagResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Tag_UpdateTagRequest: Sendable {
+public struct Tag_UpdateTagRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор подкатегории
-  var id: Data = Data()
+  public var id: Data = Data()
 
   /// Название подкатегории
-  var name: String {
+  public var name: String {
     get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  public mutating func clearName() {self._name = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _name: String? = nil
 }
 
-struct Tag_UpdateTagResponse: Sendable {
+public struct Tag_UpdateTagResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Tag_DeleteTagRequest: Sendable {
+public struct Tag_DeleteTagRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор подкатегории
-  var id: Data = Data()
+  public var id: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Tag_DeleteTagResponse: Sendable {
+public struct Tag_DeleteTagResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Tag_TagToTransaction: Sendable {
+public struct Tag_TagToTransaction: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Идентификатор подкатегории
-  var tagID: Data = Data()
+  public var tagID: Data = Data()
 
   /// Идентификатор транзакции
-  var transactionID: Data = Data()
+  public var transactionID: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Tag_GetTagsToTransactionsRequest: Sendable {
+public struct Tag_GetTagsToTransactionsRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификаторы групп счетов
-  var accountGroupIds: [Data] = []
+  public var accountGroupIds: [Data] = []
 
   /// Идентификаторы транзакций
-  var transactionIds: [Data] = []
+  public var transactionIds: [Data] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Tag_GetTagsToTransactionsResponse: Sendable {
+public struct Tag_GetTagsToTransactionsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Связи между подкатегориями и транзакциями
-  var tagsToTransactions: [Tag_TagToTransaction] = []
+  public var tagsToTransactions: [Tag_TagToTransaction] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
@@ -302,10 +302,15 @@ struct Tag_GetTagsToTransactionsResponse: Sendable {
 fileprivate let _protobuf_package = "tag"
 
 extension Tag_Tag: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Tag"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{1}accountGroupID\0\u{1}datetimeCreate\0")
+  public static let protoMessageName: String = _protobuf_package + ".Tag"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "name"),
+    3: .same(proto: "accountGroupID"),
+    4: .same(proto: "datetimeCreate"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -320,7 +325,7 @@ extension Tag_Tag: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -340,7 +345,7 @@ extension Tag_Tag: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_Tag, rhs: Tag_Tag) -> Bool {
+  public static func ==(lhs: Tag_Tag, rhs: Tag_Tag) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.accountGroupID != rhs.accountGroupID {return false}
@@ -351,10 +356,13 @@ extension Tag_Tag: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
 }
 
 extension Tag_GetTagsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetTagsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}accountGroupIDs\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetTagsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "accountGroupIDs"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -367,7 +375,7 @@ extension Tag_GetTagsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
@@ -377,7 +385,7 @@ extension Tag_GetTagsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_GetTagsRequest, rhs: Tag_GetTagsRequest) -> Bool {
+  public static func ==(lhs: Tag_GetTagsRequest, rhs: Tag_GetTagsRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.accountGroupIds != rhs.accountGroupIds {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -386,10 +394,13 @@ extension Tag_GetTagsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Tag_GetTagsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetTagsResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}tags\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetTagsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "tags"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -402,7 +413,7 @@ extension Tag_GetTagsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -416,7 +427,7 @@ extension Tag_GetTagsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_GetTagsResponse, rhs: Tag_GetTagsResponse) -> Bool {
+  public static func ==(lhs: Tag_GetTagsResponse, rhs: Tag_GetTagsResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.tags != rhs.tags {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -425,10 +436,16 @@ extension Tag_GetTagsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 }
 
 extension Tag_CreateTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateTagRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0\u{1}name\0\u{1}accountGroupID\0\u{1}datetimeCreate\0")
+  public static let protoMessageName: String = _protobuf_package + ".CreateTagRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+    3: .same(proto: "name"),
+    4: .same(proto: "accountGroupID"),
+    5: .same(proto: "datetimeCreate"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -444,7 +461,7 @@ extension Tag_CreateTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -467,7 +484,7 @@ extension Tag_CreateTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_CreateTagRequest, rhs: Tag_CreateTagRequest) -> Bool {
+  public static func ==(lhs: Tag_CreateTagRequest, rhs: Tag_CreateTagRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
@@ -479,10 +496,12 @@ extension Tag_CreateTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Tag_CreateTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateTagResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".CreateTagResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -494,7 +513,7 @@ extension Tag_CreateTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -505,7 +524,7 @@ extension Tag_CreateTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_CreateTagResponse, rhs: Tag_CreateTagResponse) -> Bool {
+  public static func ==(lhs: Tag_CreateTagResponse, rhs: Tag_CreateTagResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -513,10 +532,14 @@ extension Tag_CreateTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Tag_UpdateTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateTagRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0\u{1}name\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateTagRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+    3: .same(proto: "name"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -530,7 +553,7 @@ extension Tag_UpdateTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -547,7 +570,7 @@ extension Tag_UpdateTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_UpdateTagRequest, rhs: Tag_UpdateTagRequest) -> Bool {
+  public static func ==(lhs: Tag_UpdateTagRequest, rhs: Tag_UpdateTagRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.id != rhs.id {return false}
     if lhs._name != rhs._name {return false}
@@ -557,10 +580,12 @@ extension Tag_UpdateTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Tag_UpdateTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateTagResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateTagResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -572,7 +597,7 @@ extension Tag_UpdateTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -583,7 +608,7 @@ extension Tag_UpdateTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_UpdateTagResponse, rhs: Tag_UpdateTagResponse) -> Bool {
+  public static func ==(lhs: Tag_UpdateTagResponse, rhs: Tag_UpdateTagResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -591,10 +616,13 @@ extension Tag_UpdateTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Tag_DeleteTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteTagRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0")
+  public static let protoMessageName: String = _protobuf_package + ".DeleteTagRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -607,7 +635,7 @@ extension Tag_DeleteTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
@@ -617,7 +645,7 @@ extension Tag_DeleteTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_DeleteTagRequest, rhs: Tag_DeleteTagRequest) -> Bool {
+  public static func ==(lhs: Tag_DeleteTagRequest, rhs: Tag_DeleteTagRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -626,10 +654,12 @@ extension Tag_DeleteTagRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Tag_DeleteTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteTagResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".DeleteTagResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -641,7 +671,7 @@ extension Tag_DeleteTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -652,7 +682,7 @@ extension Tag_DeleteTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_DeleteTagResponse, rhs: Tag_DeleteTagResponse) -> Bool {
+  public static func ==(lhs: Tag_DeleteTagResponse, rhs: Tag_DeleteTagResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -660,10 +690,13 @@ extension Tag_DeleteTagResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Tag_TagToTransaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TagToTransaction"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}tagID\0\u{1}transactionID\0")
+  public static let protoMessageName: String = _protobuf_package + ".TagToTransaction"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "tagID"),
+    2: .same(proto: "transactionID"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -676,7 +709,7 @@ extension Tag_TagToTransaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.tagID.isEmpty {
       try visitor.visitSingularBytesField(value: self.tagID, fieldNumber: 1)
     }
@@ -686,7 +719,7 @@ extension Tag_TagToTransaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_TagToTransaction, rhs: Tag_TagToTransaction) -> Bool {
+  public static func ==(lhs: Tag_TagToTransaction, rhs: Tag_TagToTransaction) -> Bool {
     if lhs.tagID != rhs.tagID {return false}
     if lhs.transactionID != rhs.transactionID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -695,10 +728,14 @@ extension Tag_TagToTransaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Tag_GetTagsToTransactionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetTagsToTransactionsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}accountGroupIDs\0\u{1}transactionIDs\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetTagsToTransactionsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "accountGroupIDs"),
+    3: .same(proto: "transactionIDs"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -712,7 +749,7 @@ extension Tag_GetTagsToTransactionsRequest: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
@@ -725,7 +762,7 @@ extension Tag_GetTagsToTransactionsRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_GetTagsToTransactionsRequest, rhs: Tag_GetTagsToTransactionsRequest) -> Bool {
+  public static func ==(lhs: Tag_GetTagsToTransactionsRequest, rhs: Tag_GetTagsToTransactionsRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.accountGroupIds != rhs.accountGroupIds {return false}
     if lhs.transactionIds != rhs.transactionIds {return false}
@@ -735,10 +772,13 @@ extension Tag_GetTagsToTransactionsRequest: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Tag_GetTagsToTransactionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetTagsToTransactionsResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}tagsToTransactions\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetTagsToTransactionsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "tagsToTransactions"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -751,7 +791,7 @@ extension Tag_GetTagsToTransactionsResponse: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -765,7 +805,7 @@ extension Tag_GetTagsToTransactionsResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Tag_GetTagsToTransactionsResponse, rhs: Tag_GetTagsToTransactionsResponse) -> Bool {
+  public static func ==(lhs: Tag_GetTagsToTransactionsResponse, rhs: Tag_GetTagsToTransactionsResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.tagsToTransactions != rhs.tagsToTransactions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

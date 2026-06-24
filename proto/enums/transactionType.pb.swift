@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum TransactionType_TransactionType: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
+public enum TransactionType_TransactionType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
   case unspecified // = 0
 
   /// Перевод между счетами
@@ -37,11 +37,11 @@ enum TransactionType_TransactionType: SwiftProtobuf.Enum, Swift.CaseIterable {
   case income // = 4
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .transfer
@@ -52,7 +52,7 @@ enum TransactionType_TransactionType: SwiftProtobuf.Enum, Swift.CaseIterable {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .transfer: return 1
@@ -64,7 +64,7 @@ enum TransactionType_TransactionType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [TransactionType_TransactionType] = [
+  public static let allCases: [TransactionType_TransactionType] = [
     .unspecified,
     .transfer,
     .consumption,
@@ -77,5 +77,11 @@ enum TransactionType_TransactionType: SwiftProtobuf.Enum, Swift.CaseIterable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension TransactionType_TransactionType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Unspecified\0\u{1}Transfer\0\u{1}Consumption\0\u{1}Balancing\0\u{1}Income\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Unspecified"),
+    1: .same(proto: "Transfer"),
+    2: .same(proto: "Consumption"),
+    3: .same(proto: "Balancing"),
+    4: .same(proto: "Income"),
+  ]
 }

@@ -15,37 +15,39 @@ import GRPCProtobuf
 
 /// Namespace containing generated types for the "user.UserEndpoint" service.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal enum User_UserEndpoint {
+public enum User_UserEndpoint: Sendable {
     /// Service descriptor for the "user.UserEndpoint" service.
-    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "user.UserEndpoint")
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "user.UserEndpoint")
     /// Namespace for method metadata.
-    internal enum Method {
+    public enum Method: Sendable {
         /// Namespace for "GetUser" metadata.
-        internal enum GetUser {
+        public enum GetUser: Sendable {
             /// Request type for "GetUser".
-            internal typealias Input = User_GetUserRequest
+            public typealias Input = User_GetUserRequest
             /// Response type for "GetUser".
-            internal typealias Output = User_GetUserResponse
+            public typealias Output = User_GetUserResponse
             /// Descriptor for "GetUser".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "user.UserEndpoint"),
-                method: "GetUser"
+                method: "GetUser",
+                type: .unary
             )
         }
         /// Namespace for "UpdateUser" metadata.
-        internal enum UpdateUser {
+        public enum UpdateUser: Sendable {
             /// Request type for "UpdateUser".
-            internal typealias Input = User_UpdateUserRequest
+            public typealias Input = User_UpdateUserRequest
             /// Response type for "UpdateUser".
-            internal typealias Output = User_UpdateUserResponse
+            public typealias Output = User_UpdateUserResponse
             /// Descriptor for "UpdateUser".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "user.UserEndpoint"),
-                method: "UpdateUser"
+                method: "UpdateUser",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "user.UserEndpoint" service.
-        internal static let descriptors: [GRPCCore.MethodDescriptor] = [
+        public static let descriptors: [GRPCCore.MethodDescriptor] = [
             GetUser.descriptor,
             UpdateUser.descriptor
         ]
@@ -55,233 +57,7 @@ internal enum User_UserEndpoint {
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension GRPCCore.ServiceDescriptor {
     /// Service descriptor for the "user.UserEndpoint" service.
-    internal static let user_UserEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "user.UserEndpoint")
-}
-
-// MARK: user.UserEndpoint (server)
-
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension User_UserEndpoint {
-    /// Streaming variant of the service protocol for the "user.UserEndpoint" service.
-    ///
-    /// This protocol is the lowest-level of the service protocols generated for this service
-    /// giving you the most flexibility over the implementation of your service. This comes at
-    /// the cost of more verbose and less strict APIs. Each RPC requires you to implement it in
-    /// terms of a request stream and response stream. Where only a single request or response
-    /// message is expected, you are responsible for enforcing this invariant is maintained.
-    ///
-    /// Where possible, prefer using the stricter, less-verbose ``ServiceProtocol``
-    /// or ``SimpleServiceProtocol`` instead.
-    internal protocol StreamingServiceProtocol: GRPCCore.RegistrableRPCService {
-        /// Handle the "GetUser" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetUser получение данных пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `User_GetUserRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `User_GetUserResponse` messages.
-        func getUser(
-            request: GRPCCore.StreamingServerRequest<User_GetUserRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<User_GetUserResponse>
-
-        /// Handle the "UpdateUser" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateUser редактирование пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `User_UpdateUserRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `User_UpdateUserResponse` messages.
-        func updateUser(
-            request: GRPCCore.StreamingServerRequest<User_UpdateUserRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<User_UpdateUserResponse>
-    }
-
-    /// Service protocol for the "user.UserEndpoint" service.
-    ///
-    /// This protocol is higher level than ``StreamingServiceProtocol`` but lower level than
-    /// the ``SimpleServiceProtocol``, it provides access to request and response metadata and
-    /// trailing response metadata. If you don't need these then consider using
-    /// the ``SimpleServiceProtocol``. If you need fine grained control over your RPCs then
-    /// use ``StreamingServiceProtocol``.
-    internal protocol ServiceProtocol: User_UserEndpoint.StreamingServiceProtocol {
-        /// Handle the "GetUser" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetUser получение данных пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `User_GetUserRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `User_GetUserResponse` message.
-        func getUser(
-            request: GRPCCore.ServerRequest<User_GetUserRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<User_GetUserResponse>
-
-        /// Handle the "UpdateUser" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateUser редактирование пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `User_UpdateUserRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `User_UpdateUserResponse` message.
-        func updateUser(
-            request: GRPCCore.ServerRequest<User_UpdateUserRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<User_UpdateUserResponse>
-    }
-
-    /// Simple service protocol for the "user.UserEndpoint" service.
-    ///
-    /// This is the highest level protocol for the service. The API is the easiest to use but
-    /// doesn't provide access to request or response metadata. If you need access to these
-    /// then use ``ServiceProtocol`` instead.
-    internal protocol SimpleServiceProtocol: User_UserEndpoint.ServiceProtocol {
-        /// Handle the "GetUser" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetUser получение данных пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A `User_GetUserRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `User_GetUserResponse` to respond with.
-        func getUser(
-            request: User_GetUserRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> User_GetUserResponse
-
-        /// Handle the "UpdateUser" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateUser редактирование пользователя
-        ///
-        /// - Parameters:
-        ///   - request: A `User_UpdateUserRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `User_UpdateUserResponse` to respond with.
-        func updateUser(
-            request: User_UpdateUserRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> User_UpdateUserResponse
-    }
-}
-
-// Default implementation of 'registerMethods(with:)'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension User_UserEndpoint.StreamingServiceProtocol {
-    internal func registerMethods<Transport>(with router: inout GRPCCore.RPCRouter<Transport>) where Transport: GRPCCore.ServerTransport {
-        router.registerHandler(
-            forMethod: User_UserEndpoint.Method.GetUser.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<User_GetUserRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<User_GetUserResponse>(),
-            handler: { request, context in
-                try await self.getUser(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: User_UserEndpoint.Method.UpdateUser.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<User_UpdateUserRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<User_UpdateUserResponse>(),
-            handler: { request, context in
-                try await self.updateUser(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-    }
-}
-
-// Default implementation of streaming methods from 'StreamingServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension User_UserEndpoint.ServiceProtocol {
-    internal func getUser(
-        request: GRPCCore.StreamingServerRequest<User_GetUserRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<User_GetUserResponse> {
-        let response = try await self.getUser(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func updateUser(
-        request: GRPCCore.StreamingServerRequest<User_UpdateUserRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<User_UpdateUserResponse> {
-        let response = try await self.updateUser(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-}
-
-// Default implementation of methods from 'ServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension User_UserEndpoint.SimpleServiceProtocol {
-    internal func getUser(
-        request: GRPCCore.ServerRequest<User_GetUserRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<User_GetUserResponse> {
-        return GRPCCore.ServerResponse<User_GetUserResponse>(
-            message: try await self.getUser(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func updateUser(
-        request: GRPCCore.ServerRequest<User_UpdateUserRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<User_UpdateUserResponse> {
-        return GRPCCore.ServerResponse<User_UpdateUserResponse>(
-            message: try await self.updateUser(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
+    public static let user_UserEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "user.UserEndpoint")
 }
 
 // MARK: user.UserEndpoint (client)
@@ -292,7 +68,7 @@ extension User_UserEndpoint {
     ///
     /// You don't need to implement this protocol directly, use the generated
     /// implementation, ``Client``.
-    internal protocol ClientProtocol: Sendable {
+    public protocol ClientProtocol: Sendable {
         /// Call the "GetUser" method.
         ///
         /// > Source IDL Documentation:
@@ -345,14 +121,14 @@ extension User_UserEndpoint {
     /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
     /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
     /// means of communication with the remote peer.
-    internal struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
         private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        internal init(wrapping client: GRPCCore.GRPCClient<Transport>) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 
@@ -371,7 +147,7 @@ extension User_UserEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func getUser<Result>(
+        public func getUser<Result>(
             request: GRPCCore.ClientRequest<User_GetUserRequest>,
             serializer: some GRPCCore.MessageSerializer<User_GetUserRequest>,
             deserializer: some GRPCCore.MessageDeserializer<User_GetUserResponse>,
@@ -405,7 +181,7 @@ extension User_UserEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func updateUser<Result>(
+        public func updateUser<Result>(
             request: GRPCCore.ClientRequest<User_UpdateUserRequest>,
             serializer: some GRPCCore.MessageSerializer<User_UpdateUserRequest>,
             deserializer: some GRPCCore.MessageDeserializer<User_UpdateUserResponse>,
@@ -442,7 +218,7 @@ extension User_UserEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getUser<Result>(
+    public func getUser<Result>(
         request: GRPCCore.ClientRequest<User_GetUserRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<User_GetUserResponse>) async throws -> Result = { response in
@@ -471,7 +247,7 @@ extension User_UserEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateUser<Result>(
+    public func updateUser<Result>(
         request: GRPCCore.ClientRequest<User_UpdateUserRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<User_UpdateUserResponse>) async throws -> Result = { response in
@@ -505,7 +281,7 @@ extension User_UserEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getUser<Result>(
+    public func getUser<Result>(
         _ message: User_GetUserRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -538,7 +314,7 @@ extension User_UserEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateUser<Result>(
+    public func updateUser<Result>(
         _ message: User_UpdateUserRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,

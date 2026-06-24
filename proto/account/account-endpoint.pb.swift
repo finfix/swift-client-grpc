@@ -21,218 +21,218 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Account_AccountBudget: Sendable {
+public struct Account_AccountBudget: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Сумма бюджета
-  var amount: Double = 0
+  public var amount: Double = 0
 
   /// Смещение в днях
-  var daysOffset: UInt32 = 0
+  public var daysOffset: UInt32 = 0
 
   /// Фиксированная сумма
-  var fixedSum: Double = 0
+  public var fixedSum: Double = 0
 
   /// Постепенное пополнение
-  var gradualFilling: Bool = false
+  public var gradualFilling: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Account_Account: @unchecked Sendable {
+public struct Account_Account: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Идентификатор счета
-  var id: Data {
+  public var id: Data {
     get {return _storage._id}
     set {_uniqueStorage()._id = newValue}
   }
 
   /// Название счета
-  var name: String {
+  public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   /// Тип счета
-  var type: AccountType_AccountType {
+  public var type: AccountType_AccountType {
     get {return _storage._type}
     set {_uniqueStorage()._type = newValue}
   }
 
   /// Валюта счета
-  var currency: String {
+  public var currency: String {
     get {return _storage._currency}
     set {_uniqueStorage()._currency = newValue}
   }
 
   /// Остаток средств на счету
-  var remainder: Double {
+  public var remainder: Double {
     get {return _storage._remainder}
     set {_uniqueStorage()._remainder = newValue}
   }
 
   /// Видимость счета
-  var visible: Bool {
+  public var visible: Bool {
     get {return _storage._visible}
     set {_uniqueStorage()._visible = newValue}
   }
 
   /// Учитывать ли счет в графиках
-  var accountingInCharts: Bool {
+  public var accountingInCharts: Bool {
     get {return _storage._accountingInCharts}
     set {_uniqueStorage()._accountingInCharts = newValue}
   }
 
   /// Будет ли счет учитываться в шапке
-  var accountingInHeader: Bool {
+  public var accountingInHeader: Bool {
     get {return _storage._accountingInHeader}
     set {_uniqueStorage()._accountingInHeader = newValue}
   }
 
   /// Идентификатор группы счета
-  var accountGroupID: Data {
+  public var accountGroupID: Data {
     get {return _storage._accountGroupID}
     set {_uniqueStorage()._accountGroupID = newValue}
   }
 
   /// Идентификатор родительского аккаунта
-  var parentAccountID: Data {
+  public var parentAccountID: Data {
     get {return _storage._parentAccountID}
     set {_uniqueStorage()._parentAccountID = newValue}
   }
 
   /// Является ли счет родительским
-  var isParent: Bool {
+  public var isParent: Bool {
     get {return _storage._isParent}
     set {_uniqueStorage()._isParent = newValue}
   }
 
   /// Идентификатор иконки
-  var iconID: Data {
+  public var iconID: Data {
     get {return _storage._iconID}
     set {_uniqueStorage()._iconID = newValue}
   }
 
   /// Порядковый номер счета
-  var serialNumber: UInt32 {
+  public var serialNumber: UInt32 {
     get {return _storage._serialNumber}
     set {_uniqueStorage()._serialNumber = newValue}
   }
 
   /// Идентификатор пользователя, создавшего счет
-  var createdByUserID: Data {
+  public var createdByUserID: Data {
     get {return _storage._createdByUserID}
     set {_uniqueStorage()._createdByUserID = newValue}
   }
 
   /// Дата и время создания счета
-  var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  var hasDatetimeCreate: Bool {return _storage._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return _storage._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  mutating func clearDatetimeCreate() {_uniqueStorage()._datetimeCreate = nil}
+  public mutating func clearDatetimeCreate() {_uniqueStorage()._datetimeCreate = nil}
 
   /// Бюджет
-  var budget: Account_AccountBudget {
+  public var budget: Account_AccountBudget {
     get {return _storage._budget ?? Account_AccountBudget()}
     set {_uniqueStorage()._budget = newValue}
   }
   /// Returns true if `budget` has been explicitly set.
-  var hasBudget: Bool {return _storage._budget != nil}
+  public var hasBudget: Bool {return _storage._budget != nil}
   /// Clears the value of `budget`. Subsequent reads from it will return its default value.
-  mutating func clearBudget() {_uniqueStorage()._budget = nil}
+  public mutating func clearBudget() {_uniqueStorage()._budget = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Account_GetAccountsRequest: Sendable {
+public struct Account_GetAccountsRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификаторы групп счетов
-  var accountGroupIds: [Data] = []
+  public var accountGroupIds: [Data] = []
 
   /// Учитывать ли счет в графиках
-  var accountingInCharts: Bool {
+  public var accountingInCharts: Bool {
     get {return _accountingInCharts ?? false}
     set {_accountingInCharts = newValue}
   }
   /// Returns true if `accountingInCharts` has been explicitly set.
-  var hasAccountingInCharts: Bool {return self._accountingInCharts != nil}
+  public var hasAccountingInCharts: Bool {return self._accountingInCharts != nil}
   /// Clears the value of `accountingInCharts`. Subsequent reads from it will return its default value.
-  mutating func clearAccountingInCharts() {self._accountingInCharts = nil}
+  public mutating func clearAccountingInCharts() {self._accountingInCharts = nil}
 
   /// Учитывать ли счет в шапке
-  var accountingInHeader: Bool {
+  public var accountingInHeader: Bool {
     get {return _accountingInHeader ?? false}
     set {_accountingInHeader = newValue}
   }
   /// Returns true if `accountingInHeader` has been explicitly set.
-  var hasAccountingInHeader: Bool {return self._accountingInHeader != nil}
+  public var hasAccountingInHeader: Bool {return self._accountingInHeader != nil}
   /// Clears the value of `accountingInHeader`. Subsequent reads from it will return its default value.
-  mutating func clearAccountingInHeader() {self._accountingInHeader = nil}
+  public mutating func clearAccountingInHeader() {self._accountingInHeader = nil}
 
   /// Дата начала выборки
-  var dateFrom: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var dateFrom: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _dateFrom ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_dateFrom = newValue}
   }
   /// Returns true if `dateFrom` has been explicitly set.
-  var hasDateFrom: Bool {return self._dateFrom != nil}
+  public var hasDateFrom: Bool {return self._dateFrom != nil}
   /// Clears the value of `dateFrom`. Subsequent reads from it will return its default value.
-  mutating func clearDateFrom() {self._dateFrom = nil}
+  public mutating func clearDateFrom() {self._dateFrom = nil}
 
   /// Дата конца выборки
-  var dateTo: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var dateTo: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _dateTo ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_dateTo = newValue}
   }
   /// Returns true if `dateTo` has been explicitly set.
-  var hasDateTo: Bool {return self._dateTo != nil}
+  public var hasDateTo: Bool {return self._dateTo != nil}
   /// Clears the value of `dateTo`. Subsequent reads from it will return its default value.
-  mutating func clearDateTo() {self._dateTo = nil}
+  public mutating func clearDateTo() {self._dateTo = nil}
 
   /// Тип счета
-  var type: AccountType_AccountType {
+  public var type: AccountType_AccountType {
     get {return _type ?? .unspecified}
     set {_type = newValue}
   }
   /// Returns true if `type` has been explicitly set.
-  var hasType: Bool {return self._type != nil}
+  public var hasType: Bool {return self._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  mutating func clearType() {self._type = nil}
+  public mutating func clearType() {self._type = nil}
 
   /// Видимость счета
-  var visible: Bool {
+  public var visible: Bool {
     get {return _visible ?? false}
     set {_visible = newValue}
   }
   /// Returns true if `visible` has been explicitly set.
-  var hasVisible: Bool {return self._visible != nil}
+  public var hasVisible: Bool {return self._visible != nil}
   /// Clears the value of `visible`. Subsequent reads from it will return its default value.
-  mutating func clearVisible() {self._visible = nil}
+  public mutating func clearVisible() {self._visible = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _accountingInCharts: Bool? = nil
   fileprivate var _accountingInHeader: Bool? = nil
@@ -242,201 +242,201 @@ struct Account_GetAccountsRequest: Sendable {
   fileprivate var _visible: Bool? = nil
 }
 
-struct Account_GetAccountsResponse: Sendable {
+public struct Account_GetAccountsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Список счетов
-  var accounts: [Account_Account] = []
+  public var accounts: [Account_Account] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Account_CreateAccountRequest: @unchecked Sendable {
+public struct Account_CreateAccountRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String {
+  public var accessToken: String {
     get {return _storage._accessToken}
     set {_uniqueStorage()._accessToken = newValue}
   }
 
   /// Идентификатор счета
-  var id: Data {
+  public var id: Data {
     get {return _storage._id}
     set {_uniqueStorage()._id = newValue}
   }
 
   /// Название счета
-  var name: String {
+  public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   /// Тип счета
-  var type: AccountType_AccountType {
+  public var type: AccountType_AccountType {
     get {return _storage._type}
     set {_uniqueStorage()._type = newValue}
   }
 
   /// Валюта счета
-  var currency: String {
+  public var currency: String {
     get {return _storage._currency}
     set {_uniqueStorage()._currency = newValue}
   }
 
   /// Группа счета
-  var accountGroupID: Data {
+  public var accountGroupID: Data {
     get {return _storage._accountGroupID}
     set {_uniqueStorage()._accountGroupID = newValue}
   }
 
   /// Учитывать ли счет в графиках
-  var accountingInCharts: Bool {
+  public var accountingInCharts: Bool {
     get {return _storage._accountingInCharts}
     set {_uniqueStorage()._accountingInCharts = newValue}
   }
 
   /// Подсчет суммы счета в статистике
-  var accountingInHeader: Bool {
+  public var accountingInHeader: Bool {
     get {return _storage._accountingInHeader}
     set {_uniqueStorage()._accountingInHeader = newValue}
   }
 
   /// Идентификатор иконки
-  var iconID: Data {
+  public var iconID: Data {
     get {return _storage._iconID}
     set {_uniqueStorage()._iconID = newValue}
   }
 
   /// Является ли счет родительским
-  var isParent: Bool {
+  public var isParent: Bool {
     get {return _storage._isParent}
     set {_uniqueStorage()._isParent = newValue}
   }
 
   /// Дата создания счета
-  var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  var hasDatetimeCreate: Bool {return _storage._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return _storage._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  mutating func clearDatetimeCreate() {_uniqueStorage()._datetimeCreate = nil}
+  public mutating func clearDatetimeCreate() {_uniqueStorage()._datetimeCreate = nil}
 
   /// Идентификатор родительского счета
-  var parentAccountID: Data {
+  public var parentAccountID: Data {
     get {return _storage._parentAccountID ?? Data()}
     set {_uniqueStorage()._parentAccountID = newValue}
   }
   /// Returns true if `parentAccountID` has been explicitly set.
-  var hasParentAccountID: Bool {return _storage._parentAccountID != nil}
+  public var hasParentAccountID: Bool {return _storage._parentAccountID != nil}
   /// Clears the value of `parentAccountID`. Subsequent reads from it will return its default value.
-  mutating func clearParentAccountID() {_uniqueStorage()._parentAccountID = nil}
+  public mutating func clearParentAccountID() {_uniqueStorage()._parentAccountID = nil}
 
   /// Остаток средств на счету
-  var remainder: Double {
+  public var remainder: Double {
     get {return _storage._remainder ?? 0}
     set {_uniqueStorage()._remainder = newValue}
   }
   /// Returns true if `remainder` has been explicitly set.
-  var hasRemainder: Bool {return _storage._remainder != nil}
+  public var hasRemainder: Bool {return _storage._remainder != nil}
   /// Clears the value of `remainder`. Subsequent reads from it will return its default value.
-  mutating func clearRemainder() {_uniqueStorage()._remainder = nil}
+  public mutating func clearRemainder() {_uniqueStorage()._remainder = nil}
 
   /// Бюджет
-  var budget: Account_AccountBudget {
+  public var budget: Account_AccountBudget {
     get {return _storage._budget ?? Account_AccountBudget()}
     set {_uniqueStorage()._budget = newValue}
   }
   /// Returns true if `budget` has been explicitly set.
-  var hasBudget: Bool {return _storage._budget != nil}
+  public var hasBudget: Bool {return _storage._budget != nil}
   /// Clears the value of `budget`. Subsequent reads from it will return its default value.
-  mutating func clearBudget() {_uniqueStorage()._budget = nil}
+  public mutating func clearBudget() {_uniqueStorage()._budget = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Account_CreateAccountResponse: Sendable {
+public struct Account_CreateAccountResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Порядковый номер счета
-  var serialNumber: UInt32 {
+  public var serialNumber: UInt32 {
     get {return _serialNumber ?? 0}
     set {_serialNumber = newValue}
   }
   /// Returns true if `serialNumber` has been explicitly set.
-  var hasSerialNumber: Bool {return self._serialNumber != nil}
+  public var hasSerialNumber: Bool {return self._serialNumber != nil}
   /// Clears the value of `serialNumber`. Subsequent reads from it will return its default value.
-  mutating func clearSerialNumber() {self._serialNumber = nil}
+  public mutating func clearSerialNumber() {self._serialNumber = nil}
 
   /// Идентификатор балансировочного счета
-  var balancingAccountID: Data {
+  public var balancingAccountID: Data {
     get {return _balancingAccountID ?? Data()}
     set {_balancingAccountID = newValue}
   }
   /// Returns true if `balancingAccountID` has been explicitly set.
-  var hasBalancingAccountID: Bool {return self._balancingAccountID != nil}
+  public var hasBalancingAccountID: Bool {return self._balancingAccountID != nil}
   /// Clears the value of `balancingAccountID`. Subsequent reads from it will return its default value.
-  mutating func clearBalancingAccountID() {self._balancingAccountID = nil}
+  public mutating func clearBalancingAccountID() {self._balancingAccountID = nil}
 
   /// Порядковый номер балансировочного счета
-  var balancingAccountSerialNumber: UInt32 {
+  public var balancingAccountSerialNumber: UInt32 {
     get {return _balancingAccountSerialNumber ?? 0}
     set {_balancingAccountSerialNumber = newValue}
   }
   /// Returns true if `balancingAccountSerialNumber` has been explicitly set.
-  var hasBalancingAccountSerialNumber: Bool {return self._balancingAccountSerialNumber != nil}
+  public var hasBalancingAccountSerialNumber: Bool {return self._balancingAccountSerialNumber != nil}
   /// Clears the value of `balancingAccountSerialNumber`. Subsequent reads from it will return its default value.
-  mutating func clearBalancingAccountSerialNumber() {self._balancingAccountSerialNumber = nil}
+  public mutating func clearBalancingAccountSerialNumber() {self._balancingAccountSerialNumber = nil}
 
   /// Идентификатор транзакции балансировки
-  var balancingTransactionID: Data {
+  public var balancingTransactionID: Data {
     get {return _balancingTransactionID ?? Data()}
     set {_balancingTransactionID = newValue}
   }
   /// Returns true if `balancingTransactionID` has been explicitly set.
-  var hasBalancingTransactionID: Bool {return self._balancingTransactionID != nil}
+  public var hasBalancingTransactionID: Bool {return self._balancingTransactionID != nil}
   /// Clears the value of `balancingTransactionID`. Subsequent reads from it will return its default value.
-  mutating func clearBalancingTransactionID() {self._balancingTransactionID = nil}
+  public mutating func clearBalancingTransactionID() {self._balancingTransactionID = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
   fileprivate var _serialNumber: UInt32? = nil
@@ -445,120 +445,120 @@ struct Account_CreateAccountResponse: Sendable {
   fileprivate var _balancingTransactionID: Data? = nil
 }
 
-struct Account_UpdateAccountRequest: Sendable {
+public struct Account_UpdateAccountRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор счета
-  var id: Data = Data()
+  public var id: Data = Data()
 
   /// Название счета
-  var name: String {
+  public var name: String {
     get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  public mutating func clearName() {self._name = nil}
 
   /// Будет ли счет учитываться в графиках
-  var accountingInCharts: Bool {
+  public var accountingInCharts: Bool {
     get {return _accountingInCharts ?? false}
     set {_accountingInCharts = newValue}
   }
   /// Returns true if `accountingInCharts` has been explicitly set.
-  var hasAccountingInCharts: Bool {return self._accountingInCharts != nil}
+  public var hasAccountingInCharts: Bool {return self._accountingInCharts != nil}
   /// Clears the value of `accountingInCharts`. Subsequent reads from it will return its default value.
-  mutating func clearAccountingInCharts() {self._accountingInCharts = nil}
+  public mutating func clearAccountingInCharts() {self._accountingInCharts = nil}
 
   /// Будет ли счет учитываться в статистике
-  var accountingInHeader: Bool {
+  public var accountingInHeader: Bool {
     get {return _accountingInHeader ?? false}
     set {_accountingInHeader = newValue}
   }
   /// Returns true if `accountingInHeader` has been explicitly set.
-  var hasAccountingInHeader: Bool {return self._accountingInHeader != nil}
+  public var hasAccountingInHeader: Bool {return self._accountingInHeader != nil}
   /// Clears the value of `accountingInHeader`. Subsequent reads from it will return its default value.
-  mutating func clearAccountingInHeader() {self._accountingInHeader = nil}
+  public mutating func clearAccountingInHeader() {self._accountingInHeader = nil}
 
   /// Валюта счета
-  var currency: String {
+  public var currency: String {
     get {return _currency ?? String()}
     set {_currency = newValue}
   }
   /// Returns true if `currency` has been explicitly set.
-  var hasCurrency: Bool {return self._currency != nil}
+  public var hasCurrency: Bool {return self._currency != nil}
   /// Clears the value of `currency`. Subsequent reads from it will return its default value.
-  mutating func clearCurrency() {self._currency = nil}
+  public mutating func clearCurrency() {self._currency = nil}
 
   /// Идентификатор иконки
-  var iconID: Data {
+  public var iconID: Data {
     get {return _iconID ?? Data()}
     set {_iconID = newValue}
   }
   /// Returns true if `iconID` has been explicitly set.
-  var hasIconID: Bool {return self._iconID != nil}
+  public var hasIconID: Bool {return self._iconID != nil}
   /// Clears the value of `iconID`. Subsequent reads from it will return its default value.
-  mutating func clearIconID() {self._iconID = nil}
+  public mutating func clearIconID() {self._iconID = nil}
 
   /// Идентификатор родительского счета
-  var parentAccountID: Data {
+  public var parentAccountID: Data {
     get {return _parentAccountID ?? Data()}
     set {_parentAccountID = newValue}
   }
   /// Returns true if `parentAccountID` has been explicitly set.
-  var hasParentAccountID: Bool {return self._parentAccountID != nil}
+  public var hasParentAccountID: Bool {return self._parentAccountID != nil}
   /// Clears the value of `parentAccountID`. Subsequent reads from it will return its default value.
-  mutating func clearParentAccountID() {self._parentAccountID = nil}
+  public mutating func clearParentAccountID() {self._parentAccountID = nil}
 
   /// Остаток средств на счету
-  var remainder: Double {
+  public var remainder: Double {
     get {return _remainder ?? 0}
     set {_remainder = newValue}
   }
   /// Returns true if `remainder` has been explicitly set.
-  var hasRemainder: Bool {return self._remainder != nil}
+  public var hasRemainder: Bool {return self._remainder != nil}
   /// Clears the value of `remainder`. Subsequent reads from it will return its default value.
-  mutating func clearRemainder() {self._remainder = nil}
+  public mutating func clearRemainder() {self._remainder = nil}
 
   /// Порядковый номер счета
-  var serialNumber: UInt32 {
+  public var serialNumber: UInt32 {
     get {return _serialNumber ?? 0}
     set {_serialNumber = newValue}
   }
   /// Returns true if `serialNumber` has been explicitly set.
-  var hasSerialNumber: Bool {return self._serialNumber != nil}
+  public var hasSerialNumber: Bool {return self._serialNumber != nil}
   /// Clears the value of `serialNumber`. Subsequent reads from it will return its default value.
-  mutating func clearSerialNumber() {self._serialNumber = nil}
+  public mutating func clearSerialNumber() {self._serialNumber = nil}
 
   /// Видимость счета
-  var visible: Bool {
+  public var visible: Bool {
     get {return _visible ?? false}
     set {_visible = newValue}
   }
   /// Returns true if `visible` has been explicitly set.
-  var hasVisible: Bool {return self._visible != nil}
+  public var hasVisible: Bool {return self._visible != nil}
   /// Clears the value of `visible`. Subsequent reads from it will return its default value.
-  mutating func clearVisible() {self._visible = nil}
+  public mutating func clearVisible() {self._visible = nil}
 
   /// Месячный бюджет
-  var budget: Account_UpdateAccountBudgetRequest {
+  public var budget: Account_UpdateAccountBudgetRequest {
     get {return _budget ?? Account_UpdateAccountBudgetRequest()}
     set {_budget = newValue}
   }
   /// Returns true if `budget` has been explicitly set.
-  var hasBudget: Bool {return self._budget != nil}
+  public var hasBudget: Bool {return self._budget != nil}
   /// Clears the value of `budget`. Subsequent reads from it will return its default value.
-  mutating func clearBudget() {self._budget = nil}
+  public mutating func clearBudget() {self._budget = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _name: String? = nil
   fileprivate var _accountingInCharts: Bool? = nil
@@ -572,54 +572,54 @@ struct Account_UpdateAccountRequest: Sendable {
   fileprivate var _budget: Account_UpdateAccountBudgetRequest? = nil
 }
 
-struct Account_UpdateAccountBudgetRequest: Sendable {
+public struct Account_UpdateAccountBudgetRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Сумма бюджета
-  var amount: Double {
+  public var amount: Double {
     get {return _amount ?? 0}
     set {_amount = newValue}
   }
   /// Returns true if `amount` has been explicitly set.
-  var hasAmount: Bool {return self._amount != nil}
+  public var hasAmount: Bool {return self._amount != nil}
   /// Clears the value of `amount`. Subsequent reads from it will return its default value.
-  mutating func clearAmount() {self._amount = nil}
+  public mutating func clearAmount() {self._amount = nil}
 
   /// Смещение в днях
-  var daysOffset: UInt32 {
+  public var daysOffset: UInt32 {
     get {return _daysOffset ?? 0}
     set {_daysOffset = newValue}
   }
   /// Returns true if `daysOffset` has been explicitly set.
-  var hasDaysOffset: Bool {return self._daysOffset != nil}
+  public var hasDaysOffset: Bool {return self._daysOffset != nil}
   /// Clears the value of `daysOffset`. Subsequent reads from it will return its default value.
-  mutating func clearDaysOffset() {self._daysOffset = nil}
+  public mutating func clearDaysOffset() {self._daysOffset = nil}
 
   /// Фиксированная сумма
-  var fixedSum: Double {
+  public var fixedSum: Double {
     get {return _fixedSum ?? 0}
     set {_fixedSum = newValue}
   }
   /// Returns true if `fixedSum` has been explicitly set.
-  var hasFixedSum: Bool {return self._fixedSum != nil}
+  public var hasFixedSum: Bool {return self._fixedSum != nil}
   /// Clears the value of `fixedSum`. Subsequent reads from it will return its default value.
-  mutating func clearFixedSum() {self._fixedSum = nil}
+  public mutating func clearFixedSum() {self._fixedSum = nil}
 
   /// Постепенное пополнение
-  var gradualFilling: Bool {
+  public var gradualFilling: Bool {
     get {return _gradualFilling ?? false}
     set {_gradualFilling = newValue}
   }
   /// Returns true if `gradualFilling` has been explicitly set.
-  var hasGradualFilling: Bool {return self._gradualFilling != nil}
+  public var hasGradualFilling: Bool {return self._gradualFilling != nil}
   /// Clears the value of `gradualFilling`. Subsequent reads from it will return its default value.
-  mutating func clearGradualFilling() {self._gradualFilling = nil}
+  public mutating func clearGradualFilling() {self._gradualFilling = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _amount: Double? = nil
   fileprivate var _daysOffset: UInt32? = nil
@@ -627,62 +627,62 @@ struct Account_UpdateAccountBudgetRequest: Sendable {
   fileprivate var _gradualFilling: Bool? = nil
 }
 
-struct Account_UpdateAccountResponse: Sendable {
+public struct Account_UpdateAccountResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct Account_DeleteAccountRequest: Sendable {
+public struct Account_DeleteAccountRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор счета
-  var id: Data = Data()
+  public var id: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Account_DeleteAccountResponse: Sendable {
+public struct Account_DeleteAccountResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
@@ -692,10 +692,15 @@ struct Account_DeleteAccountResponse: Sendable {
 fileprivate let _protobuf_package = "account"
 
 extension Account_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AccountBudget"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}amount\0\u{1}daysOffset\0\u{1}fixedSum\0\u{1}gradualFilling\0")
+  public static let protoMessageName: String = _protobuf_package + ".AccountBudget"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "amount"),
+    2: .same(proto: "daysOffset"),
+    3: .same(proto: "fixedSum"),
+    4: .same(proto: "gradualFilling"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -710,7 +715,7 @@ extension Account_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.amount.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.amount, fieldNumber: 1)
     }
@@ -726,7 +731,7 @@ extension Account_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_AccountBudget, rhs: Account_AccountBudget) -> Bool {
+  public static func ==(lhs: Account_AccountBudget, rhs: Account_AccountBudget) -> Bool {
     if lhs.amount != rhs.amount {return false}
     if lhs.daysOffset != rhs.daysOffset {return false}
     if lhs.fixedSum != rhs.fixedSum {return false}
@@ -737,8 +742,25 @@ extension Account_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Account"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{1}type\0\u{1}currency\0\u{1}remainder\0\u{1}visible\0\u{1}accountingInCharts\0\u{1}accountingInHeader\0\u{1}accountGroupID\0\u{1}parentAccountID\0\u{1}isParent\0\u{1}iconID\0\u{1}serialNumber\0\u{1}createdByUserID\0\u{1}datetimeCreate\0\u{1}budget\0")
+  public static let protoMessageName: String = _protobuf_package + ".Account"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "name"),
+    3: .same(proto: "type"),
+    4: .same(proto: "currency"),
+    5: .same(proto: "remainder"),
+    6: .same(proto: "visible"),
+    7: .same(proto: "accountingInCharts"),
+    8: .same(proto: "accountingInHeader"),
+    9: .same(proto: "accountGroupID"),
+    10: .same(proto: "parentAccountID"),
+    11: .same(proto: "isParent"),
+    12: .same(proto: "iconID"),
+    13: .same(proto: "serialNumber"),
+    14: .same(proto: "createdByUserID"),
+    15: .same(proto: "datetimeCreate"),
+    16: .same(proto: "budget"),
+  ]
 
   fileprivate class _StorageClass {
     var _id: Data = Data()
@@ -758,11 +780,15 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
     var _budget: Account_AccountBudget? = nil
 
+    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
 
     private init() {}
 
@@ -793,7 +819,7 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -823,7 +849,7 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -881,7 +907,7 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_Account, rhs: Account_Account) -> Bool {
+  public static func ==(lhs: Account_Account, rhs: Account_Account) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -912,10 +938,19 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension Account_GetAccountsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetAccountsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}accountGroupIDs\0\u{1}accountingInCharts\0\u{1}accountingInHeader\0\u{1}dateFrom\0\u{1}dateTo\0\u{1}type\0\u{1}visible\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetAccountsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "accountGroupIDs"),
+    3: .same(proto: "accountingInCharts"),
+    4: .same(proto: "accountingInHeader"),
+    5: .same(proto: "dateFrom"),
+    6: .same(proto: "dateTo"),
+    7: .same(proto: "type"),
+    8: .same(proto: "visible"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -934,7 +969,7 @@ extension Account_GetAccountsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -966,7 +1001,7 @@ extension Account_GetAccountsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_GetAccountsRequest, rhs: Account_GetAccountsRequest) -> Bool {
+  public static func ==(lhs: Account_GetAccountsRequest, rhs: Account_GetAccountsRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.accountGroupIds != rhs.accountGroupIds {return false}
     if lhs._accountingInCharts != rhs._accountingInCharts {return false}
@@ -981,10 +1016,13 @@ extension Account_GetAccountsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension Account_GetAccountsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetAccountsResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}accounts\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetAccountsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "accounts"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -997,7 +1035,7 @@ extension Account_GetAccountsResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1011,7 +1049,7 @@ extension Account_GetAccountsResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_GetAccountsResponse, rhs: Account_GetAccountsResponse) -> Bool {
+  public static func ==(lhs: Account_GetAccountsResponse, rhs: Account_GetAccountsResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.accounts != rhs.accounts {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1020,8 +1058,23 @@ extension Account_GetAccountsResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateAccountRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0\u{1}name\0\u{1}type\0\u{1}currency\0\u{1}accountGroupID\0\u{1}accountingInCharts\0\u{1}accountingInHeader\0\u{1}iconID\0\u{1}isParent\0\u{1}datetimeCreate\0\u{1}parentAccountID\0\u{1}remainder\0\u{1}budget\0")
+  public static let protoMessageName: String = _protobuf_package + ".CreateAccountRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+    3: .same(proto: "name"),
+    4: .same(proto: "type"),
+    5: .same(proto: "currency"),
+    6: .same(proto: "accountGroupID"),
+    7: .same(proto: "accountingInCharts"),
+    8: .same(proto: "accountingInHeader"),
+    9: .same(proto: "iconID"),
+    10: .same(proto: "isParent"),
+    11: .same(proto: "datetimeCreate"),
+    12: .same(proto: "parentAccountID"),
+    13: .same(proto: "remainder"),
+    14: .same(proto: "budget"),
+  ]
 
   fileprivate class _StorageClass {
     var _accessToken: String = String()
@@ -1039,11 +1092,15 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     var _remainder: Double? = nil
     var _budget: Account_AccountBudget? = nil
 
+    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
 
     private init() {}
 
@@ -1072,7 +1129,7 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1100,7 +1157,7 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -1152,7 +1209,7 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_CreateAccountRequest, rhs: Account_CreateAccountRequest) -> Bool {
+  public static func ==(lhs: Account_CreateAccountRequest, rhs: Account_CreateAccountRequest) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1181,10 +1238,16 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Account_CreateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateAccountResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}serialNumber\0\u{1}balancingAccountID\0\u{1}balancingAccountSerialNumber\0\u{1}balancingTransactionID\0")
+  public static let protoMessageName: String = _protobuf_package + ".CreateAccountResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "serialNumber"),
+    3: .same(proto: "balancingAccountID"),
+    4: .same(proto: "balancingAccountSerialNumber"),
+    5: .same(proto: "balancingTransactionID"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1200,7 +1263,7 @@ extension Account_CreateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1223,7 +1286,7 @@ extension Account_CreateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_CreateAccountResponse, rhs: Account_CreateAccountResponse) -> Bool {
+  public static func ==(lhs: Account_CreateAccountResponse, rhs: Account_CreateAccountResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs._serialNumber != rhs._serialNumber {return false}
     if lhs._balancingAccountID != rhs._balancingAccountID {return false}
@@ -1235,10 +1298,23 @@ extension Account_CreateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateAccountRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0\u{1}name\0\u{1}accountingInCharts\0\u{1}accountingInHeader\0\u{1}currency\0\u{1}iconID\0\u{1}parentAccountID\0\u{1}remainder\0\u{1}serialNumber\0\u{1}visible\0\u{1}budget\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateAccountRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+    3: .same(proto: "name"),
+    4: .same(proto: "accountingInCharts"),
+    5: .same(proto: "accountingInHeader"),
+    6: .same(proto: "currency"),
+    7: .same(proto: "iconID"),
+    8: .same(proto: "parentAccountID"),
+    9: .same(proto: "remainder"),
+    10: .same(proto: "serialNumber"),
+    11: .same(proto: "visible"),
+    12: .same(proto: "budget"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1261,7 +1337,7 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1305,7 +1381,7 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_UpdateAccountRequest, rhs: Account_UpdateAccountRequest) -> Bool {
+  public static func ==(lhs: Account_UpdateAccountRequest, rhs: Account_UpdateAccountRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.id != rhs.id {return false}
     if lhs._name != rhs._name {return false}
@@ -1324,10 +1400,15 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Account_UpdateAccountBudgetRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateAccountBudgetRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}amount\0\u{1}daysOffset\0\u{1}fixedSum\0\u{1}gradualFilling\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateAccountBudgetRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "amount"),
+    2: .same(proto: "daysOffset"),
+    3: .same(proto: "fixedSum"),
+    4: .same(proto: "gradualFilling"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1342,7 +1423,7 @@ extension Account_UpdateAccountBudgetRequest: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1362,7 +1443,7 @@ extension Account_UpdateAccountBudgetRequest: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_UpdateAccountBudgetRequest, rhs: Account_UpdateAccountBudgetRequest) -> Bool {
+  public static func ==(lhs: Account_UpdateAccountBudgetRequest, rhs: Account_UpdateAccountBudgetRequest) -> Bool {
     if lhs._amount != rhs._amount {return false}
     if lhs._daysOffset != rhs._daysOffset {return false}
     if lhs._fixedSum != rhs._fixedSum {return false}
@@ -1373,10 +1454,12 @@ extension Account_UpdateAccountBudgetRequest: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Account_UpdateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateAccountResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateAccountResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1388,7 +1471,7 @@ extension Account_UpdateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1399,7 +1482,7 @@ extension Account_UpdateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_UpdateAccountResponse, rhs: Account_UpdateAccountResponse) -> Bool {
+  public static func ==(lhs: Account_UpdateAccountResponse, rhs: Account_UpdateAccountResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1407,10 +1490,13 @@ extension Account_UpdateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Account_DeleteAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteAccountRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0")
+  public static let protoMessageName: String = _protobuf_package + ".DeleteAccountRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1423,7 +1509,7 @@ extension Account_DeleteAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
@@ -1433,7 +1519,7 @@ extension Account_DeleteAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_DeleteAccountRequest, rhs: Account_DeleteAccountRequest) -> Bool {
+  public static func ==(lhs: Account_DeleteAccountRequest, rhs: Account_DeleteAccountRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1442,10 +1528,12 @@ extension Account_DeleteAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Account_DeleteAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteAccountResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".DeleteAccountResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1457,7 +1545,7 @@ extension Account_DeleteAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1468,7 +1556,7 @@ extension Account_DeleteAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Account_DeleteAccountResponse, rhs: Account_DeleteAccountResponse) -> Bool {
+  public static func ==(lhs: Account_DeleteAccountResponse, rhs: Account_DeleteAccountResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

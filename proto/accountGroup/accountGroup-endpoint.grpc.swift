@@ -15,61 +15,65 @@ import GRPCProtobuf
 
 /// Namespace containing generated types for the "accountGroup.AccountGroupEndpoint" service.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal enum AccountGroup_AccountGroupEndpoint {
+public enum AccountGroup_AccountGroupEndpoint: Sendable {
     /// Service descriptor for the "accountGroup.AccountGroupEndpoint" service.
-    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountGroup.AccountGroupEndpoint")
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountGroup.AccountGroupEndpoint")
     /// Namespace for method metadata.
-    internal enum Method {
+    public enum Method: Sendable {
         /// Namespace for "GetAccountGroups" metadata.
-        internal enum GetAccountGroups {
+        public enum GetAccountGroups: Sendable {
             /// Request type for "GetAccountGroups".
-            internal typealias Input = AccountGroup_GetAccountGroupsRequest
+            public typealias Input = AccountGroup_GetAccountGroupsRequest
             /// Response type for "GetAccountGroups".
-            internal typealias Output = AccountGroup_GetAccountGroupsResponse
+            public typealias Output = AccountGroup_GetAccountGroupsResponse
             /// Descriptor for "GetAccountGroups".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountGroup.AccountGroupEndpoint"),
-                method: "GetAccountGroups"
+                method: "GetAccountGroups",
+                type: .unary
             )
         }
         /// Namespace for "CreateAccountGroup" metadata.
-        internal enum CreateAccountGroup {
+        public enum CreateAccountGroup: Sendable {
             /// Request type for "CreateAccountGroup".
-            internal typealias Input = AccountGroup_CreateAccountGroupRequest
+            public typealias Input = AccountGroup_CreateAccountGroupRequest
             /// Response type for "CreateAccountGroup".
-            internal typealias Output = AccountGroup_CreateAccountGroupResponse
+            public typealias Output = AccountGroup_CreateAccountGroupResponse
             /// Descriptor for "CreateAccountGroup".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountGroup.AccountGroupEndpoint"),
-                method: "CreateAccountGroup"
+                method: "CreateAccountGroup",
+                type: .unary
             )
         }
         /// Namespace for "UpdateAccountGroup" metadata.
-        internal enum UpdateAccountGroup {
+        public enum UpdateAccountGroup: Sendable {
             /// Request type for "UpdateAccountGroup".
-            internal typealias Input = AccountGroup_UpdateAccountGroupRequest
+            public typealias Input = AccountGroup_UpdateAccountGroupRequest
             /// Response type for "UpdateAccountGroup".
-            internal typealias Output = AccountGroup_UpdateAccountGroupResponse
+            public typealias Output = AccountGroup_UpdateAccountGroupResponse
             /// Descriptor for "UpdateAccountGroup".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountGroup.AccountGroupEndpoint"),
-                method: "UpdateAccountGroup"
+                method: "UpdateAccountGroup",
+                type: .unary
             )
         }
         /// Namespace for "DeleteAccountGroup" metadata.
-        internal enum DeleteAccountGroup {
+        public enum DeleteAccountGroup: Sendable {
             /// Request type for "DeleteAccountGroup".
-            internal typealias Input = AccountGroup_DeleteAccountGroupRequest
+            public typealias Input = AccountGroup_DeleteAccountGroupRequest
             /// Response type for "DeleteAccountGroup".
-            internal typealias Output = AccountGroup_DeleteAccountGroupResponse
+            public typealias Output = AccountGroup_DeleteAccountGroupResponse
             /// Descriptor for "DeleteAccountGroup".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountGroup.AccountGroupEndpoint"),
-                method: "DeleteAccountGroup"
+                method: "DeleteAccountGroup",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "accountGroup.AccountGroupEndpoint" service.
-        internal static let descriptors: [GRPCCore.MethodDescriptor] = [
+        public static let descriptors: [GRPCCore.MethodDescriptor] = [
             GetAccountGroups.descriptor,
             CreateAccountGroup.descriptor,
             UpdateAccountGroup.descriptor,
@@ -81,411 +85,7 @@ internal enum AccountGroup_AccountGroupEndpoint {
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension GRPCCore.ServiceDescriptor {
     /// Service descriptor for the "accountGroup.AccountGroupEndpoint" service.
-    internal static let accountGroup_AccountGroupEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountGroup.AccountGroupEndpoint")
-}
-
-// MARK: accountGroup.AccountGroupEndpoint (server)
-
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension AccountGroup_AccountGroupEndpoint {
-    /// Streaming variant of the service protocol for the "accountGroup.AccountGroupEndpoint" service.
-    ///
-    /// This protocol is the lowest-level of the service protocols generated for this service
-    /// giving you the most flexibility over the implementation of your service. This comes at
-    /// the cost of more verbose and less strict APIs. Each RPC requires you to implement it in
-    /// terms of a request stream and response stream. Where only a single request or response
-    /// message is expected, you are responsible for enforcing this invariant is maintained.
-    ///
-    /// Where possible, prefer using the stricter, less-verbose ``ServiceProtocol``
-    /// or ``SimpleServiceProtocol`` instead.
-    internal protocol StreamingServiceProtocol: GRPCCore.RegistrableRPCService {
-        /// Handle the "GetAccountGroups" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetAccountGroups получение списка групп счетов
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `AccountGroup_GetAccountGroupsRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `AccountGroup_GetAccountGroupsResponse` messages.
-        func getAccountGroups(
-            request: GRPCCore.StreamingServerRequest<AccountGroup_GetAccountGroupsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<AccountGroup_GetAccountGroupsResponse>
-
-        /// Handle the "CreateAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateAccountGroup создание группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `AccountGroup_CreateAccountGroupRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `AccountGroup_CreateAccountGroupResponse` messages.
-        func createAccountGroup(
-            request: GRPCCore.StreamingServerRequest<AccountGroup_CreateAccountGroupRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<AccountGroup_CreateAccountGroupResponse>
-
-        /// Handle the "UpdateAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateAccountGroup редактирование группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `AccountGroup_UpdateAccountGroupRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `AccountGroup_UpdateAccountGroupResponse` messages.
-        func updateAccountGroup(
-            request: GRPCCore.StreamingServerRequest<AccountGroup_UpdateAccountGroupRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<AccountGroup_UpdateAccountGroupResponse>
-
-        /// Handle the "DeleteAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteAccountGroup удаление группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `AccountGroup_DeleteAccountGroupRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `AccountGroup_DeleteAccountGroupResponse` messages.
-        func deleteAccountGroup(
-            request: GRPCCore.StreamingServerRequest<AccountGroup_DeleteAccountGroupRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<AccountGroup_DeleteAccountGroupResponse>
-    }
-
-    /// Service protocol for the "accountGroup.AccountGroupEndpoint" service.
-    ///
-    /// This protocol is higher level than ``StreamingServiceProtocol`` but lower level than
-    /// the ``SimpleServiceProtocol``, it provides access to request and response metadata and
-    /// trailing response metadata. If you don't need these then consider using
-    /// the ``SimpleServiceProtocol``. If you need fine grained control over your RPCs then
-    /// use ``StreamingServiceProtocol``.
-    internal protocol ServiceProtocol: AccountGroup_AccountGroupEndpoint.StreamingServiceProtocol {
-        /// Handle the "GetAccountGroups" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetAccountGroups получение списка групп счетов
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `AccountGroup_GetAccountGroupsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `AccountGroup_GetAccountGroupsResponse` message.
-        func getAccountGroups(
-            request: GRPCCore.ServerRequest<AccountGroup_GetAccountGroupsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<AccountGroup_GetAccountGroupsResponse>
-
-        /// Handle the "CreateAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateAccountGroup создание группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `AccountGroup_CreateAccountGroupRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `AccountGroup_CreateAccountGroupResponse` message.
-        func createAccountGroup(
-            request: GRPCCore.ServerRequest<AccountGroup_CreateAccountGroupRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<AccountGroup_CreateAccountGroupResponse>
-
-        /// Handle the "UpdateAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateAccountGroup редактирование группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `AccountGroup_UpdateAccountGroupRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `AccountGroup_UpdateAccountGroupResponse` message.
-        func updateAccountGroup(
-            request: GRPCCore.ServerRequest<AccountGroup_UpdateAccountGroupRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<AccountGroup_UpdateAccountGroupResponse>
-
-        /// Handle the "DeleteAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteAccountGroup удаление группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `AccountGroup_DeleteAccountGroupRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `AccountGroup_DeleteAccountGroupResponse` message.
-        func deleteAccountGroup(
-            request: GRPCCore.ServerRequest<AccountGroup_DeleteAccountGroupRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<AccountGroup_DeleteAccountGroupResponse>
-    }
-
-    /// Simple service protocol for the "accountGroup.AccountGroupEndpoint" service.
-    ///
-    /// This is the highest level protocol for the service. The API is the easiest to use but
-    /// doesn't provide access to request or response metadata. If you need access to these
-    /// then use ``ServiceProtocol`` instead.
-    internal protocol SimpleServiceProtocol: AccountGroup_AccountGroupEndpoint.ServiceProtocol {
-        /// Handle the "GetAccountGroups" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetAccountGroups получение списка групп счетов
-        ///
-        /// - Parameters:
-        ///   - request: A `AccountGroup_GetAccountGroupsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `AccountGroup_GetAccountGroupsResponse` to respond with.
-        func getAccountGroups(
-            request: AccountGroup_GetAccountGroupsRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> AccountGroup_GetAccountGroupsResponse
-
-        /// Handle the "CreateAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > CreateAccountGroup создание группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A `AccountGroup_CreateAccountGroupRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `AccountGroup_CreateAccountGroupResponse` to respond with.
-        func createAccountGroup(
-            request: AccountGroup_CreateAccountGroupRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> AccountGroup_CreateAccountGroupResponse
-
-        /// Handle the "UpdateAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateAccountGroup редактирование группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A `AccountGroup_UpdateAccountGroupRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `AccountGroup_UpdateAccountGroupResponse` to respond with.
-        func updateAccountGroup(
-            request: AccountGroup_UpdateAccountGroupRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> AccountGroup_UpdateAccountGroupResponse
-
-        /// Handle the "DeleteAccountGroup" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > DeleteAccountGroup удаление группы счетов
-        ///
-        /// - Parameters:
-        ///   - request: A `AccountGroup_DeleteAccountGroupRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `AccountGroup_DeleteAccountGroupResponse` to respond with.
-        func deleteAccountGroup(
-            request: AccountGroup_DeleteAccountGroupRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> AccountGroup_DeleteAccountGroupResponse
-    }
-}
-
-// Default implementation of 'registerMethods(with:)'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension AccountGroup_AccountGroupEndpoint.StreamingServiceProtocol {
-    internal func registerMethods<Transport>(with router: inout GRPCCore.RPCRouter<Transport>) where Transport: GRPCCore.ServerTransport {
-        router.registerHandler(
-            forMethod: AccountGroup_AccountGroupEndpoint.Method.GetAccountGroups.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<AccountGroup_GetAccountGroupsRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<AccountGroup_GetAccountGroupsResponse>(),
-            handler: { request, context in
-                try await self.getAccountGroups(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: AccountGroup_AccountGroupEndpoint.Method.CreateAccountGroup.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<AccountGroup_CreateAccountGroupRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<AccountGroup_CreateAccountGroupResponse>(),
-            handler: { request, context in
-                try await self.createAccountGroup(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: AccountGroup_AccountGroupEndpoint.Method.UpdateAccountGroup.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<AccountGroup_UpdateAccountGroupRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<AccountGroup_UpdateAccountGroupResponse>(),
-            handler: { request, context in
-                try await self.updateAccountGroup(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: AccountGroup_AccountGroupEndpoint.Method.DeleteAccountGroup.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<AccountGroup_DeleteAccountGroupRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<AccountGroup_DeleteAccountGroupResponse>(),
-            handler: { request, context in
-                try await self.deleteAccountGroup(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-    }
-}
-
-// Default implementation of streaming methods from 'StreamingServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension AccountGroup_AccountGroupEndpoint.ServiceProtocol {
-    internal func getAccountGroups(
-        request: GRPCCore.StreamingServerRequest<AccountGroup_GetAccountGroupsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<AccountGroup_GetAccountGroupsResponse> {
-        let response = try await self.getAccountGroups(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func createAccountGroup(
-        request: GRPCCore.StreamingServerRequest<AccountGroup_CreateAccountGroupRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<AccountGroup_CreateAccountGroupResponse> {
-        let response = try await self.createAccountGroup(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func updateAccountGroup(
-        request: GRPCCore.StreamingServerRequest<AccountGroup_UpdateAccountGroupRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<AccountGroup_UpdateAccountGroupResponse> {
-        let response = try await self.updateAccountGroup(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func deleteAccountGroup(
-        request: GRPCCore.StreamingServerRequest<AccountGroup_DeleteAccountGroupRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<AccountGroup_DeleteAccountGroupResponse> {
-        let response = try await self.deleteAccountGroup(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-}
-
-// Default implementation of methods from 'ServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension AccountGroup_AccountGroupEndpoint.SimpleServiceProtocol {
-    internal func getAccountGroups(
-        request: GRPCCore.ServerRequest<AccountGroup_GetAccountGroupsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<AccountGroup_GetAccountGroupsResponse> {
-        return GRPCCore.ServerResponse<AccountGroup_GetAccountGroupsResponse>(
-            message: try await self.getAccountGroups(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func createAccountGroup(
-        request: GRPCCore.ServerRequest<AccountGroup_CreateAccountGroupRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<AccountGroup_CreateAccountGroupResponse> {
-        return GRPCCore.ServerResponse<AccountGroup_CreateAccountGroupResponse>(
-            message: try await self.createAccountGroup(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func updateAccountGroup(
-        request: GRPCCore.ServerRequest<AccountGroup_UpdateAccountGroupRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<AccountGroup_UpdateAccountGroupResponse> {
-        return GRPCCore.ServerResponse<AccountGroup_UpdateAccountGroupResponse>(
-            message: try await self.updateAccountGroup(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func deleteAccountGroup(
-        request: GRPCCore.ServerRequest<AccountGroup_DeleteAccountGroupRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<AccountGroup_DeleteAccountGroupResponse> {
-        return GRPCCore.ServerResponse<AccountGroup_DeleteAccountGroupResponse>(
-            message: try await self.deleteAccountGroup(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
+    public static let accountGroup_AccountGroupEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountGroup.AccountGroupEndpoint")
 }
 
 // MARK: accountGroup.AccountGroupEndpoint (client)
@@ -496,7 +96,7 @@ extension AccountGroup_AccountGroupEndpoint {
     ///
     /// You don't need to implement this protocol directly, use the generated
     /// implementation, ``Client``.
-    internal protocol ClientProtocol: Sendable {
+    public protocol ClientProtocol: Sendable {
         /// Call the "GetAccountGroups" method.
         ///
         /// > Source IDL Documentation:
@@ -595,14 +195,14 @@ extension AccountGroup_AccountGroupEndpoint {
     /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
     /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
     /// means of communication with the remote peer.
-    internal struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
         private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        internal init(wrapping client: GRPCCore.GRPCClient<Transport>) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 
@@ -621,7 +221,7 @@ extension AccountGroup_AccountGroupEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func getAccountGroups<Result>(
+        public func getAccountGroups<Result>(
             request: GRPCCore.ClientRequest<AccountGroup_GetAccountGroupsRequest>,
             serializer: some GRPCCore.MessageSerializer<AccountGroup_GetAccountGroupsRequest>,
             deserializer: some GRPCCore.MessageDeserializer<AccountGroup_GetAccountGroupsResponse>,
@@ -655,7 +255,7 @@ extension AccountGroup_AccountGroupEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func createAccountGroup<Result>(
+        public func createAccountGroup<Result>(
             request: GRPCCore.ClientRequest<AccountGroup_CreateAccountGroupRequest>,
             serializer: some GRPCCore.MessageSerializer<AccountGroup_CreateAccountGroupRequest>,
             deserializer: some GRPCCore.MessageDeserializer<AccountGroup_CreateAccountGroupResponse>,
@@ -689,7 +289,7 @@ extension AccountGroup_AccountGroupEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func updateAccountGroup<Result>(
+        public func updateAccountGroup<Result>(
             request: GRPCCore.ClientRequest<AccountGroup_UpdateAccountGroupRequest>,
             serializer: some GRPCCore.MessageSerializer<AccountGroup_UpdateAccountGroupRequest>,
             deserializer: some GRPCCore.MessageDeserializer<AccountGroup_UpdateAccountGroupResponse>,
@@ -723,7 +323,7 @@ extension AccountGroup_AccountGroupEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func deleteAccountGroup<Result>(
+        public func deleteAccountGroup<Result>(
             request: GRPCCore.ClientRequest<AccountGroup_DeleteAccountGroupRequest>,
             serializer: some GRPCCore.MessageSerializer<AccountGroup_DeleteAccountGroupRequest>,
             deserializer: some GRPCCore.MessageDeserializer<AccountGroup_DeleteAccountGroupResponse>,
@@ -760,7 +360,7 @@ extension AccountGroup_AccountGroupEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getAccountGroups<Result>(
+    public func getAccountGroups<Result>(
         request: GRPCCore.ClientRequest<AccountGroup_GetAccountGroupsRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountGroup_GetAccountGroupsResponse>) async throws -> Result = { response in
@@ -789,7 +389,7 @@ extension AccountGroup_AccountGroupEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func createAccountGroup<Result>(
+    public func createAccountGroup<Result>(
         request: GRPCCore.ClientRequest<AccountGroup_CreateAccountGroupRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountGroup_CreateAccountGroupResponse>) async throws -> Result = { response in
@@ -818,7 +418,7 @@ extension AccountGroup_AccountGroupEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateAccountGroup<Result>(
+    public func updateAccountGroup<Result>(
         request: GRPCCore.ClientRequest<AccountGroup_UpdateAccountGroupRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountGroup_UpdateAccountGroupResponse>) async throws -> Result = { response in
@@ -847,7 +447,7 @@ extension AccountGroup_AccountGroupEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func deleteAccountGroup<Result>(
+    public func deleteAccountGroup<Result>(
         request: GRPCCore.ClientRequest<AccountGroup_DeleteAccountGroupRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountGroup_DeleteAccountGroupResponse>) async throws -> Result = { response in
@@ -881,7 +481,7 @@ extension AccountGroup_AccountGroupEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getAccountGroups<Result>(
+    public func getAccountGroups<Result>(
         _ message: AccountGroup_GetAccountGroupsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -914,7 +514,7 @@ extension AccountGroup_AccountGroupEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func createAccountGroup<Result>(
+    public func createAccountGroup<Result>(
         _ message: AccountGroup_CreateAccountGroupRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -947,7 +547,7 @@ extension AccountGroup_AccountGroupEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateAccountGroup<Result>(
+    public func updateAccountGroup<Result>(
         _ message: AccountGroup_UpdateAccountGroupRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -980,7 +580,7 @@ extension AccountGroup_AccountGroupEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func deleteAccountGroup<Result>(
+    public func deleteAccountGroup<Result>(
         _ message: AccountGroup_DeleteAccountGroupRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,

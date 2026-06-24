@@ -21,205 +21,205 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct AccountGroup_AccountGroup: Sendable {
+public struct AccountGroup_AccountGroup: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Идентификатор группы счетов
-  var id: Data = Data()
+  public var id: Data = Data()
 
   /// Название группы счетов
-  var name: String = String()
+  public var name: String = String()
 
   /// Валюта группы счетов
-  var currency: String = String()
+  public var currency: String = String()
 
   /// Видимость группы счетов
-  var visible: Bool = false
+  public var visible: Bool = false
 
   /// Порядковый номер группы счетов
-  var serialNumber: UInt32 = 0
+  public var serialNumber: UInt32 = 0
 
   /// Дата и время создания группы счетов
-  var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
+  public mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-struct AccountGroup_GetAccountGroupsRequest: Sendable {
+public struct AccountGroup_GetAccountGroupsRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификаторы групп счетов
-  var accountGroupIds: [Data] = []
+  public var accountGroupIds: [Data] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct AccountGroup_GetAccountGroupsResponse: Sendable {
+public struct AccountGroup_GetAccountGroupsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Список групп счетов
-  var accountGroups: [AccountGroup_AccountGroup] = []
+  public var accountGroups: [AccountGroup_AccountGroup] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct AccountGroup_CreateAccountGroupRequest: Sendable {
+public struct AccountGroup_CreateAccountGroupRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор группы счетов
-  var id: Data = Data()
+  public var id: Data = Data()
 
   /// Название группы счетов
-  var name: String = String()
+  public var name: String = String()
 
   /// Валюта группы счетов
-  var currency: String = String()
+  public var currency: String = String()
 
   /// Дата и время создания группы счетов
-  var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
+  public mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-struct AccountGroup_CreateAccountGroupResponse: Sendable {
+public struct AccountGroup_CreateAccountGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
   /// Порядковый номер группы счетов
-  var serialNumber: UInt32 {
+  public var serialNumber: UInt32 {
     get {return _serialNumber ?? 0}
     set {_serialNumber = newValue}
   }
   /// Returns true if `serialNumber` has been explicitly set.
-  var hasSerialNumber: Bool {return self._serialNumber != nil}
+  public var hasSerialNumber: Bool {return self._serialNumber != nil}
   /// Clears the value of `serialNumber`. Subsequent reads from it will return its default value.
-  mutating func clearSerialNumber() {self._serialNumber = nil}
+  public mutating func clearSerialNumber() {self._serialNumber = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
   fileprivate var _serialNumber: UInt32? = nil
 }
 
-struct AccountGroup_UpdateAccountGroupRequest: Sendable {
+public struct AccountGroup_UpdateAccountGroupRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор группы счетов
-  var id: Data = Data()
+  public var id: Data = Data()
 
   /// Название группы счетов
-  var name: String {
+  public var name: String {
     get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  public mutating func clearName() {self._name = nil}
 
   /// Валюта группы счетов
-  var currency: String {
+  public var currency: String {
     get {return _currency ?? String()}
     set {_currency = newValue}
   }
   /// Returns true if `currency` has been explicitly set.
-  var hasCurrency: Bool {return self._currency != nil}
+  public var hasCurrency: Bool {return self._currency != nil}
   /// Clears the value of `currency`. Subsequent reads from it will return its default value.
-  mutating func clearCurrency() {self._currency = nil}
+  public mutating func clearCurrency() {self._currency = nil}
 
   /// Видимость группы счетов
-  var visible: Bool {
+  public var visible: Bool {
     get {return _visible ?? false}
     set {_visible = newValue}
   }
   /// Returns true if `visible` has been explicitly set.
-  var hasVisible: Bool {return self._visible != nil}
+  public var hasVisible: Bool {return self._visible != nil}
   /// Clears the value of `visible`. Subsequent reads from it will return its default value.
-  mutating func clearVisible() {self._visible = nil}
+  public mutating func clearVisible() {self._visible = nil}
 
   /// Порядковый номер группы счетов
-  var serialNumber: UInt32 {
+  public var serialNumber: UInt32 {
     get {return _serialNumber ?? 0}
     set {_serialNumber = newValue}
   }
   /// Returns true if `serialNumber` has been explicitly set.
-  var hasSerialNumber: Bool {return self._serialNumber != nil}
+  public var hasSerialNumber: Bool {return self._serialNumber != nil}
   /// Clears the value of `serialNumber`. Subsequent reads from it will return its default value.
-  mutating func clearSerialNumber() {self._serialNumber = nil}
+  public mutating func clearSerialNumber() {self._serialNumber = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _name: String? = nil
   fileprivate var _currency: String? = nil
@@ -227,62 +227,62 @@ struct AccountGroup_UpdateAccountGroupRequest: Sendable {
   fileprivate var _serialNumber: UInt32? = nil
 }
 
-struct AccountGroup_UpdateAccountGroupResponse: Sendable {
+public struct AccountGroup_UpdateAccountGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
 
-struct AccountGroup_DeleteAccountGroupRequest: Sendable {
+public struct AccountGroup_DeleteAccountGroupRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Токен доступа
-  var accessToken: String = String()
+  public var accessToken: String = String()
 
   /// Идентификатор счета
-  var id: Data = Data()
+  public var id: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct AccountGroup_DeleteAccountGroupResponse: Sendable {
+public struct AccountGroup_DeleteAccountGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Объект ошибки
-  var error: Error_Error {
+  public var error: Error_Error {
     get {return _error ?? Error_Error()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  public var hasError: Bool {return self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
-  mutating func clearError() {self._error = nil}
+  public mutating func clearError() {self._error = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _error: Error_Error? = nil
 }
@@ -292,10 +292,17 @@ struct AccountGroup_DeleteAccountGroupResponse: Sendable {
 fileprivate let _protobuf_package = "accountGroup"
 
 extension AccountGroup_AccountGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AccountGroup"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}name\0\u{1}currency\0\u{1}visible\0\u{1}serialNumber\0\u{1}datetimeCreate\0")
+  public static let protoMessageName: String = _protobuf_package + ".AccountGroup"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "name"),
+    3: .same(proto: "currency"),
+    4: .same(proto: "visible"),
+    5: .same(proto: "serialNumber"),
+    6: .same(proto: "datetimeCreate"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -312,7 +319,7 @@ extension AccountGroup_AccountGroup: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -338,7 +345,7 @@ extension AccountGroup_AccountGroup: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_AccountGroup, rhs: AccountGroup_AccountGroup) -> Bool {
+  public static func ==(lhs: AccountGroup_AccountGroup, rhs: AccountGroup_AccountGroup) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.currency != rhs.currency {return false}
@@ -351,10 +358,13 @@ extension AccountGroup_AccountGroup: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension AccountGroup_GetAccountGroupsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetAccountGroupsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}accountGroupIDs\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetAccountGroupsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "accountGroupIDs"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -367,7 +377,7 @@ extension AccountGroup_GetAccountGroupsRequest: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
@@ -377,7 +387,7 @@ extension AccountGroup_GetAccountGroupsRequest: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_GetAccountGroupsRequest, rhs: AccountGroup_GetAccountGroupsRequest) -> Bool {
+  public static func ==(lhs: AccountGroup_GetAccountGroupsRequest, rhs: AccountGroup_GetAccountGroupsRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.accountGroupIds != rhs.accountGroupIds {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -386,10 +396,13 @@ extension AccountGroup_GetAccountGroupsRequest: SwiftProtobuf.Message, SwiftProt
 }
 
 extension AccountGroup_GetAccountGroupsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetAccountGroupsResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}accountGroups\0")
+  public static let protoMessageName: String = _protobuf_package + ".GetAccountGroupsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "accountGroups"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -402,7 +415,7 @@ extension AccountGroup_GetAccountGroupsResponse: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -416,7 +429,7 @@ extension AccountGroup_GetAccountGroupsResponse: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_GetAccountGroupsResponse, rhs: AccountGroup_GetAccountGroupsResponse) -> Bool {
+  public static func ==(lhs: AccountGroup_GetAccountGroupsResponse, rhs: AccountGroup_GetAccountGroupsResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.accountGroups != rhs.accountGroups {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -425,10 +438,16 @@ extension AccountGroup_GetAccountGroupsResponse: SwiftProtobuf.Message, SwiftPro
 }
 
 extension AccountGroup_CreateAccountGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateAccountGroupRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0\u{1}name\0\u{1}currency\0\u{1}datetimeCreate\0")
+  public static let protoMessageName: String = _protobuf_package + ".CreateAccountGroupRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+    3: .same(proto: "name"),
+    4: .same(proto: "currency"),
+    5: .same(proto: "datetimeCreate"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -444,7 +463,7 @@ extension AccountGroup_CreateAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -467,7 +486,7 @@ extension AccountGroup_CreateAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_CreateAccountGroupRequest, rhs: AccountGroup_CreateAccountGroupRequest) -> Bool {
+  public static func ==(lhs: AccountGroup_CreateAccountGroupRequest, rhs: AccountGroup_CreateAccountGroupRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
@@ -479,10 +498,13 @@ extension AccountGroup_CreateAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 extension AccountGroup_CreateAccountGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateAccountGroupResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{1}serialNumber\0")
+  public static let protoMessageName: String = _protobuf_package + ".CreateAccountGroupResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    2: .same(proto: "serialNumber"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -495,7 +517,7 @@ extension AccountGroup_CreateAccountGroupResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -509,7 +531,7 @@ extension AccountGroup_CreateAccountGroupResponse: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_CreateAccountGroupResponse, rhs: AccountGroup_CreateAccountGroupResponse) -> Bool {
+  public static func ==(lhs: AccountGroup_CreateAccountGroupResponse, rhs: AccountGroup_CreateAccountGroupResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs._serialNumber != rhs._serialNumber {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -518,10 +540,17 @@ extension AccountGroup_CreateAccountGroupResponse: SwiftProtobuf.Message, SwiftP
 }
 
 extension AccountGroup_UpdateAccountGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateAccountGroupRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0\u{1}name\0\u{1}currency\0\u{1}visible\0\u{1}serialNumber\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateAccountGroupRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+    3: .same(proto: "name"),
+    4: .same(proto: "currency"),
+    5: .same(proto: "visible"),
+    6: .same(proto: "serialNumber"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -538,7 +567,7 @@ extension AccountGroup_UpdateAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -564,7 +593,7 @@ extension AccountGroup_UpdateAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_UpdateAccountGroupRequest, rhs: AccountGroup_UpdateAccountGroupRequest) -> Bool {
+  public static func ==(lhs: AccountGroup_UpdateAccountGroupRequest, rhs: AccountGroup_UpdateAccountGroupRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.id != rhs.id {return false}
     if lhs._name != rhs._name {return false}
@@ -577,10 +606,12 @@ extension AccountGroup_UpdateAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 extension AccountGroup_UpdateAccountGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UpdateAccountGroupResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".UpdateAccountGroupResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -592,7 +623,7 @@ extension AccountGroup_UpdateAccountGroupResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -603,7 +634,7 @@ extension AccountGroup_UpdateAccountGroupResponse: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_UpdateAccountGroupResponse, rhs: AccountGroup_UpdateAccountGroupResponse) -> Bool {
+  public static func ==(lhs: AccountGroup_UpdateAccountGroupResponse, rhs: AccountGroup_UpdateAccountGroupResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -611,10 +642,13 @@ extension AccountGroup_UpdateAccountGroupResponse: SwiftProtobuf.Message, SwiftP
 }
 
 extension AccountGroup_DeleteAccountGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteAccountGroupRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}accessToken\0\u{1}id\0")
+  public static let protoMessageName: String = _protobuf_package + ".DeleteAccountGroupRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "accessToken"),
+    2: .same(proto: "id"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -627,7 +661,7 @@ extension AccountGroup_DeleteAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
@@ -637,7 +671,7 @@ extension AccountGroup_DeleteAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_DeleteAccountGroupRequest, rhs: AccountGroup_DeleteAccountGroupRequest) -> Bool {
+  public static func ==(lhs: AccountGroup_DeleteAccountGroupRequest, rhs: AccountGroup_DeleteAccountGroupRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
     if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -646,10 +680,12 @@ extension AccountGroup_DeleteAccountGroupRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 extension AccountGroup_DeleteAccountGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DeleteAccountGroupResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0")
+  public static let protoMessageName: String = _protobuf_package + ".DeleteAccountGroupResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+  ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -661,7 +697,7 @@ extension AccountGroup_DeleteAccountGroupResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -672,7 +708,7 @@ extension AccountGroup_DeleteAccountGroupResponse: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: AccountGroup_DeleteAccountGroupResponse, rhs: AccountGroup_DeleteAccountGroupResponse) -> Bool {
+  public static func ==(lhs: AccountGroup_DeleteAccountGroupResponse, rhs: AccountGroup_DeleteAccountGroupResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

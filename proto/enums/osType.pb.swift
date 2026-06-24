@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum OsType_OSType: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
+public enum OsType_OSType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
   case unspecified // = 0
   case android // = 1
   case ios // = 2
@@ -30,11 +30,11 @@ enum OsType_OSType: SwiftProtobuf.Enum, Swift.CaseIterable {
   case watchOs // = 5
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .android
@@ -46,7 +46,7 @@ enum OsType_OSType: SwiftProtobuf.Enum, Swift.CaseIterable {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .android: return 1
@@ -59,7 +59,7 @@ enum OsType_OSType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [OsType_OSType] = [
+  public static let allCases: [OsType_OSType] = [
     .unspecified,
     .android,
     .ios,
@@ -73,5 +73,12 @@ enum OsType_OSType: SwiftProtobuf.Enum, Swift.CaseIterable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension OsType_OSType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Unspecified\0\u{1}Android\0\u{1}IOS\0\u{1}IPadOS\0\u{1}OSX\0\u{1}WatchOS\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Unspecified"),
+    1: .same(proto: "Android"),
+    2: .same(proto: "IOS"),
+    3: .same(proto: "IPadOS"),
+    4: .same(proto: "OSX"),
+    5: .same(proto: "WatchOS"),
+  ]
 }

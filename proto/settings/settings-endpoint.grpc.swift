@@ -15,73 +15,78 @@ import GRPCProtobuf
 
 /// Namespace containing generated types for the "settings.SettingsEndpoint" service.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal enum Settings_SettingsEndpoint {
+public enum Settings_SettingsEndpoint: Sendable {
     /// Service descriptor for the "settings.SettingsEndpoint" service.
-    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint")
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint")
     /// Namespace for method metadata.
-    internal enum Method {
+    public enum Method: Sendable {
         /// Namespace for "GetCurrencies" metadata.
-        internal enum GetCurrencies {
+        public enum GetCurrencies: Sendable {
             /// Request type for "GetCurrencies".
-            internal typealias Input = Settings_GetCurrenciesRequest
+            public typealias Input = Settings_GetCurrenciesRequest
             /// Response type for "GetCurrencies".
-            internal typealias Output = Settings_GetCurrenciesResponse
+            public typealias Output = Settings_GetCurrenciesResponse
             /// Descriptor for "GetCurrencies".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint"),
-                method: "GetCurrencies"
+                method: "GetCurrencies",
+                type: .unary
             )
         }
         /// Namespace for "GetIcons" metadata.
-        internal enum GetIcons {
+        public enum GetIcons: Sendable {
             /// Request type for "GetIcons".
-            internal typealias Input = Settings_GetIconsRequest
+            public typealias Input = Settings_GetIconsRequest
             /// Response type for "GetIcons".
-            internal typealias Output = Settings_GetIconsResponse
+            public typealias Output = Settings_GetIconsResponse
             /// Descriptor for "GetIcons".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint"),
-                method: "GetIcons"
+                method: "GetIcons",
+                type: .unary
             )
         }
         /// Namespace for "UpdateCurrencies" metadata.
-        internal enum UpdateCurrencies {
+        public enum UpdateCurrencies: Sendable {
             /// Request type for "UpdateCurrencies".
-            internal typealias Input = Settings_UpdateCurrenciesRequest
+            public typealias Input = Settings_UpdateCurrenciesRequest
             /// Response type for "UpdateCurrencies".
-            internal typealias Output = Settings_UpdateCurrenciesResponse
+            public typealias Output = Settings_UpdateCurrenciesResponse
             /// Descriptor for "UpdateCurrencies".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint"),
-                method: "UpdateCurrencies"
+                method: "UpdateCurrencies",
+                type: .unary
             )
         }
         /// Namespace for "SendNotification" metadata.
-        internal enum SendNotification {
+        public enum SendNotification: Sendable {
             /// Request type for "SendNotification".
-            internal typealias Input = Settings_SendNotificationRequest
+            public typealias Input = Settings_SendNotificationRequest
             /// Response type for "SendNotification".
-            internal typealias Output = Settings_SendNotificationResponse
+            public typealias Output = Settings_SendNotificationResponse
             /// Descriptor for "SendNotification".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint"),
-                method: "SendNotification"
+                method: "SendNotification",
+                type: .unary
             )
         }
         /// Namespace for "GetVersion" metadata.
-        internal enum GetVersion {
+        public enum GetVersion: Sendable {
             /// Request type for "GetVersion".
-            internal typealias Input = Settings_GetVersionRequest
+            public typealias Input = Settings_GetVersionRequest
             /// Response type for "GetVersion".
-            internal typealias Output = Settings_GetVersionResponse
+            public typealias Output = Settings_GetVersionResponse
             /// Descriptor for "GetVersion".
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint"),
-                method: "GetVersion"
+                method: "GetVersion",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "settings.SettingsEndpoint" service.
-        internal static let descriptors: [GRPCCore.MethodDescriptor] = [
+        public static let descriptors: [GRPCCore.MethodDescriptor] = [
             GetCurrencies.descriptor,
             GetIcons.descriptor,
             UpdateCurrencies.descriptor,
@@ -94,500 +99,7 @@ internal enum Settings_SettingsEndpoint {
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension GRPCCore.ServiceDescriptor {
     /// Service descriptor for the "settings.SettingsEndpoint" service.
-    internal static let settings_SettingsEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint")
-}
-
-// MARK: settings.SettingsEndpoint (server)
-
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Settings_SettingsEndpoint {
-    /// Streaming variant of the service protocol for the "settings.SettingsEndpoint" service.
-    ///
-    /// This protocol is the lowest-level of the service protocols generated for this service
-    /// giving you the most flexibility over the implementation of your service. This comes at
-    /// the cost of more verbose and less strict APIs. Each RPC requires you to implement it in
-    /// terms of a request stream and response stream. Where only a single request or response
-    /// message is expected, you are responsible for enforcing this invariant is maintained.
-    ///
-    /// Where possible, prefer using the stricter, less-verbose ``ServiceProtocol``
-    /// or ``SimpleServiceProtocol`` instead.
-    internal protocol StreamingServiceProtocol: GRPCCore.RegistrableRPCService {
-        /// Handle the "GetCurrencies" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetCurrencies получение списка валют
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Settings_GetCurrenciesRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Settings_GetCurrenciesResponse` messages.
-        func getCurrencies(
-            request: GRPCCore.StreamingServerRequest<Settings_GetCurrenciesRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Settings_GetCurrenciesResponse>
-
-        /// Handle the "GetIcons" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetIcons получение иконок с их адресами
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Settings_GetIconsRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Settings_GetIconsResponse` messages.
-        func getIcons(
-            request: GRPCCore.StreamingServerRequest<Settings_GetIconsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Settings_GetIconsResponse>
-
-        /// Handle the "UpdateCurrencies" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateCurrencies обновление курсов валют
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Settings_UpdateCurrenciesRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Settings_UpdateCurrenciesResponse` messages.
-        func updateCurrencies(
-            request: GRPCCore.StreamingServerRequest<Settings_UpdateCurrenciesRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Settings_UpdateCurrenciesResponse>
-
-        /// Handle the "SendNotification" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SendNotification отправка уведомления пользователю
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Settings_SendNotificationRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Settings_SendNotificationResponse` messages.
-        func sendNotification(
-            request: GRPCCore.StreamingServerRequest<Settings_SendNotificationRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Settings_SendNotificationResponse>
-
-        /// Handle the "GetVersion" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetVersion получение текущей версии сервера
-        ///
-        /// - Parameters:
-        ///   - request: A streaming request of `Settings_GetVersionRequest` messages.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A streaming response of `Settings_GetVersionResponse` messages.
-        func getVersion(
-            request: GRPCCore.StreamingServerRequest<Settings_GetVersionRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.StreamingServerResponse<Settings_GetVersionResponse>
-    }
-
-    /// Service protocol for the "settings.SettingsEndpoint" service.
-    ///
-    /// This protocol is higher level than ``StreamingServiceProtocol`` but lower level than
-    /// the ``SimpleServiceProtocol``, it provides access to request and response metadata and
-    /// trailing response metadata. If you don't need these then consider using
-    /// the ``SimpleServiceProtocol``. If you need fine grained control over your RPCs then
-    /// use ``StreamingServiceProtocol``.
-    internal protocol ServiceProtocol: Settings_SettingsEndpoint.StreamingServiceProtocol {
-        /// Handle the "GetCurrencies" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetCurrencies получение списка валют
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Settings_GetCurrenciesRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Settings_GetCurrenciesResponse` message.
-        func getCurrencies(
-            request: GRPCCore.ServerRequest<Settings_GetCurrenciesRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Settings_GetCurrenciesResponse>
-
-        /// Handle the "GetIcons" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetIcons получение иконок с их адресами
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Settings_GetIconsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Settings_GetIconsResponse` message.
-        func getIcons(
-            request: GRPCCore.ServerRequest<Settings_GetIconsRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Settings_GetIconsResponse>
-
-        /// Handle the "UpdateCurrencies" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateCurrencies обновление курсов валют
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Settings_UpdateCurrenciesRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Settings_UpdateCurrenciesResponse` message.
-        func updateCurrencies(
-            request: GRPCCore.ServerRequest<Settings_UpdateCurrenciesRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Settings_UpdateCurrenciesResponse>
-
-        /// Handle the "SendNotification" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SendNotification отправка уведомления пользователю
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Settings_SendNotificationRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Settings_SendNotificationResponse` message.
-        func sendNotification(
-            request: GRPCCore.ServerRequest<Settings_SendNotificationRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Settings_SendNotificationResponse>
-
-        /// Handle the "GetVersion" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetVersion получение текущей версии сервера
-        ///
-        /// - Parameters:
-        ///   - request: A request containing a single `Settings_GetVersionRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A response containing a single `Settings_GetVersionResponse` message.
-        func getVersion(
-            request: GRPCCore.ServerRequest<Settings_GetVersionRequest>,
-            context: GRPCCore.ServerContext
-        ) async throws -> GRPCCore.ServerResponse<Settings_GetVersionResponse>
-    }
-
-    /// Simple service protocol for the "settings.SettingsEndpoint" service.
-    ///
-    /// This is the highest level protocol for the service. The API is the easiest to use but
-    /// doesn't provide access to request or response metadata. If you need access to these
-    /// then use ``ServiceProtocol`` instead.
-    internal protocol SimpleServiceProtocol: Settings_SettingsEndpoint.ServiceProtocol {
-        /// Handle the "GetCurrencies" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetCurrencies получение списка валют
-        ///
-        /// - Parameters:
-        ///   - request: A `Settings_GetCurrenciesRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Settings_GetCurrenciesResponse` to respond with.
-        func getCurrencies(
-            request: Settings_GetCurrenciesRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Settings_GetCurrenciesResponse
-
-        /// Handle the "GetIcons" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetIcons получение иконок с их адресами
-        ///
-        /// - Parameters:
-        ///   - request: A `Settings_GetIconsRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Settings_GetIconsResponse` to respond with.
-        func getIcons(
-            request: Settings_GetIconsRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Settings_GetIconsResponse
-
-        /// Handle the "UpdateCurrencies" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > UpdateCurrencies обновление курсов валют
-        ///
-        /// - Parameters:
-        ///   - request: A `Settings_UpdateCurrenciesRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Settings_UpdateCurrenciesResponse` to respond with.
-        func updateCurrencies(
-            request: Settings_UpdateCurrenciesRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Settings_UpdateCurrenciesResponse
-
-        /// Handle the "SendNotification" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > SendNotification отправка уведомления пользователю
-        ///
-        /// - Parameters:
-        ///   - request: A `Settings_SendNotificationRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Settings_SendNotificationResponse` to respond with.
-        func sendNotification(
-            request: Settings_SendNotificationRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Settings_SendNotificationResponse
-
-        /// Handle the "GetVersion" method.
-        ///
-        /// > Source IDL Documentation:
-        /// >
-        /// > GetVersion получение текущей версии сервера
-        ///
-        /// - Parameters:
-        ///   - request: A `Settings_GetVersionRequest` message.
-        ///   - context: Context providing information about the RPC.
-        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
-        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
-        ///     to an internal error.
-        /// - Returns: A `Settings_GetVersionResponse` to respond with.
-        func getVersion(
-            request: Settings_GetVersionRequest,
-            context: GRPCCore.ServerContext
-        ) async throws -> Settings_GetVersionResponse
-    }
-}
-
-// Default implementation of 'registerMethods(with:)'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Settings_SettingsEndpoint.StreamingServiceProtocol {
-    internal func registerMethods<Transport>(with router: inout GRPCCore.RPCRouter<Transport>) where Transport: GRPCCore.ServerTransport {
-        router.registerHandler(
-            forMethod: Settings_SettingsEndpoint.Method.GetCurrencies.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Settings_GetCurrenciesRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Settings_GetCurrenciesResponse>(),
-            handler: { request, context in
-                try await self.getCurrencies(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Settings_SettingsEndpoint.Method.GetIcons.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Settings_GetIconsRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Settings_GetIconsResponse>(),
-            handler: { request, context in
-                try await self.getIcons(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Settings_SettingsEndpoint.Method.UpdateCurrencies.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Settings_UpdateCurrenciesRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Settings_UpdateCurrenciesResponse>(),
-            handler: { request, context in
-                try await self.updateCurrencies(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Settings_SettingsEndpoint.Method.SendNotification.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Settings_SendNotificationRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Settings_SendNotificationResponse>(),
-            handler: { request, context in
-                try await self.sendNotification(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-        router.registerHandler(
-            forMethod: Settings_SettingsEndpoint.Method.GetVersion.descriptor,
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Settings_GetVersionRequest>(),
-            serializer: GRPCProtobuf.ProtobufSerializer<Settings_GetVersionResponse>(),
-            handler: { request, context in
-                try await self.getVersion(
-                    request: request,
-                    context: context
-                )
-            }
-        )
-    }
-}
-
-// Default implementation of streaming methods from 'StreamingServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Settings_SettingsEndpoint.ServiceProtocol {
-    internal func getCurrencies(
-        request: GRPCCore.StreamingServerRequest<Settings_GetCurrenciesRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Settings_GetCurrenciesResponse> {
-        let response = try await self.getCurrencies(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func getIcons(
-        request: GRPCCore.StreamingServerRequest<Settings_GetIconsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Settings_GetIconsResponse> {
-        let response = try await self.getIcons(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func updateCurrencies(
-        request: GRPCCore.StreamingServerRequest<Settings_UpdateCurrenciesRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Settings_UpdateCurrenciesResponse> {
-        let response = try await self.updateCurrencies(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func sendNotification(
-        request: GRPCCore.StreamingServerRequest<Settings_SendNotificationRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Settings_SendNotificationResponse> {
-        let response = try await self.sendNotification(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-
-    internal func getVersion(
-        request: GRPCCore.StreamingServerRequest<Settings_GetVersionRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.StreamingServerResponse<Settings_GetVersionResponse> {
-        let response = try await self.getVersion(
-            request: GRPCCore.ServerRequest(stream: request),
-            context: context
-        )
-        return GRPCCore.StreamingServerResponse(single: response)
-    }
-}
-
-// Default implementation of methods from 'ServiceProtocol'.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Settings_SettingsEndpoint.SimpleServiceProtocol {
-    internal func getCurrencies(
-        request: GRPCCore.ServerRequest<Settings_GetCurrenciesRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Settings_GetCurrenciesResponse> {
-        return GRPCCore.ServerResponse<Settings_GetCurrenciesResponse>(
-            message: try await self.getCurrencies(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func getIcons(
-        request: GRPCCore.ServerRequest<Settings_GetIconsRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Settings_GetIconsResponse> {
-        return GRPCCore.ServerResponse<Settings_GetIconsResponse>(
-            message: try await self.getIcons(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func updateCurrencies(
-        request: GRPCCore.ServerRequest<Settings_UpdateCurrenciesRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Settings_UpdateCurrenciesResponse> {
-        return GRPCCore.ServerResponse<Settings_UpdateCurrenciesResponse>(
-            message: try await self.updateCurrencies(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func sendNotification(
-        request: GRPCCore.ServerRequest<Settings_SendNotificationRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Settings_SendNotificationResponse> {
-        return GRPCCore.ServerResponse<Settings_SendNotificationResponse>(
-            message: try await self.sendNotification(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
-
-    internal func getVersion(
-        request: GRPCCore.ServerRequest<Settings_GetVersionRequest>,
-        context: GRPCCore.ServerContext
-    ) async throws -> GRPCCore.ServerResponse<Settings_GetVersionResponse> {
-        return GRPCCore.ServerResponse<Settings_GetVersionResponse>(
-            message: try await self.getVersion(
-                request: request.message,
-                context: context
-            ),
-            metadata: [:]
-        )
-    }
+    public static let settings_SettingsEndpoint = GRPCCore.ServiceDescriptor(fullyQualifiedService: "settings.SettingsEndpoint")
 }
 
 // MARK: settings.SettingsEndpoint (client)
@@ -598,7 +110,7 @@ extension Settings_SettingsEndpoint {
     ///
     /// You don't need to implement this protocol directly, use the generated
     /// implementation, ``Client``.
-    internal protocol ClientProtocol: Sendable {
+    public protocol ClientProtocol: Sendable {
         /// Call the "GetCurrencies" method.
         ///
         /// > Source IDL Documentation:
@@ -720,14 +232,14 @@ extension Settings_SettingsEndpoint {
     /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
     /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
     /// means of communication with the remote peer.
-    internal struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
         private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        internal init(wrapping client: GRPCCore.GRPCClient<Transport>) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 
@@ -746,7 +258,7 @@ extension Settings_SettingsEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func getCurrencies<Result>(
+        public func getCurrencies<Result>(
             request: GRPCCore.ClientRequest<Settings_GetCurrenciesRequest>,
             serializer: some GRPCCore.MessageSerializer<Settings_GetCurrenciesRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Settings_GetCurrenciesResponse>,
@@ -780,7 +292,7 @@ extension Settings_SettingsEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func getIcons<Result>(
+        public func getIcons<Result>(
             request: GRPCCore.ClientRequest<Settings_GetIconsRequest>,
             serializer: some GRPCCore.MessageSerializer<Settings_GetIconsRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Settings_GetIconsResponse>,
@@ -814,7 +326,7 @@ extension Settings_SettingsEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func updateCurrencies<Result>(
+        public func updateCurrencies<Result>(
             request: GRPCCore.ClientRequest<Settings_UpdateCurrenciesRequest>,
             serializer: some GRPCCore.MessageSerializer<Settings_UpdateCurrenciesRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Settings_UpdateCurrenciesResponse>,
@@ -848,7 +360,7 @@ extension Settings_SettingsEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func sendNotification<Result>(
+        public func sendNotification<Result>(
             request: GRPCCore.ClientRequest<Settings_SendNotificationRequest>,
             serializer: some GRPCCore.MessageSerializer<Settings_SendNotificationRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Settings_SendNotificationResponse>,
@@ -882,7 +394,7 @@ extension Settings_SettingsEndpoint {
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        internal func getVersion<Result>(
+        public func getVersion<Result>(
             request: GRPCCore.ClientRequest<Settings_GetVersionRequest>,
             serializer: some GRPCCore.MessageSerializer<Settings_GetVersionRequest>,
             deserializer: some GRPCCore.MessageDeserializer<Settings_GetVersionResponse>,
@@ -919,7 +431,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getCurrencies<Result>(
+    public func getCurrencies<Result>(
         request: GRPCCore.ClientRequest<Settings_GetCurrenciesRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Settings_GetCurrenciesResponse>) async throws -> Result = { response in
@@ -948,7 +460,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getIcons<Result>(
+    public func getIcons<Result>(
         request: GRPCCore.ClientRequest<Settings_GetIconsRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Settings_GetIconsResponse>) async throws -> Result = { response in
@@ -977,7 +489,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateCurrencies<Result>(
+    public func updateCurrencies<Result>(
         request: GRPCCore.ClientRequest<Settings_UpdateCurrenciesRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Settings_UpdateCurrenciesResponse>) async throws -> Result = { response in
@@ -1006,7 +518,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func sendNotification<Result>(
+    public func sendNotification<Result>(
         request: GRPCCore.ClientRequest<Settings_SendNotificationRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Settings_SendNotificationResponse>) async throws -> Result = { response in
@@ -1035,7 +547,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getVersion<Result>(
+    public func getVersion<Result>(
         request: GRPCCore.ClientRequest<Settings_GetVersionRequest>,
         options: GRPCCore.CallOptions = .defaults,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Settings_GetVersionResponse>) async throws -> Result = { response in
@@ -1069,7 +581,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getCurrencies<Result>(
+    public func getCurrencies<Result>(
         _ message: Settings_GetCurrenciesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -1102,7 +614,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getIcons<Result>(
+    public func getIcons<Result>(
         _ message: Settings_GetIconsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -1135,7 +647,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func updateCurrencies<Result>(
+    public func updateCurrencies<Result>(
         _ message: Settings_UpdateCurrenciesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -1168,7 +680,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func sendNotification<Result>(
+    public func sendNotification<Result>(
         _ message: Settings_SendNotificationRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -1201,7 +713,7 @@ extension Settings_SettingsEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    internal func getVersion<Result>(
+    public func getVersion<Result>(
         _ message: Settings_GetVersionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
