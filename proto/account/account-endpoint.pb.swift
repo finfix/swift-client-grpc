@@ -120,12 +120,6 @@ public struct Account_Account: @unchecked Sendable {
     set {_uniqueStorage()._iconID = newValue}
   }
 
-  /// Порядковый номер счета
-  public var serialNumber: UInt32 {
-    get {return _storage._serialNumber}
-    set {_uniqueStorage()._serialNumber = newValue}
-  }
-
   /// Идентификатор пользователя, создавшего счет
   public var createdByUserID: Data {
     get {return _storage._createdByUserID}
@@ -151,6 +145,12 @@ public struct Account_Account: @unchecked Sendable {
   public var hasBudget: Bool {return _storage._budget != nil}
   /// Clears the value of `budget`. Subsequent reads from it will return its default value.
   public mutating func clearBudget() {_uniqueStorage()._budget = nil}
+
+  /// Ранг для сортировки счетов (лексикографический, задаётся клиентом)
+  public var rank: String {
+    get {return _storage._rank}
+    set {_uniqueStorage()._rank = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -352,16 +352,6 @@ public struct Account_CreateAccountRequest: @unchecked Sendable {
   /// Clears the value of `parentAccountID`. Subsequent reads from it will return its default value.
   public mutating func clearParentAccountID() {_uniqueStorage()._parentAccountID = nil}
 
-  /// Остаток средств на счету
-  public var remainder: Double {
-    get {return _storage._remainder ?? 0}
-    set {_uniqueStorage()._remainder = newValue}
-  }
-  /// Returns true if `remainder` has been explicitly set.
-  public var hasRemainder: Bool {return _storage._remainder != nil}
-  /// Clears the value of `remainder`. Subsequent reads from it will return its default value.
-  public mutating func clearRemainder() {_uniqueStorage()._remainder = nil}
-
   /// Бюджет
   public var budget: Account_AccountBudget {
     get {return _storage._budget ?? Account_AccountBudget()}
@@ -372,6 +362,12 @@ public struct Account_CreateAccountRequest: @unchecked Sendable {
   /// Clears the value of `budget`. Subsequent reads from it will return its default value.
   public mutating func clearBudget() {_uniqueStorage()._budget = nil}
 
+  /// Ранг для сортировки счетов (лексикографический, задаётся клиентом)
+  public var rank: String {
+    get {return _storage._rank}
+    set {_uniqueStorage()._rank = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -379,7 +375,7 @@ public struct Account_CreateAccountRequest: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Account_CreateAccountResponse: @unchecked Sendable {
+public struct Account_CreateAccountResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -394,55 +390,11 @@ public struct Account_CreateAccountResponse: @unchecked Sendable {
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
   public mutating func clearError() {self._error = nil}
 
-  /// Порядковый номер счета
-  public var serialNumber: UInt32 {
-    get {return _serialNumber ?? 0}
-    set {_serialNumber = newValue}
-  }
-  /// Returns true if `serialNumber` has been explicitly set.
-  public var hasSerialNumber: Bool {return self._serialNumber != nil}
-  /// Clears the value of `serialNumber`. Subsequent reads from it will return its default value.
-  public mutating func clearSerialNumber() {self._serialNumber = nil}
-
-  /// Идентификатор балансировочного счета
-  public var balancingAccountID: Data {
-    get {return _balancingAccountID ?? Data()}
-    set {_balancingAccountID = newValue}
-  }
-  /// Returns true if `balancingAccountID` has been explicitly set.
-  public var hasBalancingAccountID: Bool {return self._balancingAccountID != nil}
-  /// Clears the value of `balancingAccountID`. Subsequent reads from it will return its default value.
-  public mutating func clearBalancingAccountID() {self._balancingAccountID = nil}
-
-  /// Порядковый номер балансировочного счета
-  public var balancingAccountSerialNumber: UInt32 {
-    get {return _balancingAccountSerialNumber ?? 0}
-    set {_balancingAccountSerialNumber = newValue}
-  }
-  /// Returns true if `balancingAccountSerialNumber` has been explicitly set.
-  public var hasBalancingAccountSerialNumber: Bool {return self._balancingAccountSerialNumber != nil}
-  /// Clears the value of `balancingAccountSerialNumber`. Subsequent reads from it will return its default value.
-  public mutating func clearBalancingAccountSerialNumber() {self._balancingAccountSerialNumber = nil}
-
-  /// Идентификатор транзакции балансировки
-  public var balancingTransactionID: Data {
-    get {return _balancingTransactionID ?? Data()}
-    set {_balancingTransactionID = newValue}
-  }
-  /// Returns true if `balancingTransactionID` has been explicitly set.
-  public var hasBalancingTransactionID: Bool {return self._balancingTransactionID != nil}
-  /// Clears the value of `balancingTransactionID`. Subsequent reads from it will return its default value.
-  public mutating func clearBalancingTransactionID() {self._balancingTransactionID = nil}
-
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
   fileprivate var _error: Error_Error? = nil
-  fileprivate var _serialNumber: UInt32? = nil
-  fileprivate var _balancingAccountID: Data? = nil
-  fileprivate var _balancingAccountSerialNumber: UInt32? = nil
-  fileprivate var _balancingTransactionID: Data? = nil
 }
 
 public struct Account_UpdateAccountRequest: @unchecked Sendable {
@@ -516,26 +468,6 @@ public struct Account_UpdateAccountRequest: @unchecked Sendable {
   /// Clears the value of `parentAccountID`. Subsequent reads from it will return its default value.
   public mutating func clearParentAccountID() {self._parentAccountID = nil}
 
-  /// Остаток средств на счету
-  public var remainder: Double {
-    get {return _remainder ?? 0}
-    set {_remainder = newValue}
-  }
-  /// Returns true if `remainder` has been explicitly set.
-  public var hasRemainder: Bool {return self._remainder != nil}
-  /// Clears the value of `remainder`. Subsequent reads from it will return its default value.
-  public mutating func clearRemainder() {self._remainder = nil}
-
-  /// Порядковый номер счета
-  public var serialNumber: UInt32 {
-    get {return _serialNumber ?? 0}
-    set {_serialNumber = newValue}
-  }
-  /// Returns true if `serialNumber` has been explicitly set.
-  public var hasSerialNumber: Bool {return self._serialNumber != nil}
-  /// Clears the value of `serialNumber`. Subsequent reads from it will return its default value.
-  public mutating func clearSerialNumber() {self._serialNumber = nil}
-
   /// Видимость счета
   public var visible: Bool {
     get {return _visible ?? false}
@@ -556,6 +488,16 @@ public struct Account_UpdateAccountRequest: @unchecked Sendable {
   /// Clears the value of `budget`. Subsequent reads from it will return its default value.
   public mutating func clearBudget() {self._budget = nil}
 
+  /// Ранг для сортировки счетов (лексикографический, задаётся клиентом)
+  public var rank: String {
+    get {return _rank ?? String()}
+    set {_rank = newValue}
+  }
+  /// Returns true if `rank` has been explicitly set.
+  public var hasRank: Bool {return self._rank != nil}
+  /// Clears the value of `rank`. Subsequent reads from it will return its default value.
+  public mutating func clearRank() {self._rank = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -566,10 +508,9 @@ public struct Account_UpdateAccountRequest: @unchecked Sendable {
   fileprivate var _currency: String? = nil
   fileprivate var _iconID: Data? = nil
   fileprivate var _parentAccountID: Data? = nil
-  fileprivate var _remainder: Double? = nil
-  fileprivate var _serialNumber: UInt32? = nil
   fileprivate var _visible: Bool? = nil
   fileprivate var _budget: Account_UpdateAccountBudgetRequest? = nil
+  fileprivate var _rank: String? = nil
 }
 
 public struct Account_UpdateAccountBudgetRequest: Sendable {
@@ -756,10 +697,10 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     10: .same(proto: "parentAccountID"),
     11: .same(proto: "isParent"),
     12: .same(proto: "iconID"),
-    13: .same(proto: "serialNumber"),
     14: .same(proto: "createdByUserID"),
     15: .same(proto: "datetimeCreate"),
     16: .same(proto: "budget"),
+    17: .same(proto: "rank"),
   ]
 
   fileprivate class _StorageClass {
@@ -775,10 +716,10 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     var _parentAccountID: Data = Data()
     var _isParent: Bool = false
     var _iconID: Data = Data()
-    var _serialNumber: UInt32 = 0
     var _createdByUserID: Data = Data()
     var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
     var _budget: Account_AccountBudget? = nil
+    var _rank: String = String()
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -805,10 +746,10 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       _parentAccountID = source._parentAccountID
       _isParent = source._isParent
       _iconID = source._iconID
-      _serialNumber = source._serialNumber
       _createdByUserID = source._createdByUserID
       _datetimeCreate = source._datetimeCreate
       _budget = source._budget
+      _rank = source._rank
     }
   }
 
@@ -839,10 +780,10 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         case 10: try { try decoder.decodeSingularBytesField(value: &_storage._parentAccountID) }()
         case 11: try { try decoder.decodeSingularBoolField(value: &_storage._isParent) }()
         case 12: try { try decoder.decodeSingularBytesField(value: &_storage._iconID) }()
-        case 13: try { try decoder.decodeSingularUInt32Field(value: &_storage._serialNumber) }()
         case 14: try { try decoder.decodeSingularBytesField(value: &_storage._createdByUserID) }()
         case 15: try { try decoder.decodeSingularMessageField(value: &_storage._datetimeCreate) }()
         case 16: try { try decoder.decodeSingularMessageField(value: &_storage._budget) }()
+        case 17: try { try decoder.decodeSingularStringField(value: &_storage._rank) }()
         default: break
         }
       }
@@ -891,9 +832,6 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       if !_storage._iconID.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._iconID, fieldNumber: 12)
       }
-      if _storage._serialNumber != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._serialNumber, fieldNumber: 13)
-      }
       if !_storage._createdByUserID.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._createdByUserID, fieldNumber: 14)
       }
@@ -903,6 +841,9 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       try { if let v = _storage._budget {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
       } }()
+      if !_storage._rank.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._rank, fieldNumber: 17)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -924,10 +865,10 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         if _storage._parentAccountID != rhs_storage._parentAccountID {return false}
         if _storage._isParent != rhs_storage._isParent {return false}
         if _storage._iconID != rhs_storage._iconID {return false}
-        if _storage._serialNumber != rhs_storage._serialNumber {return false}
         if _storage._createdByUserID != rhs_storage._createdByUserID {return false}
         if _storage._datetimeCreate != rhs_storage._datetimeCreate {return false}
         if _storage._budget != rhs_storage._budget {return false}
+        if _storage._rank != rhs_storage._rank {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -1072,8 +1013,8 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     10: .same(proto: "isParent"),
     11: .same(proto: "datetimeCreate"),
     12: .same(proto: "parentAccountID"),
-    13: .same(proto: "remainder"),
     14: .same(proto: "budget"),
+    15: .same(proto: "rank"),
   ]
 
   fileprivate class _StorageClass {
@@ -1089,8 +1030,8 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     var _isParent: Bool = false
     var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
     var _parentAccountID: Data? = nil
-    var _remainder: Double? = nil
     var _budget: Account_AccountBudget? = nil
+    var _rank: String = String()
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -1117,8 +1058,8 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       _isParent = source._isParent
       _datetimeCreate = source._datetimeCreate
       _parentAccountID = source._parentAccountID
-      _remainder = source._remainder
       _budget = source._budget
+      _rank = source._rank
     }
   }
 
@@ -1149,8 +1090,8 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
         case 10: try { try decoder.decodeSingularBoolField(value: &_storage._isParent) }()
         case 11: try { try decoder.decodeSingularMessageField(value: &_storage._datetimeCreate) }()
         case 12: try { try decoder.decodeSingularBytesField(value: &_storage._parentAccountID) }()
-        case 13: try { try decoder.decodeSingularDoubleField(value: &_storage._remainder) }()
         case 14: try { try decoder.decodeSingularMessageField(value: &_storage._budget) }()
+        case 15: try { try decoder.decodeSingularStringField(value: &_storage._rank) }()
         default: break
         }
       }
@@ -1199,12 +1140,12 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       try { if let v = _storage._parentAccountID {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 12)
       } }()
-      try { if let v = _storage._remainder {
-        try visitor.visitSingularDoubleField(value: v, fieldNumber: 13)
-      } }()
       try { if let v = _storage._budget {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
       } }()
+      if !_storage._rank.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._rank, fieldNumber: 15)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1226,8 +1167,8 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
         if _storage._isParent != rhs_storage._isParent {return false}
         if _storage._datetimeCreate != rhs_storage._datetimeCreate {return false}
         if _storage._parentAccountID != rhs_storage._parentAccountID {return false}
-        if _storage._remainder != rhs_storage._remainder {return false}
         if _storage._budget != rhs_storage._budget {return false}
+        if _storage._rank != rhs_storage._rank {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -1241,10 +1182,6 @@ extension Account_CreateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
   public static let protoMessageName: String = _protobuf_package + ".CreateAccountResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
-    2: .same(proto: "serialNumber"),
-    3: .same(proto: "balancingAccountID"),
-    4: .same(proto: "balancingAccountSerialNumber"),
-    5: .same(proto: "balancingTransactionID"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1254,10 +1191,6 @@ extension Account_CreateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._error) }()
-      case 2: try { try decoder.decodeSingularUInt32Field(value: &self._serialNumber) }()
-      case 3: try { try decoder.decodeSingularBytesField(value: &self._balancingAccountID) }()
-      case 4: try { try decoder.decodeSingularUInt32Field(value: &self._balancingAccountSerialNumber) }()
-      case 5: try { try decoder.decodeSingularBytesField(value: &self._balancingTransactionID) }()
       default: break
       }
     }
@@ -1271,27 +1204,11 @@ extension Account_CreateAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     try { if let v = self._error {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
-    try { if let v = self._serialNumber {
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._balancingAccountID {
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._balancingAccountSerialNumber {
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 4)
-    } }()
-    try { if let v = self._balancingTransactionID {
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Account_CreateAccountResponse, rhs: Account_CreateAccountResponse) -> Bool {
     if lhs._error != rhs._error {return false}
-    if lhs._serialNumber != rhs._serialNumber {return false}
-    if lhs._balancingAccountID != rhs._balancingAccountID {return false}
-    if lhs._balancingAccountSerialNumber != rhs._balancingAccountSerialNumber {return false}
-    if lhs._balancingTransactionID != rhs._balancingTransactionID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1308,10 +1225,9 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     6: .same(proto: "currency"),
     7: .same(proto: "iconID"),
     8: .same(proto: "parentAccountID"),
-    9: .same(proto: "remainder"),
-    10: .same(proto: "serialNumber"),
     11: .same(proto: "visible"),
     12: .same(proto: "budget"),
+    13: .same(proto: "rank"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1328,10 +1244,9 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 6: try { try decoder.decodeSingularStringField(value: &self._currency) }()
       case 7: try { try decoder.decodeSingularBytesField(value: &self._iconID) }()
       case 8: try { try decoder.decodeSingularBytesField(value: &self._parentAccountID) }()
-      case 9: try { try decoder.decodeSingularDoubleField(value: &self._remainder) }()
-      case 10: try { try decoder.decodeSingularUInt32Field(value: &self._serialNumber) }()
       case 11: try { try decoder.decodeSingularBoolField(value: &self._visible) }()
       case 12: try { try decoder.decodeSingularMessageField(value: &self._budget) }()
+      case 13: try { try decoder.decodeSingularStringField(value: &self._rank) }()
       default: break
       }
     }
@@ -1366,17 +1281,14 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     try { if let v = self._parentAccountID {
       try visitor.visitSingularBytesField(value: v, fieldNumber: 8)
     } }()
-    try { if let v = self._remainder {
-      try visitor.visitSingularDoubleField(value: v, fieldNumber: 9)
-    } }()
-    try { if let v = self._serialNumber {
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 10)
-    } }()
     try { if let v = self._visible {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 11)
     } }()
     try { if let v = self._budget {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+    } }()
+    try { if let v = self._rank {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 13)
     } }()
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1390,10 +1302,9 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs._currency != rhs._currency {return false}
     if lhs._iconID != rhs._iconID {return false}
     if lhs._parentAccountID != rhs._parentAccountID {return false}
-    if lhs._remainder != rhs._remainder {return false}
-    if lhs._serialNumber != rhs._serialNumber {return false}
     if lhs._visible != rhs._visible {return false}
     if lhs._budget != rhs._budget {return false}
+    if lhs._rank != rhs._rank {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
