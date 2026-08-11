@@ -33,23 +33,23 @@ public enum AccountBudget_AccountBudgetEndpoint: Sendable {
                 type: .unary
             )
         }
-        /// Namespace for "GetAccountBudgetHistory" metadata.
-        public enum GetAccountBudgetHistory: Sendable {
-            /// Request type for "GetAccountBudgetHistory".
-            public typealias Input = AccountBudget_GetAccountBudgetHistoryRequest
-            /// Response type for "GetAccountBudgetHistory".
-            public typealias Output = AccountBudget_GetAccountBudgetHistoryResponse
-            /// Descriptor for "GetAccountBudgetHistory".
+        /// Namespace for "GetAccountBudgets" metadata.
+        public enum GetAccountBudgets: Sendable {
+            /// Request type for "GetAccountBudgets".
+            public typealias Input = AccountBudget_GetAccountBudgetsRequest
+            /// Response type for "GetAccountBudgets".
+            public typealias Output = AccountBudget_GetAccountBudgetsResponse
+            /// Descriptor for "GetAccountBudgets".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "accountBudget.AccountBudgetEndpoint"),
-                method: "GetAccountBudgetHistory",
+                method: "GetAccountBudgets",
                 type: .unary
             )
         }
         /// Descriptors for all methods in the "accountBudget.AccountBudgetEndpoint" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateAccountBudget.descriptor,
-            GetAccountBudgetHistory.descriptor
+            GetAccountBudgets.descriptor
         ]
     }
 }
@@ -92,27 +92,27 @@ extension AccountBudget_AccountBudgetEndpoint {
             onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_CreateAccountBudgetResponse>) async throws -> Result
         ) async throws -> Result where Result: Sendable
 
-        /// Call the "GetAccountBudgetHistory" method.
+        /// Call the "GetAccountBudgets" method.
         ///
         /// > Source IDL Documentation:
         /// >
-        /// > GetAccountBudgetHistory получение истории версий бюджета счета
+        /// > GetAccountBudgets получение всех версий бюджета по всем счетам доступных пользователю групп счетов
         ///
         /// - Parameters:
-        ///   - request: A request containing a single `AccountBudget_GetAccountBudgetHistoryRequest` message.
-        ///   - serializer: A serializer for `AccountBudget_GetAccountBudgetHistoryRequest` messages.
-        ///   - deserializer: A deserializer for `AccountBudget_GetAccountBudgetHistoryResponse` messages.
+        ///   - request: A request containing a single `AccountBudget_GetAccountBudgetsRequest` message.
+        ///   - serializer: A serializer for `AccountBudget_GetAccountBudgetsRequest` messages.
+        ///   - deserializer: A deserializer for `AccountBudget_GetAccountBudgetsResponse` messages.
         ///   - options: Options to apply to this RPC.
         ///   - handleResponse: A closure which handles the response, the result of which is
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        func getAccountBudgetHistory<Result>(
-            request: GRPCCore.ClientRequest<AccountBudget_GetAccountBudgetHistoryRequest>,
-            serializer: some GRPCCore.MessageSerializer<AccountBudget_GetAccountBudgetHistoryRequest>,
-            deserializer: some GRPCCore.MessageDeserializer<AccountBudget_GetAccountBudgetHistoryResponse>,
+        func getAccountBudgets<Result>(
+            request: GRPCCore.ClientRequest<AccountBudget_GetAccountBudgetsRequest>,
+            serializer: some GRPCCore.MessageSerializer<AccountBudget_GetAccountBudgetsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<AccountBudget_GetAccountBudgetsResponse>,
             options: GRPCCore.CallOptions,
-            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_GetAccountBudgetHistoryResponse>) async throws -> Result
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_GetAccountBudgetsResponse>) async throws -> Result
         ) async throws -> Result where Result: Sendable
     }
 
@@ -166,33 +166,33 @@ extension AccountBudget_AccountBudgetEndpoint {
             )
         }
 
-        /// Call the "GetAccountBudgetHistory" method.
+        /// Call the "GetAccountBudgets" method.
         ///
         /// > Source IDL Documentation:
         /// >
-        /// > GetAccountBudgetHistory получение истории версий бюджета счета
+        /// > GetAccountBudgets получение всех версий бюджета по всем счетам доступных пользователю групп счетов
         ///
         /// - Parameters:
-        ///   - request: A request containing a single `AccountBudget_GetAccountBudgetHistoryRequest` message.
-        ///   - serializer: A serializer for `AccountBudget_GetAccountBudgetHistoryRequest` messages.
-        ///   - deserializer: A deserializer for `AccountBudget_GetAccountBudgetHistoryResponse` messages.
+        ///   - request: A request containing a single `AccountBudget_GetAccountBudgetsRequest` message.
+        ///   - serializer: A serializer for `AccountBudget_GetAccountBudgetsRequest` messages.
+        ///   - deserializer: A deserializer for `AccountBudget_GetAccountBudgetsResponse` messages.
         ///   - options: Options to apply to this RPC.
         ///   - handleResponse: A closure which handles the response, the result of which is
         ///       returned to the caller. Returning from the closure will cancel the RPC if it
         ///       hasn't already finished.
         /// - Returns: The result of `handleResponse`.
-        public func getAccountBudgetHistory<Result>(
-            request: GRPCCore.ClientRequest<AccountBudget_GetAccountBudgetHistoryRequest>,
-            serializer: some GRPCCore.MessageSerializer<AccountBudget_GetAccountBudgetHistoryRequest>,
-            deserializer: some GRPCCore.MessageDeserializer<AccountBudget_GetAccountBudgetHistoryResponse>,
+        public func getAccountBudgets<Result>(
+            request: GRPCCore.ClientRequest<AccountBudget_GetAccountBudgetsRequest>,
+            serializer: some GRPCCore.MessageSerializer<AccountBudget_GetAccountBudgetsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<AccountBudget_GetAccountBudgetsResponse>,
             options: GRPCCore.CallOptions = .defaults,
-            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_GetAccountBudgetHistoryResponse>) async throws -> Result = { response in
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_GetAccountBudgetsResponse>) async throws -> Result = { response in
                 try response.message
             }
         ) async throws -> Result where Result: Sendable {
             try await self.client.unary(
                 request: request,
-                descriptor: AccountBudget_AccountBudgetEndpoint.Method.GetAccountBudgetHistory.descriptor,
+                descriptor: AccountBudget_AccountBudgetEndpoint.Method.GetAccountBudgets.descriptor,
                 serializer: serializer,
                 deserializer: deserializer,
                 options: options,
@@ -234,30 +234,30 @@ extension AccountBudget_AccountBudgetEndpoint.ClientProtocol {
         )
     }
 
-    /// Call the "GetAccountBudgetHistory" method.
+    /// Call the "GetAccountBudgets" method.
     ///
     /// > Source IDL Documentation:
     /// >
-    /// > GetAccountBudgetHistory получение истории версий бюджета счета
+    /// > GetAccountBudgets получение всех версий бюджета по всем счетам доступных пользователю групп счетов
     ///
     /// - Parameters:
-    ///   - request: A request containing a single `AccountBudget_GetAccountBudgetHistoryRequest` message.
+    ///   - request: A request containing a single `AccountBudget_GetAccountBudgetsRequest` message.
     ///   - options: Options to apply to this RPC.
     ///   - handleResponse: A closure which handles the response, the result of which is
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    public func getAccountBudgetHistory<Result>(
-        request: GRPCCore.ClientRequest<AccountBudget_GetAccountBudgetHistoryRequest>,
+    public func getAccountBudgets<Result>(
+        request: GRPCCore.ClientRequest<AccountBudget_GetAccountBudgetsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_GetAccountBudgetHistoryResponse>) async throws -> Result = { response in
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_GetAccountBudgetsResponse>) async throws -> Result = { response in
             try response.message
         }
     ) async throws -> Result where Result: Sendable {
-        try await self.getAccountBudgetHistory(
+        try await self.getAccountBudgets(
             request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<AccountBudget_GetAccountBudgetHistoryRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<AccountBudget_GetAccountBudgetHistoryResponse>(),
+            serializer: GRPCProtobuf.ProtobufSerializer<AccountBudget_GetAccountBudgetsRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<AccountBudget_GetAccountBudgetsResponse>(),
             options: options,
             onResponse: handleResponse
         )
@@ -300,11 +300,11 @@ extension AccountBudget_AccountBudgetEndpoint.ClientProtocol {
         )
     }
 
-    /// Call the "GetAccountBudgetHistory" method.
+    /// Call the "GetAccountBudgets" method.
     ///
     /// > Source IDL Documentation:
     /// >
-    /// > GetAccountBudgetHistory получение истории версий бюджета счета
+    /// > GetAccountBudgets получение всех версий бюджета по всем счетам доступных пользователю групп счетов
     ///
     /// - Parameters:
     ///   - message: request message to send.
@@ -314,19 +314,19 @@ extension AccountBudget_AccountBudgetEndpoint.ClientProtocol {
     ///       returned to the caller. Returning from the closure will cancel the RPC if it
     ///       hasn't already finished.
     /// - Returns: The result of `handleResponse`.
-    public func getAccountBudgetHistory<Result>(
-        _ message: AccountBudget_GetAccountBudgetHistoryRequest,
+    public func getAccountBudgets<Result>(
+        _ message: AccountBudget_GetAccountBudgetsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_GetAccountBudgetHistoryResponse>) async throws -> Result = { response in
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<AccountBudget_GetAccountBudgetsResponse>) async throws -> Result = { response in
             try response.message
         }
     ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<AccountBudget_GetAccountBudgetHistoryRequest>(
+        let request = GRPCCore.ClientRequest<AccountBudget_GetAccountBudgetsRequest>(
             message: message,
             metadata: metadata
         )
-        return try await self.getAccountBudgetHistory(
+        return try await self.getAccountBudgets(
             request: request,
             options: options,
             onResponse: handleResponse

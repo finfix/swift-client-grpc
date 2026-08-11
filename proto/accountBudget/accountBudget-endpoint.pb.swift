@@ -67,6 +67,9 @@ public struct AccountBudget_AccountBudget: @unchecked Sendable {
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
   public mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
 
+  /// Идентификатор группы счетов
+  public var accountGroupID: Data = Data()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -140,7 +143,7 @@ public struct AccountBudget_CreateAccountBudgetResponse: Sendable {
   fileprivate var _error: Error_Error? = nil
 }
 
-public struct AccountBudget_GetAccountBudgetHistoryRequest: @unchecked Sendable {
+public struct AccountBudget_GetAccountBudgetsRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -148,8 +151,8 @@ public struct AccountBudget_GetAccountBudgetHistoryRequest: @unchecked Sendable 
   /// Токен доступа
   public var accessToken: String = String()
 
-  /// Идентификатор счета
-  public var accountID: Data = Data()
+  /// Идентификаторы групп счетов (пусто - все доступные пользователю группы)
+  public var accountGroupIds: [Data] = []
 
   /// Дата, от которой показывать версии бюджета
   public var dateFrom: SwiftProtobuf.Google_Protobuf_Timestamp {
@@ -179,7 +182,7 @@ public struct AccountBudget_GetAccountBudgetHistoryRequest: @unchecked Sendable 
   fileprivate var _dateTo: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-public struct AccountBudget_GetAccountBudgetHistoryResponse: Sendable {
+public struct AccountBudget_GetAccountBudgetsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -194,7 +197,7 @@ public struct AccountBudget_GetAccountBudgetHistoryResponse: Sendable {
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
   public mutating func clearError() {self._error = nil}
 
-  /// История версий бюджета, от новых к старым
+  /// Все версии бюджета по всем счетам запрошенных групп счетов
   public var budgets: [AccountBudget_AccountBudget] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -220,6 +223,7 @@ extension AccountBudget_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._Mes
     7: .same(proto: "effectiveFrom"),
     8: .same(proto: "createdByUserID"),
     9: .same(proto: "datetimeCreate"),
+    10: .same(proto: "accountGroupID"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -237,6 +241,7 @@ extension AccountBudget_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 7: try { try decoder.decodeSingularMessageField(value: &self._effectiveFrom) }()
       case 8: try { try decoder.decodeSingularBytesField(value: &self.createdByUserID) }()
       case 9: try { try decoder.decodeSingularMessageField(value: &self._datetimeCreate) }()
+      case 10: try { try decoder.decodeSingularBytesField(value: &self.accountGroupID) }()
       default: break
       }
     }
@@ -274,6 +279,9 @@ extension AccountBudget_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try { if let v = self._datetimeCreate {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
     } }()
+    if !self.accountGroupID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.accountGroupID, fieldNumber: 10)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -287,6 +295,7 @@ extension AccountBudget_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if lhs._effectiveFrom != rhs._effectiveFrom {return false}
     if lhs.createdByUserID != rhs.createdByUserID {return false}
     if lhs._datetimeCreate != rhs._datetimeCreate {return false}
+    if lhs.accountGroupID != rhs.accountGroupID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -406,11 +415,11 @@ extension AccountBudget_CreateAccountBudgetResponse: SwiftProtobuf.Message, Swif
   }
 }
 
-extension AccountBudget_GetAccountBudgetHistoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetAccountBudgetHistoryRequest"
+extension AccountBudget_GetAccountBudgetsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetAccountBudgetsRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "accessToken"),
-    2: .same(proto: "accountID"),
+    2: .same(proto: "accountGroupIDs"),
     3: .same(proto: "dateFrom"),
     4: .same(proto: "dateTo"),
   ]
@@ -422,7 +431,7 @@ extension AccountBudget_GetAccountBudgetHistoryRequest: SwiftProtobuf.Message, S
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.accessToken) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.accountID) }()
+      case 2: try { try decoder.decodeRepeatedBytesField(value: &self.accountGroupIds) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._dateFrom) }()
       case 4: try { try decoder.decodeSingularMessageField(value: &self._dateTo) }()
       default: break
@@ -438,8 +447,8 @@ extension AccountBudget_GetAccountBudgetHistoryRequest: SwiftProtobuf.Message, S
     if !self.accessToken.isEmpty {
       try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
     }
-    if !self.accountID.isEmpty {
-      try visitor.visitSingularBytesField(value: self.accountID, fieldNumber: 2)
+    if !self.accountGroupIds.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.accountGroupIds, fieldNumber: 2)
     }
     try { if let v = self._dateFrom {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -450,9 +459,9 @@ extension AccountBudget_GetAccountBudgetHistoryRequest: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: AccountBudget_GetAccountBudgetHistoryRequest, rhs: AccountBudget_GetAccountBudgetHistoryRequest) -> Bool {
+  public static func ==(lhs: AccountBudget_GetAccountBudgetsRequest, rhs: AccountBudget_GetAccountBudgetsRequest) -> Bool {
     if lhs.accessToken != rhs.accessToken {return false}
-    if lhs.accountID != rhs.accountID {return false}
+    if lhs.accountGroupIds != rhs.accountGroupIds {return false}
     if lhs._dateFrom != rhs._dateFrom {return false}
     if lhs._dateTo != rhs._dateTo {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -460,8 +469,8 @@ extension AccountBudget_GetAccountBudgetHistoryRequest: SwiftProtobuf.Message, S
   }
 }
 
-extension AccountBudget_GetAccountBudgetHistoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetAccountBudgetHistoryResponse"
+extension AccountBudget_GetAccountBudgetsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetAccountBudgetsResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
     2: .same(proto: "budgets"),
@@ -494,7 +503,7 @@ extension AccountBudget_GetAccountBudgetHistoryResponse: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: AccountBudget_GetAccountBudgetHistoryResponse, rhs: AccountBudget_GetAccountBudgetHistoryResponse) -> Bool {
+  public static func ==(lhs: AccountBudget_GetAccountBudgetsResponse, rhs: AccountBudget_GetAccountBudgetsResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs.budgets != rhs.budgets {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
