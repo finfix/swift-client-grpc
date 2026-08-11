@@ -42,6 +42,9 @@ public enum AuditLog_AuditLogEntity: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// Валюта
   case currency // = 6
+
+  /// Версия бюджета счета
+  case accountBudget // = 7
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -57,6 +60,7 @@ public enum AuditLog_AuditLogEntity: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 4: self = .tag
     case 5: self = .user
     case 6: self = .currency
+    case 7: self = .accountBudget
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -70,6 +74,7 @@ public enum AuditLog_AuditLogEntity: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .tag: return 4
     case .user: return 5
     case .currency: return 6
+    case .accountBudget: return 7
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -83,6 +88,7 @@ public enum AuditLog_AuditLogEntity: SwiftProtobuf.Enum, Swift.CaseIterable {
     .tag,
     .user,
     .currency,
+    .accountBudget,
   ]
 
 }
@@ -326,6 +332,7 @@ extension AuditLog_AuditLogEntity: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "Tag"),
     5: .same(proto: "User"),
     6: .same(proto: "Currency"),
+    7: .same(proto: "AccountBudget"),
   ]
 }
 

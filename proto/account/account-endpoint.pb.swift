@@ -21,142 +21,68 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Account_AccountBudget: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  /// Сумма бюджета
-  public var amount: Double = 0
-
-  /// Смещение в днях
-  public var daysOffset: UInt32 = 0
-
-  /// Фиксированная сумма
-  public var fixedSum: Double = 0
-
-  /// Постепенное пополнение
-  public var gradualFilling: Bool = false
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
 public struct Account_Account: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Идентификатор счета
-  public var id: Data {
-    get {return _storage._id}
-    set {_uniqueStorage()._id = newValue}
-  }
+  public var id: Data = Data()
 
   /// Название счета
-  public var name: String {
-    get {return _storage._name}
-    set {_uniqueStorage()._name = newValue}
-  }
+  public var name: String = String()
 
   /// Тип счета
-  public var type: AccountType_AccountType {
-    get {return _storage._type}
-    set {_uniqueStorage()._type = newValue}
-  }
+  public var type: AccountType_AccountType = .unspecified
 
   /// Валюта счета
-  public var currency: String {
-    get {return _storage._currency}
-    set {_uniqueStorage()._currency = newValue}
-  }
+  public var currency: String = String()
 
   /// Остаток средств на счету
-  public var remainder: Double {
-    get {return _storage._remainder}
-    set {_uniqueStorage()._remainder = newValue}
-  }
+  public var remainder: Double = 0
 
   /// Видимость счета
-  public var visible: Bool {
-    get {return _storage._visible}
-    set {_uniqueStorage()._visible = newValue}
-  }
+  public var visible: Bool = false
 
   /// Учитывать ли счет в графиках
-  public var accountingInCharts: Bool {
-    get {return _storage._accountingInCharts}
-    set {_uniqueStorage()._accountingInCharts = newValue}
-  }
+  public var accountingInCharts: Bool = false
 
   /// Будет ли счет учитываться в шапке
-  public var accountingInHeader: Bool {
-    get {return _storage._accountingInHeader}
-    set {_uniqueStorage()._accountingInHeader = newValue}
-  }
+  public var accountingInHeader: Bool = false
 
   /// Идентификатор группы счета
-  public var accountGroupID: Data {
-    get {return _storage._accountGroupID}
-    set {_uniqueStorage()._accountGroupID = newValue}
-  }
+  public var accountGroupID: Data = Data()
 
   /// Идентификатор родительского аккаунта
-  public var parentAccountID: Data {
-    get {return _storage._parentAccountID}
-    set {_uniqueStorage()._parentAccountID = newValue}
-  }
+  public var parentAccountID: Data = Data()
 
   /// Является ли счет родительским
-  public var isParent: Bool {
-    get {return _storage._isParent}
-    set {_uniqueStorage()._isParent = newValue}
-  }
+  public var isParent: Bool = false
 
   /// Идентификатор иконки
-  public var iconID: Data {
-    get {return _storage._iconID}
-    set {_uniqueStorage()._iconID = newValue}
-  }
+  public var iconID: Data = Data()
 
   /// Идентификатор пользователя, создавшего счет
-  public var createdByUserID: Data {
-    get {return _storage._createdByUserID}
-    set {_uniqueStorage()._createdByUserID = newValue}
-  }
+  public var createdByUserID: Data = Data()
 
   /// Дата и время создания счета
   public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _storage._datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_uniqueStorage()._datetimeCreate = newValue}
+    get {return _datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  public var hasDatetimeCreate: Bool {return _storage._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  public mutating func clearDatetimeCreate() {_uniqueStorage()._datetimeCreate = nil}
-
-  /// Бюджет
-  public var budget: Account_AccountBudget {
-    get {return _storage._budget ?? Account_AccountBudget()}
-    set {_uniqueStorage()._budget = newValue}
-  }
-  /// Returns true if `budget` has been explicitly set.
-  public var hasBudget: Bool {return _storage._budget != nil}
-  /// Clears the value of `budget`. Subsequent reads from it will return its default value.
-  public mutating func clearBudget() {_uniqueStorage()._budget = nil}
+  public mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
 
   /// Ранг для сортировки счетов (лексикографический, задаётся клиентом)
-  public var rank: String {
-    get {return _storage._rank}
-    set {_uniqueStorage()._rank = newValue}
-  }
+  public var rank: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 public struct Account_GetAccountsRequest: @unchecked Sendable {
@@ -273,106 +199,64 @@ public struct Account_CreateAccountRequest: @unchecked Sendable {
   // methods supported on all messages.
 
   /// Токен доступа
-  public var accessToken: String {
-    get {return _storage._accessToken}
-    set {_uniqueStorage()._accessToken = newValue}
-  }
+  public var accessToken: String = String()
 
   /// Идентификатор счета
-  public var id: Data {
-    get {return _storage._id}
-    set {_uniqueStorage()._id = newValue}
-  }
+  public var id: Data = Data()
 
   /// Название счета
-  public var name: String {
-    get {return _storage._name}
-    set {_uniqueStorage()._name = newValue}
-  }
+  public var name: String = String()
 
   /// Тип счета
-  public var type: AccountType_AccountType {
-    get {return _storage._type}
-    set {_uniqueStorage()._type = newValue}
-  }
+  public var type: AccountType_AccountType = .unspecified
 
   /// Валюта счета
-  public var currency: String {
-    get {return _storage._currency}
-    set {_uniqueStorage()._currency = newValue}
-  }
+  public var currency: String = String()
 
   /// Группа счета
-  public var accountGroupID: Data {
-    get {return _storage._accountGroupID}
-    set {_uniqueStorage()._accountGroupID = newValue}
-  }
+  public var accountGroupID: Data = Data()
 
   /// Учитывать ли счет в графиках
-  public var accountingInCharts: Bool {
-    get {return _storage._accountingInCharts}
-    set {_uniqueStorage()._accountingInCharts = newValue}
-  }
+  public var accountingInCharts: Bool = false
 
   /// Подсчет суммы счета в статистике
-  public var accountingInHeader: Bool {
-    get {return _storage._accountingInHeader}
-    set {_uniqueStorage()._accountingInHeader = newValue}
-  }
+  public var accountingInHeader: Bool = false
 
   /// Идентификатор иконки
-  public var iconID: Data {
-    get {return _storage._iconID}
-    set {_uniqueStorage()._iconID = newValue}
-  }
+  public var iconID: Data = Data()
 
   /// Является ли счет родительским
-  public var isParent: Bool {
-    get {return _storage._isParent}
-    set {_uniqueStorage()._isParent = newValue}
-  }
+  public var isParent: Bool = false
 
   /// Дата создания счета
   public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _storage._datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_uniqueStorage()._datetimeCreate = newValue}
+    get {return _datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  public var hasDatetimeCreate: Bool {return _storage._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  public mutating func clearDatetimeCreate() {_uniqueStorage()._datetimeCreate = nil}
+  public mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
 
   /// Идентификатор родительского счета
   public var parentAccountID: Data {
-    get {return _storage._parentAccountID ?? Data()}
-    set {_uniqueStorage()._parentAccountID = newValue}
+    get {return _parentAccountID ?? Data()}
+    set {_parentAccountID = newValue}
   }
   /// Returns true if `parentAccountID` has been explicitly set.
-  public var hasParentAccountID: Bool {return _storage._parentAccountID != nil}
+  public var hasParentAccountID: Bool {return self._parentAccountID != nil}
   /// Clears the value of `parentAccountID`. Subsequent reads from it will return its default value.
-  public mutating func clearParentAccountID() {_uniqueStorage()._parentAccountID = nil}
-
-  /// Бюджет
-  public var budget: Account_AccountBudget {
-    get {return _storage._budget ?? Account_AccountBudget()}
-    set {_uniqueStorage()._budget = newValue}
-  }
-  /// Returns true if `budget` has been explicitly set.
-  public var hasBudget: Bool {return _storage._budget != nil}
-  /// Clears the value of `budget`. Subsequent reads from it will return its default value.
-  public mutating func clearBudget() {_uniqueStorage()._budget = nil}
+  public mutating func clearParentAccountID() {self._parentAccountID = nil}
 
   /// Ранг для сортировки счетов (лексикографический, задаётся клиентом)
-  public var rank: String {
-    get {return _storage._rank}
-    set {_uniqueStorage()._rank = newValue}
-  }
+  public var rank: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+  fileprivate var _parentAccountID: Data? = nil
 }
 
 public struct Account_CreateAccountResponse: Sendable {
@@ -478,16 +362,6 @@ public struct Account_UpdateAccountRequest: @unchecked Sendable {
   /// Clears the value of `visible`. Subsequent reads from it will return its default value.
   public mutating func clearVisible() {self._visible = nil}
 
-  /// Месячный бюджет
-  public var budget: Account_UpdateAccountBudgetRequest {
-    get {return _budget ?? Account_UpdateAccountBudgetRequest()}
-    set {_budget = newValue}
-  }
-  /// Returns true if `budget` has been explicitly set.
-  public var hasBudget: Bool {return self._budget != nil}
-  /// Clears the value of `budget`. Subsequent reads from it will return its default value.
-  public mutating func clearBudget() {self._budget = nil}
-
   /// Ранг для сортировки счетов (лексикографический, задаётся клиентом)
   public var rank: String {
     get {return _rank ?? String()}
@@ -509,63 +383,7 @@ public struct Account_UpdateAccountRequest: @unchecked Sendable {
   fileprivate var _iconID: Data? = nil
   fileprivate var _parentAccountID: Data? = nil
   fileprivate var _visible: Bool? = nil
-  fileprivate var _budget: Account_UpdateAccountBudgetRequest? = nil
   fileprivate var _rank: String? = nil
-}
-
-public struct Account_UpdateAccountBudgetRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  /// Сумма бюджета
-  public var amount: Double {
-    get {return _amount ?? 0}
-    set {_amount = newValue}
-  }
-  /// Returns true if `amount` has been explicitly set.
-  public var hasAmount: Bool {return self._amount != nil}
-  /// Clears the value of `amount`. Subsequent reads from it will return its default value.
-  public mutating func clearAmount() {self._amount = nil}
-
-  /// Смещение в днях
-  public var daysOffset: UInt32 {
-    get {return _daysOffset ?? 0}
-    set {_daysOffset = newValue}
-  }
-  /// Returns true if `daysOffset` has been explicitly set.
-  public var hasDaysOffset: Bool {return self._daysOffset != nil}
-  /// Clears the value of `daysOffset`. Subsequent reads from it will return its default value.
-  public mutating func clearDaysOffset() {self._daysOffset = nil}
-
-  /// Фиксированная сумма
-  public var fixedSum: Double {
-    get {return _fixedSum ?? 0}
-    set {_fixedSum = newValue}
-  }
-  /// Returns true if `fixedSum` has been explicitly set.
-  public var hasFixedSum: Bool {return self._fixedSum != nil}
-  /// Clears the value of `fixedSum`. Subsequent reads from it will return its default value.
-  public mutating func clearFixedSum() {self._fixedSum = nil}
-
-  /// Постепенное пополнение
-  public var gradualFilling: Bool {
-    get {return _gradualFilling ?? false}
-    set {_gradualFilling = newValue}
-  }
-  /// Returns true if `gradualFilling` has been explicitly set.
-  public var hasGradualFilling: Bool {return self._gradualFilling != nil}
-  /// Clears the value of `gradualFilling`. Subsequent reads from it will return its default value.
-  public mutating func clearGradualFilling() {self._gradualFilling = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  fileprivate var _amount: Double? = nil
-  fileprivate var _daysOffset: UInt32? = nil
-  fileprivate var _fixedSum: Double? = nil
-  fileprivate var _gradualFilling: Bool? = nil
 }
 
 public struct Account_UpdateAccountResponse: Sendable {
@@ -632,56 +450,6 @@ public struct Account_DeleteAccountResponse: Sendable {
 
 fileprivate let _protobuf_package = "account"
 
-extension Account_AccountBudget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".AccountBudget"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "amount"),
-    2: .same(proto: "daysOffset"),
-    3: .same(proto: "fixedSum"),
-    4: .same(proto: "gradualFilling"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularDoubleField(value: &self.amount) }()
-      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.daysOffset) }()
-      case 3: try { try decoder.decodeSingularDoubleField(value: &self.fixedSum) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.gradualFilling) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.amount.bitPattern != 0 {
-      try visitor.visitSingularDoubleField(value: self.amount, fieldNumber: 1)
-    }
-    if self.daysOffset != 0 {
-      try visitor.visitSingularUInt32Field(value: self.daysOffset, fieldNumber: 2)
-    }
-    if self.fixedSum.bitPattern != 0 {
-      try visitor.visitSingularDoubleField(value: self.fixedSum, fieldNumber: 3)
-    }
-    if self.gradualFilling != false {
-      try visitor.visitSingularBoolField(value: self.gradualFilling, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Account_AccountBudget, rhs: Account_AccountBudget) -> Bool {
-    if lhs.amount != rhs.amount {return false}
-    if lhs.daysOffset != rhs.daysOffset {return false}
-    if lhs.fixedSum != rhs.fixedSum {return false}
-    if lhs.gradualFilling != rhs.gradualFilling {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Account"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -699,180 +467,104 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     12: .same(proto: "iconID"),
     14: .same(proto: "createdByUserID"),
     15: .same(proto: "datetimeCreate"),
-    16: .same(proto: "budget"),
     17: .same(proto: "rank"),
   ]
 
-  fileprivate class _StorageClass {
-    var _id: Data = Data()
-    var _name: String = String()
-    var _type: AccountType_AccountType = .unspecified
-    var _currency: String = String()
-    var _remainder: Double = 0
-    var _visible: Bool = false
-    var _accountingInCharts: Bool = false
-    var _accountingInHeader: Bool = false
-    var _accountGroupID: Data = Data()
-    var _parentAccountID: Data = Data()
-    var _isParent: Bool = false
-    var _iconID: Data = Data()
-    var _createdByUserID: Data = Data()
-    var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
-    var _budget: Account_AccountBudget? = nil
-    var _rank: String = String()
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _id = source._id
-      _name = source._name
-      _type = source._type
-      _currency = source._currency
-      _remainder = source._remainder
-      _visible = source._visible
-      _accountingInCharts = source._accountingInCharts
-      _accountingInHeader = source._accountingInHeader
-      _accountGroupID = source._accountGroupID
-      _parentAccountID = source._parentAccountID
-      _isParent = source._isParent
-      _iconID = source._iconID
-      _createdByUserID = source._createdByUserID
-      _datetimeCreate = source._datetimeCreate
-      _budget = source._budget
-      _rank = source._rank
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularBytesField(value: &_storage._id) }()
-        case 2: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
-        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._type) }()
-        case 4: try { try decoder.decodeSingularStringField(value: &_storage._currency) }()
-        case 5: try { try decoder.decodeSingularDoubleField(value: &_storage._remainder) }()
-        case 6: try { try decoder.decodeSingularBoolField(value: &_storage._visible) }()
-        case 7: try { try decoder.decodeSingularBoolField(value: &_storage._accountingInCharts) }()
-        case 8: try { try decoder.decodeSingularBoolField(value: &_storage._accountingInHeader) }()
-        case 9: try { try decoder.decodeSingularBytesField(value: &_storage._accountGroupID) }()
-        case 10: try { try decoder.decodeSingularBytesField(value: &_storage._parentAccountID) }()
-        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._isParent) }()
-        case 12: try { try decoder.decodeSingularBytesField(value: &_storage._iconID) }()
-        case 14: try { try decoder.decodeSingularBytesField(value: &_storage._createdByUserID) }()
-        case 15: try { try decoder.decodeSingularMessageField(value: &_storage._datetimeCreate) }()
-        case 16: try { try decoder.decodeSingularMessageField(value: &_storage._budget) }()
-        case 17: try { try decoder.decodeSingularStringField(value: &_storage._rank) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBytesField(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.currency) }()
+      case 5: try { try decoder.decodeSingularDoubleField(value: &self.remainder) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.visible) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.accountingInCharts) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.accountingInHeader) }()
+      case 9: try { try decoder.decodeSingularBytesField(value: &self.accountGroupID) }()
+      case 10: try { try decoder.decodeSingularBytesField(value: &self.parentAccountID) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self.isParent) }()
+      case 12: try { try decoder.decodeSingularBytesField(value: &self.iconID) }()
+      case 14: try { try decoder.decodeSingularBytesField(value: &self.createdByUserID) }()
+      case 15: try { try decoder.decodeSingularMessageField(value: &self._datetimeCreate) }()
+      case 17: try { try decoder.decodeSingularStringField(value: &self.rank) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      if !_storage._id.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._id, fieldNumber: 1)
-      }
-      if !_storage._name.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 2)
-      }
-      if _storage._type != .unspecified {
-        try visitor.visitSingularEnumField(value: _storage._type, fieldNumber: 3)
-      }
-      if !_storage._currency.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._currency, fieldNumber: 4)
-      }
-      if _storage._remainder.bitPattern != 0 {
-        try visitor.visitSingularDoubleField(value: _storage._remainder, fieldNumber: 5)
-      }
-      if _storage._visible != false {
-        try visitor.visitSingularBoolField(value: _storage._visible, fieldNumber: 6)
-      }
-      if _storage._accountingInCharts != false {
-        try visitor.visitSingularBoolField(value: _storage._accountingInCharts, fieldNumber: 7)
-      }
-      if _storage._accountingInHeader != false {
-        try visitor.visitSingularBoolField(value: _storage._accountingInHeader, fieldNumber: 8)
-      }
-      if !_storage._accountGroupID.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._accountGroupID, fieldNumber: 9)
-      }
-      if !_storage._parentAccountID.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._parentAccountID, fieldNumber: 10)
-      }
-      if _storage._isParent != false {
-        try visitor.visitSingularBoolField(value: _storage._isParent, fieldNumber: 11)
-      }
-      if !_storage._iconID.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._iconID, fieldNumber: 12)
-      }
-      if !_storage._createdByUserID.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._createdByUserID, fieldNumber: 14)
-      }
-      try { if let v = _storage._datetimeCreate {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-      } }()
-      try { if let v = _storage._budget {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-      } }()
-      if !_storage._rank.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._rank, fieldNumber: 17)
-      }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.id.isEmpty {
+      try visitor.visitSingularBytesField(value: self.id, fieldNumber: 1)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
+    }
+    if self.type != .unspecified {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 3)
+    }
+    if !self.currency.isEmpty {
+      try visitor.visitSingularStringField(value: self.currency, fieldNumber: 4)
+    }
+    if self.remainder.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.remainder, fieldNumber: 5)
+    }
+    if self.visible != false {
+      try visitor.visitSingularBoolField(value: self.visible, fieldNumber: 6)
+    }
+    if self.accountingInCharts != false {
+      try visitor.visitSingularBoolField(value: self.accountingInCharts, fieldNumber: 7)
+    }
+    if self.accountingInHeader != false {
+      try visitor.visitSingularBoolField(value: self.accountingInHeader, fieldNumber: 8)
+    }
+    if !self.accountGroupID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.accountGroupID, fieldNumber: 9)
+    }
+    if !self.parentAccountID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.parentAccountID, fieldNumber: 10)
+    }
+    if self.isParent != false {
+      try visitor.visitSingularBoolField(value: self.isParent, fieldNumber: 11)
+    }
+    if !self.iconID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.iconID, fieldNumber: 12)
+    }
+    if !self.createdByUserID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.createdByUserID, fieldNumber: 14)
+    }
+    try { if let v = self._datetimeCreate {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+    } }()
+    if !self.rank.isEmpty {
+      try visitor.visitSingularStringField(value: self.rank, fieldNumber: 17)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Account_Account, rhs: Account_Account) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._id != rhs_storage._id {return false}
-        if _storage._name != rhs_storage._name {return false}
-        if _storage._type != rhs_storage._type {return false}
-        if _storage._currency != rhs_storage._currency {return false}
-        if _storage._remainder != rhs_storage._remainder {return false}
-        if _storage._visible != rhs_storage._visible {return false}
-        if _storage._accountingInCharts != rhs_storage._accountingInCharts {return false}
-        if _storage._accountingInHeader != rhs_storage._accountingInHeader {return false}
-        if _storage._accountGroupID != rhs_storage._accountGroupID {return false}
-        if _storage._parentAccountID != rhs_storage._parentAccountID {return false}
-        if _storage._isParent != rhs_storage._isParent {return false}
-        if _storage._iconID != rhs_storage._iconID {return false}
-        if _storage._createdByUserID != rhs_storage._createdByUserID {return false}
-        if _storage._datetimeCreate != rhs_storage._datetimeCreate {return false}
-        if _storage._budget != rhs_storage._budget {return false}
-        if _storage._rank != rhs_storage._rank {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.id != rhs.id {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.type != rhs.type {return false}
+    if lhs.currency != rhs.currency {return false}
+    if lhs.remainder != rhs.remainder {return false}
+    if lhs.visible != rhs.visible {return false}
+    if lhs.accountingInCharts != rhs.accountingInCharts {return false}
+    if lhs.accountingInHeader != rhs.accountingInHeader {return false}
+    if lhs.accountGroupID != rhs.accountGroupID {return false}
+    if lhs.parentAccountID != rhs.parentAccountID {return false}
+    if lhs.isParent != rhs.isParent {return false}
+    if lhs.iconID != rhs.iconID {return false}
+    if lhs.createdByUserID != rhs.createdByUserID {return false}
+    if lhs._datetimeCreate != rhs._datetimeCreate {return false}
+    if lhs.rank != rhs.rank {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1013,166 +705,94 @@ extension Account_CreateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     10: .same(proto: "isParent"),
     11: .same(proto: "datetimeCreate"),
     12: .same(proto: "parentAccountID"),
-    14: .same(proto: "budget"),
     15: .same(proto: "rank"),
   ]
 
-  fileprivate class _StorageClass {
-    var _accessToken: String = String()
-    var _id: Data = Data()
-    var _name: String = String()
-    var _type: AccountType_AccountType = .unspecified
-    var _currency: String = String()
-    var _accountGroupID: Data = Data()
-    var _accountingInCharts: Bool = false
-    var _accountingInHeader: Bool = false
-    var _iconID: Data = Data()
-    var _isParent: Bool = false
-    var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
-    var _parentAccountID: Data? = nil
-    var _budget: Account_AccountBudget? = nil
-    var _rank: String = String()
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _accessToken = source._accessToken
-      _id = source._id
-      _name = source._name
-      _type = source._type
-      _currency = source._currency
-      _accountGroupID = source._accountGroupID
-      _accountingInCharts = source._accountingInCharts
-      _accountingInHeader = source._accountingInHeader
-      _iconID = source._iconID
-      _isParent = source._isParent
-      _datetimeCreate = source._datetimeCreate
-      _parentAccountID = source._parentAccountID
-      _budget = source._budget
-      _rank = source._rank
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularStringField(value: &_storage._accessToken) }()
-        case 2: try { try decoder.decodeSingularBytesField(value: &_storage._id) }()
-        case 3: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
-        case 4: try { try decoder.decodeSingularEnumField(value: &_storage._type) }()
-        case 5: try { try decoder.decodeSingularStringField(value: &_storage._currency) }()
-        case 6: try { try decoder.decodeSingularBytesField(value: &_storage._accountGroupID) }()
-        case 7: try { try decoder.decodeSingularBoolField(value: &_storage._accountingInCharts) }()
-        case 8: try { try decoder.decodeSingularBoolField(value: &_storage._accountingInHeader) }()
-        case 9: try { try decoder.decodeSingularBytesField(value: &_storage._iconID) }()
-        case 10: try { try decoder.decodeSingularBoolField(value: &_storage._isParent) }()
-        case 11: try { try decoder.decodeSingularMessageField(value: &_storage._datetimeCreate) }()
-        case 12: try { try decoder.decodeSingularBytesField(value: &_storage._parentAccountID) }()
-        case 14: try { try decoder.decodeSingularMessageField(value: &_storage._budget) }()
-        case 15: try { try decoder.decodeSingularStringField(value: &_storage._rank) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.accessToken) }()
+      case 2: try { try decoder.decodeSingularBytesField(value: &self.id) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.currency) }()
+      case 6: try { try decoder.decodeSingularBytesField(value: &self.accountGroupID) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.accountingInCharts) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.accountingInHeader) }()
+      case 9: try { try decoder.decodeSingularBytesField(value: &self.iconID) }()
+      case 10: try { try decoder.decodeSingularBoolField(value: &self.isParent) }()
+      case 11: try { try decoder.decodeSingularMessageField(value: &self._datetimeCreate) }()
+      case 12: try { try decoder.decodeSingularBytesField(value: &self._parentAccountID) }()
+      case 15: try { try decoder.decodeSingularStringField(value: &self.rank) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      if !_storage._accessToken.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._accessToken, fieldNumber: 1)
-      }
-      if !_storage._id.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._id, fieldNumber: 2)
-      }
-      if !_storage._name.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 3)
-      }
-      if _storage._type != .unspecified {
-        try visitor.visitSingularEnumField(value: _storage._type, fieldNumber: 4)
-      }
-      if !_storage._currency.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._currency, fieldNumber: 5)
-      }
-      if !_storage._accountGroupID.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._accountGroupID, fieldNumber: 6)
-      }
-      if _storage._accountingInCharts != false {
-        try visitor.visitSingularBoolField(value: _storage._accountingInCharts, fieldNumber: 7)
-      }
-      if _storage._accountingInHeader != false {
-        try visitor.visitSingularBoolField(value: _storage._accountingInHeader, fieldNumber: 8)
-      }
-      if !_storage._iconID.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._iconID, fieldNumber: 9)
-      }
-      if _storage._isParent != false {
-        try visitor.visitSingularBoolField(value: _storage._isParent, fieldNumber: 10)
-      }
-      try { if let v = _storage._datetimeCreate {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-      } }()
-      try { if let v = _storage._parentAccountID {
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 12)
-      } }()
-      try { if let v = _storage._budget {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-      } }()
-      if !_storage._rank.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._rank, fieldNumber: 15)
-      }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.accessToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.accessToken, fieldNumber: 1)
+    }
+    if !self.id.isEmpty {
+      try visitor.visitSingularBytesField(value: self.id, fieldNumber: 2)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
+    }
+    if self.type != .unspecified {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 4)
+    }
+    if !self.currency.isEmpty {
+      try visitor.visitSingularStringField(value: self.currency, fieldNumber: 5)
+    }
+    if !self.accountGroupID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.accountGroupID, fieldNumber: 6)
+    }
+    if self.accountingInCharts != false {
+      try visitor.visitSingularBoolField(value: self.accountingInCharts, fieldNumber: 7)
+    }
+    if self.accountingInHeader != false {
+      try visitor.visitSingularBoolField(value: self.accountingInHeader, fieldNumber: 8)
+    }
+    if !self.iconID.isEmpty {
+      try visitor.visitSingularBytesField(value: self.iconID, fieldNumber: 9)
+    }
+    if self.isParent != false {
+      try visitor.visitSingularBoolField(value: self.isParent, fieldNumber: 10)
+    }
+    try { if let v = self._datetimeCreate {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    } }()
+    try { if let v = self._parentAccountID {
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 12)
+    } }()
+    if !self.rank.isEmpty {
+      try visitor.visitSingularStringField(value: self.rank, fieldNumber: 15)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Account_CreateAccountRequest, rhs: Account_CreateAccountRequest) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._accessToken != rhs_storage._accessToken {return false}
-        if _storage._id != rhs_storage._id {return false}
-        if _storage._name != rhs_storage._name {return false}
-        if _storage._type != rhs_storage._type {return false}
-        if _storage._currency != rhs_storage._currency {return false}
-        if _storage._accountGroupID != rhs_storage._accountGroupID {return false}
-        if _storage._accountingInCharts != rhs_storage._accountingInCharts {return false}
-        if _storage._accountingInHeader != rhs_storage._accountingInHeader {return false}
-        if _storage._iconID != rhs_storage._iconID {return false}
-        if _storage._isParent != rhs_storage._isParent {return false}
-        if _storage._datetimeCreate != rhs_storage._datetimeCreate {return false}
-        if _storage._parentAccountID != rhs_storage._parentAccountID {return false}
-        if _storage._budget != rhs_storage._budget {return false}
-        if _storage._rank != rhs_storage._rank {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.accessToken != rhs.accessToken {return false}
+    if lhs.id != rhs.id {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.type != rhs.type {return false}
+    if lhs.currency != rhs.currency {return false}
+    if lhs.accountGroupID != rhs.accountGroupID {return false}
+    if lhs.accountingInCharts != rhs.accountingInCharts {return false}
+    if lhs.accountingInHeader != rhs.accountingInHeader {return false}
+    if lhs.iconID != rhs.iconID {return false}
+    if lhs.isParent != rhs.isParent {return false}
+    if lhs._datetimeCreate != rhs._datetimeCreate {return false}
+    if lhs._parentAccountID != rhs._parentAccountID {return false}
+    if lhs.rank != rhs.rank {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1226,7 +846,6 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     7: .same(proto: "iconID"),
     8: .same(proto: "parentAccountID"),
     11: .same(proto: "visible"),
-    12: .same(proto: "budget"),
     13: .same(proto: "rank"),
   ]
 
@@ -1245,7 +864,6 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 7: try { try decoder.decodeSingularBytesField(value: &self._iconID) }()
       case 8: try { try decoder.decodeSingularBytesField(value: &self._parentAccountID) }()
       case 11: try { try decoder.decodeSingularBoolField(value: &self._visible) }()
-      case 12: try { try decoder.decodeSingularMessageField(value: &self._budget) }()
       case 13: try { try decoder.decodeSingularStringField(value: &self._rank) }()
       default: break
       }
@@ -1284,9 +902,6 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     try { if let v = self._visible {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 11)
     } }()
-    try { if let v = self._budget {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-    } }()
     try { if let v = self._rank {
       try visitor.visitSingularStringField(value: v, fieldNumber: 13)
     } }()
@@ -1303,62 +918,7 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs._iconID != rhs._iconID {return false}
     if lhs._parentAccountID != rhs._parentAccountID {return false}
     if lhs._visible != rhs._visible {return false}
-    if lhs._budget != rhs._budget {return false}
     if lhs._rank != rhs._rank {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Account_UpdateAccountBudgetRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateAccountBudgetRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "amount"),
-    2: .same(proto: "daysOffset"),
-    3: .same(proto: "fixedSum"),
-    4: .same(proto: "gradualFilling"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularDoubleField(value: &self._amount) }()
-      case 2: try { try decoder.decodeSingularUInt32Field(value: &self._daysOffset) }()
-      case 3: try { try decoder.decodeSingularDoubleField(value: &self._fixedSum) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self._gradualFilling) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._amount {
-      try visitor.visitSingularDoubleField(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._daysOffset {
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._fixedSum {
-      try visitor.visitSingularDoubleField(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._gradualFilling {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Account_UpdateAccountBudgetRequest, rhs: Account_UpdateAccountBudgetRequest) -> Bool {
-    if lhs._amount != rhs._amount {return false}
-    if lhs._daysOffset != rhs._daysOffset {return false}
-    if lhs._fixedSum != rhs._fixedSum {return false}
-    if lhs._gradualFilling != rhs._gradualFilling {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
