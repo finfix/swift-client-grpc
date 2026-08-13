@@ -25,8 +25,8 @@ public struct Error_Error: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// Код ошибки
-  public var code: Int32 = 0
+  /// Категория ошибки
+  public var category: ErrorCategory_ErrorCategory = .unspecified
 
   /// Описание ошибки
   public var message: String = String()
@@ -71,7 +71,7 @@ fileprivate let _protobuf_package = "error"
 extension Error_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Error"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
+    1: .same(proto: "category"),
     2: .same(proto: "message"),
     3: .same(proto: "systemMessage"),
     4: .same(proto: "params"),
@@ -83,7 +83,7 @@ extension Error_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.category) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.systemMessage) }()
       case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.params) }()
@@ -93,8 +93,8 @@ extension Error_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.code != 0 {
-      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    if self.category != .unspecified {
+      try visitor.visitSingularEnumField(value: self.category, fieldNumber: 1)
     }
     if !self.message.isEmpty {
       try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
@@ -109,7 +109,7 @@ extension Error_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
   }
 
   public static func ==(lhs: Error_Error, rhs: Error_Error) -> Bool {
-    if lhs.code != rhs.code {return false}
+    if lhs.category != rhs.category {return false}
     if lhs.message != rhs.message {return false}
     if lhs.systemMessage != rhs.systemMessage {return false}
     if lhs.params != rhs.params {return false}
