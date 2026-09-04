@@ -27,62 +27,114 @@ public struct Account_Account: @unchecked Sendable {
   // methods supported on all messages.
 
   /// Идентификатор счета
-  public var id: Data = Data()
+  public var id: Data {
+    get {return _storage._id}
+    set {_uniqueStorage()._id = newValue}
+  }
 
   /// Название счета
-  public var name: String = String()
+  public var name: String {
+    get {return _storage._name}
+    set {_uniqueStorage()._name = newValue}
+  }
 
   /// Тип счета
-  public var type: AccountType_AccountType = .unspecified
+  public var type: AccountType_AccountType {
+    get {return _storage._type}
+    set {_uniqueStorage()._type = newValue}
+  }
 
   /// Валюта счета
-  public var currency: String = String()
+  public var currency: String {
+    get {return _storage._currency}
+    set {_uniqueStorage()._currency = newValue}
+  }
 
   /// Остаток средств на счету
-  public var remainder: Double = 0
+  public var remainder: Double {
+    get {return _storage._remainder}
+    set {_uniqueStorage()._remainder = newValue}
+  }
 
   /// Видимость счета
-  public var visible: Bool = false
+  public var visible: Bool {
+    get {return _storage._visible}
+    set {_uniqueStorage()._visible = newValue}
+  }
 
   /// Учитывать ли счет в графиках
-  public var accountingInCharts: Bool = false
+  public var accountingInCharts: Bool {
+    get {return _storage._accountingInCharts}
+    set {_uniqueStorage()._accountingInCharts = newValue}
+  }
 
   /// Будет ли счет учитываться в шапке
-  public var accountingInHeader: Bool = false
+  public var accountingInHeader: Bool {
+    get {return _storage._accountingInHeader}
+    set {_uniqueStorage()._accountingInHeader = newValue}
+  }
 
   /// Идентификатор группы счета
-  public var accountGroupID: Data = Data()
+  public var accountGroupID: Data {
+    get {return _storage._accountGroupID}
+    set {_uniqueStorage()._accountGroupID = newValue}
+  }
 
   /// Идентификатор родительского аккаунта
-  public var parentAccountID: Data = Data()
+  public var parentAccountID: Data {
+    get {return _storage._parentAccountID}
+    set {_uniqueStorage()._parentAccountID = newValue}
+  }
 
   /// Является ли счет родительским
-  public var isParent: Bool = false
+  public var isParent: Bool {
+    get {return _storage._isParent}
+    set {_uniqueStorage()._isParent = newValue}
+  }
 
   /// Идентификатор иконки
-  public var iconID: Data = Data()
+  public var iconID: Data {
+    get {return _storage._iconID}
+    set {_uniqueStorage()._iconID = newValue}
+  }
 
   /// Идентификатор пользователя, создавшего счет
-  public var createdByUserID: Data = Data()
+  public var createdByUserID: Data {
+    get {return _storage._createdByUserID}
+    set {_uniqueStorage()._createdByUserID = newValue}
+  }
 
   /// Дата и время создания счета
   public var datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_datetimeCreate = newValue}
+    get {return _storage._datetimeCreate ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_uniqueStorage()._datetimeCreate = newValue}
   }
   /// Returns true if `datetimeCreate` has been explicitly set.
-  public var hasDatetimeCreate: Bool {return self._datetimeCreate != nil}
+  public var hasDatetimeCreate: Bool {return _storage._datetimeCreate != nil}
   /// Clears the value of `datetimeCreate`. Subsequent reads from it will return its default value.
-  public mutating func clearDatetimeCreate() {self._datetimeCreate = nil}
+  public mutating func clearDatetimeCreate() {_uniqueStorage()._datetimeCreate = nil}
 
   /// Ранг для сортировки счетов (лексикографический, задаётся клиентом)
-  public var rank: String = String()
+  public var rank: String {
+    get {return _storage._rank}
+    set {_uniqueStorage()._rank = newValue}
+  }
+
+  /// Идентификатор счёта-моста (см. UpdateAccountRequest.linkedAccountID), если счёт связан
+  public var linkedAccountID: Data {
+    get {return _storage._linkedAccountID ?? Data()}
+    set {_uniqueStorage()._linkedAccountID = newValue}
+  }
+  /// Returns true if `linkedAccountID` has been explicitly set.
+  public var hasLinkedAccountID: Bool {return _storage._linkedAccountID != nil}
+  /// Clears the value of `linkedAccountID`. Subsequent reads from it will return its default value.
+  public mutating func clearLinkedAccountID() {_uniqueStorage()._linkedAccountID = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Account_GetAccountsRequest: @unchecked Sendable {
@@ -372,6 +424,24 @@ public struct Account_UpdateAccountRequest: @unchecked Sendable {
   /// Clears the value of `rank`. Subsequent reads from it will return its default value.
   public mutating func clearRank() {self._rank = nil}
 
+  /// Установка linkedAccountID связывает счёт в мост (счёт может принадлежать другому
+  /// пользователю). Бэкенд — тупая точка правды, без проверок доступа/типов/валют: вся валидация
+  /// (совпадающая валюта, разрешённая пара типов, общая группа) — на фронтенде.
+  public var linkedAccountID: Data {
+    get {return _linkedAccountID ?? Data()}
+    set {_linkedAccountID = newValue}
+  }
+  /// Returns true if `linkedAccountID` has been explicitly set.
+  public var hasLinkedAccountID: Bool {return self._linkedAccountID != nil}
+  /// Clears the value of `linkedAccountID`. Subsequent reads from it will return its default value.
+  public mutating func clearLinkedAccountID() {self._linkedAccountID = nil}
+
+  /// Отсутствие linkedAccountID в запросе означает "не менять" (как и любое другое optional-поле
+  /// здесь) — поэтому разрыв связи нужен явным флагом, а не просто пустым значением.
+  /// true — снять linkedAccountID (см. Account.linkedAccountID). Игнорируется, если
+  /// linkedAccountID тоже передан в этом же запросе.
+  public var unlinkAccount: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -384,6 +454,7 @@ public struct Account_UpdateAccountRequest: @unchecked Sendable {
   fileprivate var _parentAccountID: Data? = nil
   fileprivate var _visible: Bool? = nil
   fileprivate var _rank: String? = nil
+  fileprivate var _linkedAccountID: Data? = nil
 }
 
 public struct Account_UpdateAccountResponse: Sendable {
@@ -468,103 +539,179 @@ extension Account_Account: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     14: .same(proto: "createdByUserID"),
     15: .same(proto: "datetimeCreate"),
     17: .same(proto: "rank"),
+    18: .same(proto: "linkedAccountID"),
   ]
 
+  fileprivate class _StorageClass {
+    var _id: Data = Data()
+    var _name: String = String()
+    var _type: AccountType_AccountType = .unspecified
+    var _currency: String = String()
+    var _remainder: Double = 0
+    var _visible: Bool = false
+    var _accountingInCharts: Bool = false
+    var _accountingInHeader: Bool = false
+    var _accountGroupID: Data = Data()
+    var _parentAccountID: Data = Data()
+    var _isParent: Bool = false
+    var _iconID: Data = Data()
+    var _createdByUserID: Data = Data()
+    var _datetimeCreate: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+    var _rank: String = String()
+    var _linkedAccountID: Data? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _id = source._id
+      _name = source._name
+      _type = source._type
+      _currency = source._currency
+      _remainder = source._remainder
+      _visible = source._visible
+      _accountingInCharts = source._accountingInCharts
+      _accountingInHeader = source._accountingInHeader
+      _accountGroupID = source._accountGroupID
+      _parentAccountID = source._parentAccountID
+      _isParent = source._isParent
+      _iconID = source._iconID
+      _createdByUserID = source._createdByUserID
+      _datetimeCreate = source._datetimeCreate
+      _rank = source._rank
+      _linkedAccountID = source._linkedAccountID
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.id) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 3: try { try decoder.decodeSingularEnumField(value: &self.type) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.currency) }()
-      case 5: try { try decoder.decodeSingularDoubleField(value: &self.remainder) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self.visible) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.accountingInCharts) }()
-      case 8: try { try decoder.decodeSingularBoolField(value: &self.accountingInHeader) }()
-      case 9: try { try decoder.decodeSingularBytesField(value: &self.accountGroupID) }()
-      case 10: try { try decoder.decodeSingularBytesField(value: &self.parentAccountID) }()
-      case 11: try { try decoder.decodeSingularBoolField(value: &self.isParent) }()
-      case 12: try { try decoder.decodeSingularBytesField(value: &self.iconID) }()
-      case 14: try { try decoder.decodeSingularBytesField(value: &self.createdByUserID) }()
-      case 15: try { try decoder.decodeSingularMessageField(value: &self._datetimeCreate) }()
-      case 17: try { try decoder.decodeSingularStringField(value: &self.rank) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularBytesField(value: &_storage._id) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._type) }()
+        case 4: try { try decoder.decodeSingularStringField(value: &_storage._currency) }()
+        case 5: try { try decoder.decodeSingularDoubleField(value: &_storage._remainder) }()
+        case 6: try { try decoder.decodeSingularBoolField(value: &_storage._visible) }()
+        case 7: try { try decoder.decodeSingularBoolField(value: &_storage._accountingInCharts) }()
+        case 8: try { try decoder.decodeSingularBoolField(value: &_storage._accountingInHeader) }()
+        case 9: try { try decoder.decodeSingularBytesField(value: &_storage._accountGroupID) }()
+        case 10: try { try decoder.decodeSingularBytesField(value: &_storage._parentAccountID) }()
+        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._isParent) }()
+        case 12: try { try decoder.decodeSingularBytesField(value: &_storage._iconID) }()
+        case 14: try { try decoder.decodeSingularBytesField(value: &_storage._createdByUserID) }()
+        case 15: try { try decoder.decodeSingularMessageField(value: &_storage._datetimeCreate) }()
+        case 17: try { try decoder.decodeSingularStringField(value: &_storage._rank) }()
+        case 18: try { try decoder.decodeSingularBytesField(value: &_storage._linkedAccountID) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.id.isEmpty {
-      try visitor.visitSingularBytesField(value: self.id, fieldNumber: 1)
-    }
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
-    }
-    if self.type != .unspecified {
-      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 3)
-    }
-    if !self.currency.isEmpty {
-      try visitor.visitSingularStringField(value: self.currency, fieldNumber: 4)
-    }
-    if self.remainder.bitPattern != 0 {
-      try visitor.visitSingularDoubleField(value: self.remainder, fieldNumber: 5)
-    }
-    if self.visible != false {
-      try visitor.visitSingularBoolField(value: self.visible, fieldNumber: 6)
-    }
-    if self.accountingInCharts != false {
-      try visitor.visitSingularBoolField(value: self.accountingInCharts, fieldNumber: 7)
-    }
-    if self.accountingInHeader != false {
-      try visitor.visitSingularBoolField(value: self.accountingInHeader, fieldNumber: 8)
-    }
-    if !self.accountGroupID.isEmpty {
-      try visitor.visitSingularBytesField(value: self.accountGroupID, fieldNumber: 9)
-    }
-    if !self.parentAccountID.isEmpty {
-      try visitor.visitSingularBytesField(value: self.parentAccountID, fieldNumber: 10)
-    }
-    if self.isParent != false {
-      try visitor.visitSingularBoolField(value: self.isParent, fieldNumber: 11)
-    }
-    if !self.iconID.isEmpty {
-      try visitor.visitSingularBytesField(value: self.iconID, fieldNumber: 12)
-    }
-    if !self.createdByUserID.isEmpty {
-      try visitor.visitSingularBytesField(value: self.createdByUserID, fieldNumber: 14)
-    }
-    try { if let v = self._datetimeCreate {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-    } }()
-    if !self.rank.isEmpty {
-      try visitor.visitSingularStringField(value: self.rank, fieldNumber: 17)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._id.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._id, fieldNumber: 1)
+      }
+      if !_storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 2)
+      }
+      if _storage._type != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._type, fieldNumber: 3)
+      }
+      if !_storage._currency.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._currency, fieldNumber: 4)
+      }
+      if _storage._remainder.bitPattern != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._remainder, fieldNumber: 5)
+      }
+      if _storage._visible != false {
+        try visitor.visitSingularBoolField(value: _storage._visible, fieldNumber: 6)
+      }
+      if _storage._accountingInCharts != false {
+        try visitor.visitSingularBoolField(value: _storage._accountingInCharts, fieldNumber: 7)
+      }
+      if _storage._accountingInHeader != false {
+        try visitor.visitSingularBoolField(value: _storage._accountingInHeader, fieldNumber: 8)
+      }
+      if !_storage._accountGroupID.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._accountGroupID, fieldNumber: 9)
+      }
+      if !_storage._parentAccountID.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._parentAccountID, fieldNumber: 10)
+      }
+      if _storage._isParent != false {
+        try visitor.visitSingularBoolField(value: _storage._isParent, fieldNumber: 11)
+      }
+      if !_storage._iconID.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._iconID, fieldNumber: 12)
+      }
+      if !_storage._createdByUserID.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._createdByUserID, fieldNumber: 14)
+      }
+      try { if let v = _storage._datetimeCreate {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+      } }()
+      if !_storage._rank.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._rank, fieldNumber: 17)
+      }
+      try { if let v = _storage._linkedAccountID {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 18)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Account_Account, rhs: Account_Account) -> Bool {
-    if lhs.id != rhs.id {return false}
-    if lhs.name != rhs.name {return false}
-    if lhs.type != rhs.type {return false}
-    if lhs.currency != rhs.currency {return false}
-    if lhs.remainder != rhs.remainder {return false}
-    if lhs.visible != rhs.visible {return false}
-    if lhs.accountingInCharts != rhs.accountingInCharts {return false}
-    if lhs.accountingInHeader != rhs.accountingInHeader {return false}
-    if lhs.accountGroupID != rhs.accountGroupID {return false}
-    if lhs.parentAccountID != rhs.parentAccountID {return false}
-    if lhs.isParent != rhs.isParent {return false}
-    if lhs.iconID != rhs.iconID {return false}
-    if lhs.createdByUserID != rhs.createdByUserID {return false}
-    if lhs._datetimeCreate != rhs._datetimeCreate {return false}
-    if lhs.rank != rhs.rank {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._id != rhs_storage._id {return false}
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._type != rhs_storage._type {return false}
+        if _storage._currency != rhs_storage._currency {return false}
+        if _storage._remainder != rhs_storage._remainder {return false}
+        if _storage._visible != rhs_storage._visible {return false}
+        if _storage._accountingInCharts != rhs_storage._accountingInCharts {return false}
+        if _storage._accountingInHeader != rhs_storage._accountingInHeader {return false}
+        if _storage._accountGroupID != rhs_storage._accountGroupID {return false}
+        if _storage._parentAccountID != rhs_storage._parentAccountID {return false}
+        if _storage._isParent != rhs_storage._isParent {return false}
+        if _storage._iconID != rhs_storage._iconID {return false}
+        if _storage._createdByUserID != rhs_storage._createdByUserID {return false}
+        if _storage._datetimeCreate != rhs_storage._datetimeCreate {return false}
+        if _storage._rank != rhs_storage._rank {return false}
+        if _storage._linkedAccountID != rhs_storage._linkedAccountID {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -847,6 +994,8 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     8: .same(proto: "parentAccountID"),
     11: .same(proto: "visible"),
     13: .same(proto: "rank"),
+    14: .same(proto: "linkedAccountID"),
+    15: .same(proto: "unlinkAccount"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -865,6 +1014,8 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 8: try { try decoder.decodeSingularBytesField(value: &self._parentAccountID) }()
       case 11: try { try decoder.decodeSingularBoolField(value: &self._visible) }()
       case 13: try { try decoder.decodeSingularStringField(value: &self._rank) }()
+      case 14: try { try decoder.decodeSingularBytesField(value: &self._linkedAccountID) }()
+      case 15: try { try decoder.decodeSingularBoolField(value: &self.unlinkAccount) }()
       default: break
       }
     }
@@ -905,6 +1056,12 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     try { if let v = self._rank {
       try visitor.visitSingularStringField(value: v, fieldNumber: 13)
     } }()
+    try { if let v = self._linkedAccountID {
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 14)
+    } }()
+    if self.unlinkAccount != false {
+      try visitor.visitSingularBoolField(value: self.unlinkAccount, fieldNumber: 15)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -919,6 +1076,8 @@ extension Account_UpdateAccountRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs._parentAccountID != rhs._parentAccountID {return false}
     if lhs._visible != rhs._visible {return false}
     if lhs._rank != rhs._rank {return false}
+    if lhs._linkedAccountID != rhs._linkedAccountID {return false}
+    if lhs.unlinkAccount != rhs.unlinkAccount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

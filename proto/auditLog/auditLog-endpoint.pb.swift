@@ -45,6 +45,9 @@ public enum AuditLog_AuditLogEntity: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// Версия бюджета счета
   case accountBudget // = 7
+
+  /// Требование довнесения транзакции через счёт-мост
+  case pendingLinkedTransfer // = 8
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -61,6 +64,7 @@ public enum AuditLog_AuditLogEntity: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 5: self = .user
     case 6: self = .currency
     case 7: self = .accountBudget
+    case 8: self = .pendingLinkedTransfer
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -75,6 +79,7 @@ public enum AuditLog_AuditLogEntity: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .user: return 5
     case .currency: return 6
     case .accountBudget: return 7
+    case .pendingLinkedTransfer: return 8
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -89,6 +94,7 @@ public enum AuditLog_AuditLogEntity: SwiftProtobuf.Enum, Swift.CaseIterable {
     .user,
     .currency,
     .accountBudget,
+    .pendingLinkedTransfer,
   ]
 
 }
@@ -333,6 +339,7 @@ extension AuditLog_AuditLogEntity: SwiftProtobuf._ProtoNameProviding {
     5: .same(proto: "User"),
     6: .same(proto: "Currency"),
     7: .same(proto: "AccountBudget"),
+    8: .same(proto: "PendingLinkedTransfer"),
   ]
 }
 

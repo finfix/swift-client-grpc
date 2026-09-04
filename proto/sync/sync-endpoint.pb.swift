@@ -140,6 +140,12 @@ public struct Sync_SyncResponse: @unchecked Sendable {
     set {_uniqueStorage()._changedCurrencies = newValue}
   }
 
+  /// Созданные/изменённые переносы (не удаляются, см. status)
+  public var changedPendingLinkedTransfers: [PendingLinkedTransfer_PendingLinkedTransfer] {
+    get {return _storage._changedPendingLinkedTransfers}
+    set {_uniqueStorage()._changedPendingLinkedTransfers = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -245,6 +251,7 @@ extension Sync_SyncResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     13: .same(proto: "changedAccountBudgets"),
     14: .same(proto: "changedUser"),
     15: .same(proto: "changedCurrencies"),
+    16: .same(proto: "changedPendingLinkedTransfers"),
   ]
 
   fileprivate class _StorageClass {
@@ -263,6 +270,7 @@ extension Sync_SyncResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     var _changedAccountBudgets: [AccountBudget_AccountBudget] = []
     var _changedUser: User_User? = nil
     var _changedCurrencies: [Settings_Currency] = []
+    var _changedPendingLinkedTransfers: [PendingLinkedTransfer_PendingLinkedTransfer] = []
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -292,6 +300,7 @@ extension Sync_SyncResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       _changedAccountBudgets = source._changedAccountBudgets
       _changedUser = source._changedUser
       _changedCurrencies = source._changedCurrencies
+      _changedPendingLinkedTransfers = source._changedPendingLinkedTransfers
     }
   }
 
@@ -325,6 +334,7 @@ extension Sync_SyncResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         case 13: try { try decoder.decodeRepeatedMessageField(value: &_storage._changedAccountBudgets) }()
         case 14: try { try decoder.decodeSingularMessageField(value: &_storage._changedUser) }()
         case 15: try { try decoder.decodeRepeatedMessageField(value: &_storage._changedCurrencies) }()
+        case 16: try { try decoder.decodeRepeatedMessageField(value: &_storage._changedPendingLinkedTransfers) }()
         default: break
         }
       }
@@ -382,6 +392,9 @@ extension Sync_SyncResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       if !_storage._changedCurrencies.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._changedCurrencies, fieldNumber: 15)
       }
+      if !_storage._changedPendingLinkedTransfers.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._changedPendingLinkedTransfers, fieldNumber: 16)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -406,6 +419,7 @@ extension Sync_SyncResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         if _storage._changedAccountBudgets != rhs_storage._changedAccountBudgets {return false}
         if _storage._changedUser != rhs_storage._changedUser {return false}
         if _storage._changedCurrencies != rhs_storage._changedCurrencies {return false}
+        if _storage._changedPendingLinkedTransfers != rhs_storage._changedPendingLinkedTransfers {return false}
         return true
       }
       if !storagesAreEqual {return false}
