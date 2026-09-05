@@ -59,11 +59,25 @@ public enum PendingLinkedTransfer_PendingLinkedTransferEndpoint: Sendable {
                 type: .unary
             )
         }
+        /// Namespace for "DeletePendingLinkedTransfer" metadata.
+        public enum DeletePendingLinkedTransfer: Sendable {
+            /// Request type for "DeletePendingLinkedTransfer".
+            public typealias Input = PendingLinkedTransfer_DeletePendingLinkedTransferRequest
+            /// Response type for "DeletePendingLinkedTransfer".
+            public typealias Output = PendingLinkedTransfer_DeletePendingLinkedTransferResponse
+            /// Descriptor for "DeletePendingLinkedTransfer".
+            public static let descriptor = GRPCCore.MethodDescriptor(
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "pendingLinkedTransfer.PendingLinkedTransferEndpoint"),
+                method: "DeletePendingLinkedTransfer",
+                type: .unary
+            )
+        }
         /// Descriptors for all methods in the "pendingLinkedTransfer.PendingLinkedTransferEndpoint" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             GetPendingLinkedTransfers.descriptor,
             CreatePendingLinkedTransfer.descriptor,
-            UpdatePendingLinkedTransfer.descriptor
+            UpdatePendingLinkedTransfer.descriptor,
+            DeletePendingLinkedTransfer.descriptor
         ]
     }
 }
@@ -155,6 +169,29 @@ extension PendingLinkedTransfer_PendingLinkedTransferEndpoint {
             deserializer: some GRPCCore.MessageDeserializer<PendingLinkedTransfer_UpdatePendingLinkedTransferResponse>,
             options: GRPCCore.CallOptions,
             onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<PendingLinkedTransfer_UpdatePendingLinkedTransferResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeletePendingLinkedTransfer" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > DeletePendingLinkedTransfer удаляет перенос (например, если удалили саму транзакцию-инициатор)
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `PendingLinkedTransfer_DeletePendingLinkedTransferRequest` message.
+        ///   - serializer: A serializer for `PendingLinkedTransfer_DeletePendingLinkedTransferRequest` messages.
+        ///   - deserializer: A deserializer for `PendingLinkedTransfer_DeletePendingLinkedTransferResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deletePendingLinkedTransfer<Result>(
+            request: GRPCCore.ClientRequest<PendingLinkedTransfer_DeletePendingLinkedTransferRequest>,
+            serializer: some GRPCCore.MessageSerializer<PendingLinkedTransfer_DeletePendingLinkedTransferRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<PendingLinkedTransfer_DeletePendingLinkedTransferResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<PendingLinkedTransfer_DeletePendingLinkedTransferResponse>) async throws -> Result
         ) async throws -> Result where Result: Sendable
     }
 
@@ -280,6 +317,40 @@ extension PendingLinkedTransfer_PendingLinkedTransferEndpoint {
                 onResponse: handleResponse
             )
         }
+
+        /// Call the "DeletePendingLinkedTransfer" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > DeletePendingLinkedTransfer удаляет перенос (например, если удалили саму транзакцию-инициатор)
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `PendingLinkedTransfer_DeletePendingLinkedTransferRequest` message.
+        ///   - serializer: A serializer for `PendingLinkedTransfer_DeletePendingLinkedTransferRequest` messages.
+        ///   - deserializer: A deserializer for `PendingLinkedTransfer_DeletePendingLinkedTransferResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deletePendingLinkedTransfer<Result>(
+            request: GRPCCore.ClientRequest<PendingLinkedTransfer_DeletePendingLinkedTransferRequest>,
+            serializer: some GRPCCore.MessageSerializer<PendingLinkedTransfer_DeletePendingLinkedTransferRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<PendingLinkedTransfer_DeletePendingLinkedTransferResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<PendingLinkedTransfer_DeletePendingLinkedTransferResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: PendingLinkedTransfer_PendingLinkedTransferEndpoint.Method.DeletePendingLinkedTransfer.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
     }
 }
 
@@ -368,6 +439,35 @@ extension PendingLinkedTransfer_PendingLinkedTransferEndpoint.ClientProtocol {
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<PendingLinkedTransfer_UpdatePendingLinkedTransferRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<PendingLinkedTransfer_UpdatePendingLinkedTransferResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "DeletePendingLinkedTransfer" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > DeletePendingLinkedTransfer удаляет перенос (например, если удалили саму транзакцию-инициатор)
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `PendingLinkedTransfer_DeletePendingLinkedTransferRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deletePendingLinkedTransfer<Result>(
+        request: GRPCCore.ClientRequest<PendingLinkedTransfer_DeletePendingLinkedTransferRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<PendingLinkedTransfer_DeletePendingLinkedTransferResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.deletePendingLinkedTransfer(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<PendingLinkedTransfer_DeletePendingLinkedTransferRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<PendingLinkedTransfer_DeletePendingLinkedTransferResponse>(),
             options: options,
             onResponse: handleResponse
         )
@@ -470,6 +570,39 @@ extension PendingLinkedTransfer_PendingLinkedTransferEndpoint.ClientProtocol {
             metadata: metadata
         )
         return try await self.updatePendingLinkedTransfer(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "DeletePendingLinkedTransfer" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > DeletePendingLinkedTransfer удаляет перенос (например, если удалили саму транзакцию-инициатор)
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deletePendingLinkedTransfer<Result>(
+        _ message: PendingLinkedTransfer_DeletePendingLinkedTransferRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<PendingLinkedTransfer_DeletePendingLinkedTransferResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<PendingLinkedTransfer_DeletePendingLinkedTransferRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.deletePendingLinkedTransfer(
             request: request,
             options: options,
             onResponse: handleResponse
