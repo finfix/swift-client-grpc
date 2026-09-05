@@ -46,10 +46,24 @@ public enum Sync_SyncEndpoint: Sendable {
                 type: .unary
             )
         }
+        /// Namespace for "SubscribeToSync" metadata.
+        public enum SubscribeToSync: Sendable {
+            /// Request type for "SubscribeToSync".
+            public typealias Input = Sync_SubscribeToSyncRequest
+            /// Response type for "SubscribeToSync".
+            public typealias Output = Sync_SyncNotification
+            /// Descriptor for "SubscribeToSync".
+            public static let descriptor = GRPCCore.MethodDescriptor(
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "sync.SyncEndpoint"),
+                method: "SubscribeToSync",
+                type: .serverStreaming
+            )
+        }
         /// Descriptors for all methods in the "sync.SyncEndpoint" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             Sync.descriptor,
-            ConfirmSync.descriptor
+            ConfirmSync.descriptor,
+            SubscribeToSync.descriptor
         ]
     }
 }
@@ -117,6 +131,34 @@ extension Sync_SyncEndpoint {
             deserializer: some GRPCCore.MessageDeserializer<Sync_ConfirmSyncResponse>,
             options: GRPCCore.CallOptions,
             onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Sync_ConfirmSyncResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "SubscribeToSync" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > SubscribeToSync — server-streaming уведомитель: держит соединение открытым и присылает
+        /// > пустой SyncNotification каждый раз, когда для пользователя появились изменения (создана
+        /// > новая релевантная запись аудит-лога). НЕ несёт сам payload изменений — получив сигнал,
+        /// > клиент должен сам вызвать обычный Sync/ConfirmSync. Предназначен для мгновенного отклика,
+        /// > пока приложение на переднем плане — клиент отключается при уходе в фон и переиспользует
+        /// > обычный периодический Sync как fallback.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Sync_SubscribeToSyncRequest` message.
+        ///   - serializer: A serializer for `Sync_SubscribeToSyncRequest` messages.
+        ///   - deserializer: A deserializer for `Sync_SyncNotification` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func subscribeToSync<Result>(
+            request: GRPCCore.ClientRequest<Sync_SubscribeToSyncRequest>,
+            serializer: some GRPCCore.MessageSerializer<Sync_SubscribeToSyncRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Sync_SyncNotification>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Sync_SyncNotification>) async throws -> Result
         ) async throws -> Result where Result: Sendable
     }
 
@@ -207,6 +249,43 @@ extension Sync_SyncEndpoint {
                 onResponse: handleResponse
             )
         }
+
+        /// Call the "SubscribeToSync" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > SubscribeToSync — server-streaming уведомитель: держит соединение открытым и присылает
+        /// > пустой SyncNotification каждый раз, когда для пользователя появились изменения (создана
+        /// > новая релевантная запись аудит-лога). НЕ несёт сам payload изменений — получив сигнал,
+        /// > клиент должен сам вызвать обычный Sync/ConfirmSync. Предназначен для мгновенного отклика,
+        /// > пока приложение на переднем плане — клиент отключается при уходе в фон и переиспользует
+        /// > обычный периодический Sync как fallback.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Sync_SubscribeToSyncRequest` message.
+        ///   - serializer: A serializer for `Sync_SubscribeToSyncRequest` messages.
+        ///   - deserializer: A deserializer for `Sync_SyncNotification` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func subscribeToSync<Result>(
+            request: GRPCCore.ClientRequest<Sync_SubscribeToSyncRequest>,
+            serializer: some GRPCCore.MessageSerializer<Sync_SubscribeToSyncRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Sync_SyncNotification>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Sync_SyncNotification>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.serverStreaming(
+                request: request,
+                descriptor: Sync_SyncEndpoint.Method.SubscribeToSync.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
     }
 }
 
@@ -270,6 +349,38 @@ extension Sync_SyncEndpoint.ClientProtocol {
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Sync_ConfirmSyncRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Sync_ConfirmSyncResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "SubscribeToSync" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > SubscribeToSync — server-streaming уведомитель: держит соединение открытым и присылает
+    /// > пустой SyncNotification каждый раз, когда для пользователя появились изменения (создана
+    /// > новая релевантная запись аудит-лога). НЕ несёт сам payload изменений — получив сигнал,
+    /// > клиент должен сам вызвать обычный Sync/ConfirmSync. Предназначен для мгновенного отклика,
+    /// > пока приложение на переднем плане — клиент отключается при уходе в фон и переиспользует
+    /// > обычный периодический Sync как fallback.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Sync_SubscribeToSyncRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func subscribeToSync<Result>(
+        request: GRPCCore.ClientRequest<Sync_SubscribeToSyncRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Sync_SyncNotification>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
+        try await self.subscribeToSync(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Sync_SubscribeToSyncRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Sync_SyncNotification>(),
             options: options,
             onResponse: handleResponse
         )
@@ -343,6 +454,42 @@ extension Sync_SyncEndpoint.ClientProtocol {
             metadata: metadata
         )
         return try await self.confirmSync(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "SubscribeToSync" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > SubscribeToSync — server-streaming уведомитель: держит соединение открытым и присылает
+    /// > пустой SyncNotification каждый раз, когда для пользователя появились изменения (создана
+    /// > новая релевантная запись аудит-лога). НЕ несёт сам payload изменений — получив сигнал,
+    /// > клиент должен сам вызвать обычный Sync/ConfirmSync. Предназначен для мгновенного отклика,
+    /// > пока приложение на переднем плане — клиент отключается при уходе в фон и переиспользует
+    /// > обычный периодический Sync как fallback.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func subscribeToSync<Result>(
+        _ message: Sync_SubscribeToSyncRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Sync_SyncNotification>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Sync_SubscribeToSyncRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.subscribeToSync(
             request: request,
             options: options,
             onResponse: handleResponse
